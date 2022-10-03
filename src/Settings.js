@@ -7,7 +7,7 @@ import Title from '../../Components/Title';
 import BtnGroup from '../../Components/BtnGroup';
 import BColor from '../../Components/BColor';
 
-import options from './Const/options';
+import options from './utils/options';
 const { types, topBottom, leftRight, fontStyles, fontWeights, pxUnit, perUnit, emUnit, remUnit, generalStyleTabs } = options;
 
 import icons from '../../Components/Helper/icons';

@@ -36,6 +36,15 @@ const Edit = props => {
         setActiveIndex(index);
     };
 
+    // Remove hidden-animated class for https://wordpress.org/support/topic/timeline-not-loading-on-mobile/
+    useEffect(() => {
+        const allTimelineItem = document.querySelectorAll(`#tlgbTimeline-${clientId} .timeline__items .timeline__item`);
+        allTimelineItem.forEach(item => {
+            item.classList.remove('animated');
+            item.classList.remove('hidden-animated');
+        });
+    }, [timelines?.length]);
+
     return <>
         <Settings attributes={attributes} setAttributes={setAttributes} activeIndex={activeIndex} setActiveIndex={setActiveIndex} updateTimeline={updateTimeline} />
 
@@ -50,16 +59,16 @@ const Edit = props => {
 
                             return <div key={index} onClick={() => setActiveIndex(index)} className='timeline__item fadeIn' id={`tlgbTimelineItem-${index}`}>
                                 <div className={`timeline__content ${index === activeIndex ? 'tlgbNowEditing' : ''}`}>
-                                    <RichText tagName='label' value={label} onChange={val => updateTimeline(index, 'label', val)} placeholder={__('Timeline Label', 'timeline-block')} inlineToolbar />
+                                    <RichText tagName='label' value={label} onChange={val => updateTimeline(index, 'label', val)} placeholder={__('Timeline label', 'timeline-block')} inlineToolbar />
 
                                     <RichText tagName='p' value={description} onChange={val => updateTimeline(index, 'description', val)} placeholder={__('Timeline description', 'timeline-block')} inlineToolbar />
                                 </div>
-                            </div>
+                            </div> // Timeline Item
                         })}
-                    </div>
-                </div>
-            </div>
-        </div>
+                    </div> {/* Timeline Items */}
+                </div> {/* Timeline Wrap */}
+            </div> {/* Timeline */}
+        </div> {/* Timeline Block */}
     </>
 };
 export default Edit;
