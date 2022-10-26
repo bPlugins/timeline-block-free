@@ -39,10 +39,12 @@ const Edit = props => {
     // Remove hidden-animated class for https://wordpress.org/support/topic/timeline-not-loading-on-mobile/
     useEffect(() => {
         const allTimelineItem = document.querySelectorAll(`#tlgbTimeline-${clientId} .timeline__items .timeline__item`);
-        allTimelineItem.forEach(item => {
-            item.classList.remove('animated');
-            item.classList.remove('hidden-animated');
-        });
+        setTimeout(() => {
+            allTimelineItem.forEach(item => {
+                item.classList.remove('animated');
+                item.classList.remove('hidden-animated');
+            });
+        }, 500);
     }, [timelines?.length]);
 
     return <>

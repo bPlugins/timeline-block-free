@@ -24,9 +24,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		// Remove hidden-animated class for https://wordpress.org/support/topic/timeline-not-loading-on-mobile/
 		const allTimelineItem = document.querySelectorAll(`#${timelineEl.id} .timeline__items .timeline__item`);
-		allTimelineItem.forEach(item => {
-			item.classList.remove('hidden-animated');
-		});
+		setTimeout(() => {
+			allTimelineItem.forEach(item => {
+				item.classList.remove('hidden-animated');
+			});
+		}, 500);
 
 		timelineEl?.removeAttribute('data-attributes');
 	});
