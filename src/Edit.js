@@ -21,7 +21,7 @@ const Edit = props => {
             verticalStartPosition: labelLocation,
             verticalTrigger,
             moveItems: moveItem,
-            startIndex,
+            startIndex: startIndex - 1,
             visibleItems: vigibleItems,
             rtlMode
         });

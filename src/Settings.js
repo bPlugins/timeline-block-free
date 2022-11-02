@@ -98,10 +98,10 @@ const Settings = ({ attributes, setAttributes, activeIndex, setActiveIndex, upda
 							<Title>{__('Start Index:', 'timeline-block')}</Title>
 							<RangeControl value={startIndex} onChange={val => setAttributes({ startIndex: val })} min={1} max={80} step={1} />
 
-							<Title>{__('VigibleItems:', 'timeline-block')}</Title>
+							<Title>{__('Visible Items:', 'timeline-block')}</Title>
 							<RangeControl value={vigibleItems} onChange={val => setAttributes({ vigibleItems: val })} />
 
-							<Title>{__('MoveItem:', 'timeline-block')}</Title>
+							<Title>{__('Move Item:', 'timeline-block')}</Title>
 							<RangeControl value={moveItem} onChange={val => setAttributes({ moveItem: val })} />
 
 							<ToggleControl label='RTL Mode' checked={rtlMode} onChange={val => setAttributes({ rtlMode: val })} />

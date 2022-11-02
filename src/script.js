@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		if (!attributes) return false;
 
-		const { type, labelLocation, startIndex, moveItem, visibleItems, verticalTrigger, rtlMode } = attributes;
+		const { type, labelLocation, startIndex, moveItem, vigibleItems, verticalTrigger, rtlMode } = attributes;
 
 		timeline(document.querySelectorAll(`#${timelineEl.id} .timeline`), {
 			mode: type || 'vertical',
@@ -17,8 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
 			forceVerticalMode: 600,
 			verticalTrigger,
 			moveItems: moveItem,
-			startIndex,
-			visibleItems,
+			startIndex: startIndex - 1,
+			visibleItems: vigibleItems,
 			rtlMode
 		});
 
