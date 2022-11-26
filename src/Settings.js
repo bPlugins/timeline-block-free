@@ -50,12 +50,12 @@ const Settings = ({ attributes, setAttributes, activeIndex, setActiveIndex, upda
 
 							return <PanelBody key={index} className='bPlPanelBody editItem' title={__(`Timeline No ${index + 1}:`, 'timeline-block')} initialOpen={0 !== index ? false : true}>
 								<PanelRow>
-									<Title mt='0' mb='0'>{__('Label:', 'timeline-block')}</Title>
+									<Title className=''>{__('Label:', 'timeline-block')}</Title>
 									<TextControl value={label} onChange={val => updateTimeline(index, 'label', val)} />
 								</PanelRow>
 
 								<PanelRow>
-									<Title mt='0' mb='0'>{__('Label:', 'timeline-block')}</Title>
+									<Title className=''>{__('Label:', 'timeline-block')}</Title>
 									<TextControl value={description} onChange={val => updateTimeline(index, 'description', val)} />
 								</PanelRow>
 
@@ -81,12 +81,12 @@ const Settings = ({ attributes, setAttributes, activeIndex, setActiveIndex, upda
 
 					<PanelBody className='bPlPanelBody' title={__('Timeline Settings', 'timeline-block')}>
 						<PanelRow>
-							<Title mt='0' mb='0'>{__('Type:', 'timeline-block')}</Title>
+							<Title className=''>{__('Type:', 'timeline-block')}</Title>
 							<BtnGroup value={type} onChange={val => setAttributes({ type: val, labelLocation: 'vertical' === val ? 'right' : 'top', })} options={types} />
 						</PanelRow>
 
 						<PanelRow className='mt20'>
-							<Title mt='0' mb='0'>{__('Label Location:', 'timeline-block')}</Title>
+							<Title className=''>{__('Label Location:', 'timeline-block')}</Title>
 
 							<BtnGroup value={labelLocation} onChange={val => setAttributes({ labelLocation: val })} options={'vertical' === type ? leftRight : topBottom} />
 						</PanelRow>
@@ -123,12 +123,12 @@ const Settings = ({ attributes, setAttributes, activeIndex, setActiveIndex, upda
 					<RangeControl value={itemTypo.fontSize} onChange={val => setAttributes({ itemTypo: { ...itemTypo, fontSize: val }, })} min={0} max={80} step={1} allowReset={true} resetFallbackValue={14} initialPosition={14} />
 
 					<PanelRow className='mt20'>
-						<Title mt='0' mb='0'>{__('Font Weight:', 'timeline-block')}</Title>
+						<Title className=''>{__('Font Weight:', 'timeline-block')}</Title>
 						<BtnGroup value={itemTypo.fontWeight} onChange={val => setAttributes({ itemTypo: { ...itemTypo, fontWeight: val } })} options={fontWeights} />
 					</PanelRow>
 
 					<PanelRow className='mt20'>
-						<Title mt='0' mb='0'>{__('Font Style:', 'timeline-block')}</Title>
+						<Title className=''>{__('Font Style:', 'timeline-block')}</Title>
 						<BtnGroup value={itemTypo.fontStyle} onChange={val => setAttributes({ itemTypo: { ...itemTypo, fontStyle: val }, })} options={fontStyles} />
 					</PanelRow>
 
@@ -139,12 +139,12 @@ const Settings = ({ attributes, setAttributes, activeIndex, setActiveIndex, upda
 					<UnitControl className='mt20' label={__('Label / Title Font-Size:', 'timeline-block')} labelPosition='left' value={labelTypo.fontSize} onChange={val => setAttributes({ labelTypo: { ...labelTypo, fontSize: val } })} units={[pxUnit, emUnit, remUnit]} />
 
 					<PanelRow className='mt20'>
-						<Title mt='0' mb='0'>{__('Label Font Style:', 'timeline-block')}</Title>
+						<Title className=''>{__('Label Font Style:', 'timeline-block')}</Title>
 						<BtnGroup value={labelTypo.fontStyle} onChange={val => setAttributes({ labelTypo: { ...labelTypo, fontStyle: val } })} options={fontStyles} />
 					</PanelRow>
 
 					<PanelRow className='mt20'>
-						<Title mt='0' mb='0'>{__('Label Font Weight:', 'timeline-block')}</Title>
+						<Title className=''>{__('Label Font Weight:', 'timeline-block')}</Title>
 						<BtnGroup value={labelTypo.fontWeight} onChange={val => setAttributes({ labelTypo: { ...labelTypo, fontWeight: val } })} options={fontWeights} />
 					</PanelRow>
 

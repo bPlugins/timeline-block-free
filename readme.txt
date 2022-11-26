@@ -3,7 +3,7 @@ Contributors: abuhayat, charlescormier, srabonr
 Donate link: https://gum.co/wpdonate/
 Tags: block, timeline, content, Gutenberg block, widget
 Requires at least: 5.3+
-Tested up to: 6.1
+Tested up to: 6.1.1
 Stable tag: 1.0.4
 Requires PHP: 7.1
 License: GPLv3 or later
