@@ -54,13 +54,13 @@ class TLGBTimeline{
 	}
 
 	function register() {
-		wp_register_style( 'tlgb-b-timeline-block-editor-style', plugins_url( 'dist/editor.css', __FILE__ ), [ 'wp-edit-blocks' ], TLGB_PLUGIN_VERSION ); // Backend Style
+		wp_register_style( 'tlgb-b-timeline-block-editor-style', plugins_url( 'dist/editor.css', __FILE__ ), [ 'tlgb-b-timeline-block-style' ], TLGB_PLUGIN_VERSION ); // Backend Style
 		wp_register_style( 'tlgb-b-timeline-block-style', plugins_url( 'dist/style.css', __FILE__ ), [], TLGB_PLUGIN_VERSION ); // Style
 
 		register_block_type( __DIR__, [
-			'editor_style'  => 'tlgb-b-timeline-block-editor-style',
-			'style'         => 'tlgb-b-timeline-block-style',
-			'render_callback' => [$this, 'render']
+			'editor_style'		=> 'tlgb-b-timeline-block-editor-style',
+			'style'				=> 'tlgb-b-timeline-block-style',
+			'render_callback'	=> [$this, 'render']
 		] ); // Register Block
 
 		wp_set_script_translations( 'tlgb-b-timeline-block-editor-script', 'b-timeline-block', plugin_dir_path( __FILE__ ) . 'languages' ); // Translate

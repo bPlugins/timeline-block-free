@@ -6,11 +6,12 @@ import { TabPanel, PanelBody, PanelRow, TextControl, RangeControl, ToggleControl
 import Title from '../../Components/Title';
 import BtnGroup from '../../Components/BtnGroup';
 import BColor from '../../Components/BColor';
+import { pxUnit, perUnit, emUnit, remUnit } from '../../Components/Helper/options';
 
 import options from './utils/options';
-const { types, topBottom, leftRight, fontStyles, fontWeights, pxUnit, perUnit, emUnit, remUnit, generalStyleTabs } = options;
+const { types, topBottom, leftRight, fontStyles, fontWeights, generalStyleTabs } = options;
 
-import icons from '../../Components/Helper/icons';
+import { gearIcon } from '../../Components/Helper/icons';
 
 const Settings = ({ attributes, setAttributes, activeIndex, setActiveIndex, updateTimeline }) => {
 	const { timelines, type, labelLocation, startIndex, vigibleItems, moveItem, verticalTrigger, rtlMode, barBackground, barDotColor, itemBg, itemColor, itemTypo, itemBorder, labelTypo, labelColor } = attributes;
@@ -37,7 +38,7 @@ const Settings = ({ attributes, setAttributes, activeIndex, setActiveIndex, upda
 	const removeTimeline = () => {
 		setAttributes({ timelines: [...timelines.slice(0, activeIndex), ...timelines.slice(activeIndex + 1)] });
 
-		setActiveIndex(0 === activeIndex ? activeIndex : activeIndex - 1);
+		setActiveIndex(0 === activeIndex ? 0 : activeIndex - 1);
 	}
 
 	return <>
@@ -68,7 +69,7 @@ const Settings = ({ attributes, setAttributes, activeIndex, setActiveIndex, upda
 									<Button className='duplicateItem' label={__('Duplicate', 'timeline-block')} onClick={e => {
 										e.preventDefault();
 										setAttributes({ timelines: [...timelines.slice(0, index), { ...timelines[index] }, ...timelines.slice(index)] });
-									}}>{icons.gearSettings}{__('Duplicate', 'timeline-block')}</Button>
+									}}>{gearIcon}{__('Duplicate', 'timeline-block')}</Button>
 								</PanelRow>
 							</PanelBody>
 						})}
@@ -92,7 +93,7 @@ const Settings = ({ attributes, setAttributes, activeIndex, setActiveIndex, upda
 						</PanelRow>
 						<small>{__('Label Location will be changed! When type will be changed', 'timeline-block')}</small>
 
-						{'vertical' === type && <UnitControl className='mt20' label={__('Space in Bottom:', 'timeline-block')} labelPosition='left' value={verticalTrigger} onChange={val => setAttributes({ verticalTrigger: val })} units={[pxUnit, perUnit]} />}
+						{'vertical' === type && <UnitControl className='mt20' label={__('Space in Bottom:', 'timeline-block')} labelPosition='left' value={verticalTrigger} onChange={val => setAttributes({ verticalTrigger: val })} units={[pxUnit(), perUnit()]} />}
 
 						{'horizontal' === type && <>
 							<Title>{__('Start Index:', 'timeline-block')}</Title>
@@ -132,11 +133,11 @@ const Settings = ({ attributes, setAttributes, activeIndex, setActiveIndex, upda
 						<BtnGroup value={itemTypo.fontStyle} onChange={val => setAttributes({ itemTypo: { ...itemTypo, fontStyle: val }, })} options={fontStyles} />
 					</PanelRow>
 
-					<UnitControl className='mt20' label={__('Item Border Width:', 'timeline-block')} labelPosition='left' value={itemBorder.width} onChange={val => setAttributes({ itemBorder: { ...itemBorder, width: val } })} units={[pxUnit, emUnit]} />
+					<UnitControl className='mt20' label={__('Item Border Width:', 'timeline-block')} labelPosition='left' value={itemBorder.width} onChange={val => setAttributes({ itemBorder: { ...itemBorder, width: val } })} units={[pxUnit(), emUnit()]} />
 
 					<BColor label={__('Item Border Color:', 'timeline-block')} value={itemBorder.color} onChange={val => setAttributes({ itemBorder: { ...itemBorder, color: val }, })} defaultColor='#cccccc' />
 
-					<UnitControl className='mt20' label={__('Label / Title Font-Size:', 'timeline-block')} labelPosition='left' value={labelTypo.fontSize} onChange={val => setAttributes({ labelTypo: { ...labelTypo, fontSize: val } })} units={[pxUnit, emUnit, remUnit]} />
+					<UnitControl className='mt20' label={__('Label / Title Font-Size:', 'timeline-block')} labelPosition='left' value={labelTypo.fontSize} onChange={val => setAttributes({ labelTypo: { ...labelTypo, fontSize: val } })} units={[pxUnit(), emUnit(), remUnit()]} />
 
 					<PanelRow className='mt20'>
 						<Title className=''>{__('Label Font Style:', 'timeline-block')}</Title>

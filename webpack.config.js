@@ -35,7 +35,7 @@ module.exports = (env, argv) => {
 				cleanOnceBeforeBuildPatterns: [
 					'**/*',
 					'!editor.asset.php',
-					'!script.asset.php',
+					'!script.asset.php'
 				]
 			}), // Re generate 'dist' folder
 			new MiniCssExtractPlugin({

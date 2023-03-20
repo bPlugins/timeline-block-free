@@ -83,7 +83,11 @@
 		"itemTypo": {
 			"type": "object",
 			"default": {
-				"fontSize": 14,
+				"fontSize": {
+					"desktop": 14,
+					"tablet": 14,
+					"mobile": 14
+				},
 				"fontWeight": "normal",
 				"fontStyle": "normal"
 			}
@@ -98,7 +102,11 @@
 		"labelTypo": {
 			"type": "object",
 			"default": {
-				"fontSize": 16,
+				"fontSize": {
+					"desktop": 16,
+					"tablet": 16,
+					"mobile": 16
+				},
 				"fontWeight": "normal",
 				"fontStyle": "normal"
 			}
