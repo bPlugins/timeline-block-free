@@ -1,9 +1,11 @@
+import { useState, useEffect } from 'react';
 import { __ } from '@wordpress/i18n';
-import { useState, useEffect } from '@wordpress/element';
 import { RichText } from '@wordpress/block-editor';
+import produce from 'immer';
 
 import Settings from './Settings';
 import Style from './Style';
+import { timelineConfig } from './utils/config';
 
 const Edit = props => {
 	const { className, attributes, setAttributes, clientId } = props;
@@ -14,27 +16,19 @@ const Edit = props => {
 	const [activeIndex, setActiveIndex] = useState(0);
 
 	useEffect(() => {
-		timeline(document.querySelectorAll(`#tlgbTimeline-${clientId} .timeline`), {
-			forceVerticalMode: 800,
-			mode: type,
-			horizontalStartPosition: labelLocation,
-			verticalStartPosition: labelLocation,
-			verticalTrigger,
-			moveItems: moveItem,
-			startIndex: startIndex - 1,
-			visibleItems: vigibleItems,
-			rtlMode
-		});
+		const timelineEl = document.querySelector(`#tlgbTimeline-${clientId} .timeline`);
+
+		timeline([timelineEl], timelineConfig(attributes));
 	}, [type, labelLocation, verticalTrigger, moveItem, startIndex, vigibleItems, rtlMode]);
 
 	// Change Timeline Data
 	const updateTimeline = (index, type, val) => {
-		const newTimeline = [...timelines];
-		newTimeline[index][type] = val;
-
-		setAttributes({ timelines: newTimeline });
+		const newTimelines = produce(timelines, draft => {
+			draft[index][type] = val;
+		});
+		setAttributes({ timelines: newTimelines });
 		setActiveIndex(index);
-	};
+	}
 
 	// Remove hidden-animated class for https://wordpress.org/support/topic/timeline-not-loading-on-mobile/
 	useEffect(() => {

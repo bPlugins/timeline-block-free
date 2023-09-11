@@ -1,17 +1,14 @@
 import { __ } from '@wordpress/i18n';
 import { BlockControls, InspectorControls } from '@wordpress/block-editor';
-import { TabPanel, PanelBody, PanelRow, TextControl, RangeControl, ToggleControl, __experimentalUnitControl as UnitControl, Dashicon, Button, ToolbarGroup, ToolbarButton } from '@wordpress/components';
+import { TabPanel, PanelBody, PanelRow, TextControl, RangeControl, ToggleControl, __experimentalUnitControl as UnitControl, Dashicon, Button, ToolbarGroup, ToolbarButton, TextareaControl } from '@wordpress/components';
 
 // Components
-import Title from '../../Components/Title';
-import BtnGroup from '../../Components/BtnGroup';
-import BColor from '../../Components/BColor';
-import { pxUnit, perUnit, emUnit, remUnit } from '../../Components/Helper/options';
+import { Label, BColor, BtnGroup } from '../../Components';
+import { gearIcon } from '../../Components/utils/icons';
+import { pxUnit, perUnit, emUnit, remUnit } from '../../Components/utils/options';
 
 import options from './utils/options';
 const { types, topBottom, leftRight, fontStyles, fontWeights, generalStyleTabs } = options;
-
-import { gearIcon } from '../../Components/Helper/icons';
 
 const Settings = ({ attributes, setAttributes, activeIndex, setActiveIndex, updateTimeline }) => {
 	const { timelines, type, labelLocation, startIndex, vigibleItems, moveItem, verticalTrigger, rtlMode, barBackground, barDotColor, itemBg, itemColor, itemTypo, itemBorder, labelTypo, labelColor } = attributes;
@@ -41,53 +38,50 @@ const Settings = ({ attributes, setAttributes, activeIndex, setActiveIndex, upda
 		setActiveIndex(0 === activeIndex ? 0 : activeIndex - 1);
 	}
 
+	const { label = '', description = '' } = timelines[activeIndex] || {};
+
 	return <>
 		<InspectorControls>
+			<div className='tlgbInspectorInfo'>
+				Need more block like this? Checkout the bundle ➡ <a href='https://wordpress.org/plugins/b-blocks' target='_blank' rel='noopener noreferrer'>B Blocks</a>
+			</div>
+
 			<TabPanel className='bPlTabPanel' activeClass='activeTab' tabs={generalStyleTabs}>{tab => <>
 				{'general' === tab.name && <>
 					<PanelBody className='bPlPanelBody addRemoveItems' title={__('Add or Remove timelines', 'timeline-block')}>
-						{timelines.map((item, index) => {
-							const { label, description } = item;
+						{null !== activeIndex && <>
+							<h3 className='bplItemTitle'>{__(`Timeline No ${activeIndex + 1}:`, 'timeline-block')}</h3>
 
-							return <PanelBody key={index} className='bPlPanelBody editItem' title={__(`Timeline No ${index + 1}:`, 'timeline-block')} initialOpen={0 !== index ? false : true}>
-								<PanelRow>
-									<Title className=''>{__('Label:', 'timeline-block')}</Title>
-									<TextControl value={label} onChange={val => updateTimeline(index, 'label', val)} />
-								</PanelRow>
+							<PanelRow>
+								<Label className=''>{__('Label:', 'timeline-block')}</Label>
+								<TextControl value={label} onChange={val => updateTimeline(activeIndex, 'label', val)} />
+							</PanelRow>
 
-								<PanelRow>
-									<Title className=''>{__('Label:', 'timeline-block')}</Title>
-									<TextControl value={description} onChange={val => updateTimeline(index, 'description', val)} />
-								</PanelRow>
+							<Label>{__('Description:', 'timeline-block')}</Label>
+							<TextareaControl value={description} onChange={val => updateTimeline(activeIndex, 'description', val)} rows={6} />
+							<small>{__('Can write html code.', 'timeline-block')}</small>
 
-								<PanelRow className='itemAction mt20'>
-									<Button className='removeItem' label={__('Remove', 'timeline-block')} onClick={e => {
-										e.preventDefault();
-										setAttributes({ timelines: [...timelines.slice(0, index), ...timelines.slice(index + 1)] });
-									}}><Dashicon icon='no' />{__('Remove', 'timeline-block')}</Button>
+							<PanelRow className='itemAction mt20 mb15'>
+								{1 < timelines?.length && <Button className='removeItem' label={__('Remove', 'timeline-block')} onClick={removeTimeline} ><Dashicon icon='no' />{__('Remove', 'timeline-block')}</Button>}
 
-									<Button className='duplicateItem' label={__('Duplicate', 'timeline-block')} onClick={e => {
-										e.preventDefault();
-										setAttributes({ timelines: [...timelines.slice(0, index), { ...timelines[index] }, ...timelines.slice(index)] });
-									}}>{gearIcon}{__('Duplicate', 'timeline-block')}</Button>
-								</PanelRow>
-							</PanelBody>
-						})}
+								<Button className='duplicateItem' label={__('Duplicate', 'timeline-block')} onClick={duplicateTimeline} >{gearIcon}{__('Duplicate', 'timeline-block')}</Button>
+							</PanelRow>
+						</>}
 
 						<div className='addItem'>
-							<Button label={__('Add New Timeline', 'timeline-block')} onClick={addTimeline}><Dashicon icon='plus' />{__('Add New Slide', 'timeline-block')}</Button>
+							<Button label={__('Add New Timeline', 'timeline-block')} onClick={addTimeline}><Dashicon icon='plus' />{__('Add New Timeline', 'timeline-block')}</Button>
 						</div>
 					</PanelBody>
 
 
 					<PanelBody className='bPlPanelBody' title={__('Timeline Settings', 'timeline-block')}>
 						<PanelRow>
-							<Title className=''>{__('Type:', 'timeline-block')}</Title>
+							<Label className=''>{__('Type:', 'timeline-block')}</Label>
 							<BtnGroup value={type} onChange={val => setAttributes({ type: val, labelLocation: 'vertical' === val ? 'right' : 'top', })} options={types} />
 						</PanelRow>
 
 						<PanelRow className='mt20'>
-							<Title className=''>{__('Label Location:', 'timeline-block')}</Title>
+							<Label className=''>{__('Label Location:', 'timeline-block')}</Label>
 
 							<BtnGroup value={labelLocation} onChange={val => setAttributes({ labelLocation: val })} options={'vertical' === type ? leftRight : topBottom} />
 						</PanelRow>
@@ -96,13 +90,13 @@ const Settings = ({ attributes, setAttributes, activeIndex, setActiveIndex, upda
 						{'vertical' === type && <UnitControl className='mt20' label={__('Space in Bottom:', 'timeline-block')} labelPosition='left' value={verticalTrigger} onChange={val => setAttributes({ verticalTrigger: val })} units={[pxUnit(), perUnit()]} />}
 
 						{'horizontal' === type && <>
-							<Title>{__('Start Index:', 'timeline-block')}</Title>
+							<Label>{__('Start Index:', 'timeline-block')}</Label>
 							<RangeControl value={startIndex} onChange={val => setAttributes({ startIndex: val })} min={1} max={80} step={1} />
 
-							<Title>{__('Visible Items:', 'timeline-block')}</Title>
+							<Label>{__('Visible Items:', 'timeline-block')}</Label>
 							<RangeControl value={vigibleItems} onChange={val => setAttributes({ vigibleItems: val })} />
 
-							<Title>{__('Move Item:', 'timeline-block')}</Title>
+							<Label>{__('Move Item:', 'timeline-block')}</Label>
 							<RangeControl value={moveItem} onChange={val => setAttributes({ moveItem: val })} />
 
 							<ToggleControl label='RTL Mode' checked={rtlMode} onChange={val => setAttributes({ rtlMode: val })} />
@@ -120,16 +114,16 @@ const Settings = ({ attributes, setAttributes, activeIndex, setActiveIndex, upda
 
 					<BColor label={__('Item Text Color:', 'timeline-block')} value={itemColor} onChange={val => setAttributes({ itemColor: val })} defaultColor='#333333' />
 
-					<Title>{__('Font Size:', 'timeline-block')}</Title>
+					<Label>{__('Font Size:', 'timeline-block')}</Label>
 					<RangeControl value={itemTypo.fontSize} onChange={val => setAttributes({ itemTypo: { ...itemTypo, fontSize: val }, })} min={0} max={80} step={1} allowReset={true} resetFallbackValue={14} initialPosition={14} />
 
 					<PanelRow className='mt20'>
-						<Title className=''>{__('Font Weight:', 'timeline-block')}</Title>
+						<Label className=''>{__('Font Weight:', 'timeline-block')}</Label>
 						<BtnGroup value={itemTypo.fontWeight} onChange={val => setAttributes({ itemTypo: { ...itemTypo, fontWeight: val } })} options={fontWeights} />
 					</PanelRow>
 
 					<PanelRow className='mt20'>
-						<Title className=''>{__('Font Style:', 'timeline-block')}</Title>
+						<Label className=''>{__('Font Style:', 'timeline-block')}</Label>
 						<BtnGroup value={itemTypo.fontStyle} onChange={val => setAttributes({ itemTypo: { ...itemTypo, fontStyle: val }, })} options={fontStyles} />
 					</PanelRow>
 
@@ -140,12 +134,12 @@ const Settings = ({ attributes, setAttributes, activeIndex, setActiveIndex, upda
 					<UnitControl className='mt20' label={__('Label / Title Font-Size:', 'timeline-block')} labelPosition='left' value={labelTypo.fontSize} onChange={val => setAttributes({ labelTypo: { ...labelTypo, fontSize: val } })} units={[pxUnit(), emUnit(), remUnit()]} />
 
 					<PanelRow className='mt20'>
-						<Title className=''>{__('Label Font Style:', 'timeline-block')}</Title>
+						<Label className=''>{__('Label Font Style:', 'timeline-block')}</Label>
 						<BtnGroup value={labelTypo.fontStyle} onChange={val => setAttributes({ labelTypo: { ...labelTypo, fontStyle: val } })} options={fontStyles} />
 					</PanelRow>
 
 					<PanelRow className='mt20'>
-						<Title className=''>{__('Label Font Weight:', 'timeline-block')}</Title>
+						<Label className=''>{__('Label Font Weight:', 'timeline-block')}</Label>
 						<BtnGroup value={labelTypo.fontWeight} onChange={val => setAttributes({ labelTypo: { ...labelTypo, fontWeight: val } })} options={fontWeights} />
 					</PanelRow>
 

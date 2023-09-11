@@ -3,37 +3,38 @@ Contributors: abuhayat, charlescormier
 Donate link: https://www.buymeacoffee.com/abuhayat
 Tags: block, timeline, content, Gutenberg block, widget
 Requires at least: 5.3+
-Tested up to: 6.1.1
-Stable tag: 1.0.4
+Tested up to: 6.3
+Stable tag: 1.0.5
 Requires PHP: 7.1
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-Create and display timeline contents on our site. 
+Create and display timeline content on our site. 
 
 == Description ==
 
-This is a block plugin that enable you to create and display timeline / Story contents on our site. Since it's a block plugin It will add a new block (Timeline )into the block editor of your WordPress. 
+This is a block plugin that enables you to create and display timeline / Story content on our site. Since it's a block plugin It will add a new block (Timeline )into the block editor of your WordPress. 
 
 
 **[Demos](https://bblockswp.com/demo/timeline/)**
 
 
 = Features =
-- **Fully Customizable**: All the options you need to arrange the showcase to your liking are available here.
+- **HTML in Description**: Can use HTML in the description to customize the content according to user preferences.
+- **Type**: Show the timeline in a horizontal or vertical position.
 
 
 = How to use =
-- First install the Block Directory plugin
-- Add the Block Directory block from the block category called "Widgets" in Gutenberg editor.
-- You can change block settings from the right side settings sidebar.
+- First, install the Block Directory plugin
+- Add the Block Directory block from the block category called "Widgets" in the Gutenberg editor.
+- You can change block settings from the right-side settings sidebar.
 - Enjoy!
 
 * For installation help click on Installation Tab
 
 
 = Feedback =
-- Liked that plugin? Hate it? Want a new feature? [Send me some feedback](mailto:support@bplugins.com 'Send feedback')
+- Liked this plugin? Hate it? Want a new feature? [Send me some feedback](mailto:support@bplugins.com 'Send feedback')
 
 
 = ⭐ Check out the Parent Plugin of this plugin- =
@@ -102,6 +103,9 @@ You can post your questions on the [support forum here](https://wordpress.org/su
 
 == Changelog ==
 
+= 1.0.5 =
+* Add text area to write HTML.
+
 = 1.0.4 =
 * Fix Start Index and Visible Items
 
@@ -110,7 +114,7 @@ You can post your questions on the [support forum here](https://wordpress.org/su
 
 = 1.0.2 =
 * Remove jQuery dependency
-* Remove, Duplicate and Add timeline from toolbar
+* Remove, Duplicate and Add a timeline from the toolbar
 * Translate support
 
 = 1.0.0 =
@@ -119,6 +123,9 @@ You can post your questions on the [support forum here](https://wordpress.org/su
 
 == Upgrade Notice ==
 
+= 1.0.5 =
+* Add text area to write HTML.
+
 = 1.0.4 =
 * Fix Start Index and Visible Items
 
@@ -127,7 +134,7 @@ You can post your questions on the [support forum here](https://wordpress.org/su
 
 = 1.0.2 =
 * Remove jQuery dependency
-* Remove, Duplicate and Add timeline from toolbar
+* Remove, Duplicate and Add a timeline from the toolbar
 * Translate support
 
 = 1.0.0 =

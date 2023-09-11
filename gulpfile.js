@@ -32,6 +32,6 @@ exports.bundle = () => (
 		'!todo.txt',
 		'!webpack.config.js',
 	])
-		.pipe(zip('b-timeline-block.zip'))
+		.pipe(zip('timeline-block-block.zip'))
 		.pipe(gulp.dest('bundled'))
 );
