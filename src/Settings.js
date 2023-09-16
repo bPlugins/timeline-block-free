@@ -1,14 +1,15 @@
 import { __ } from '@wordpress/i18n';
 import { BlockControls, InspectorControls } from '@wordpress/block-editor';
 import { TabPanel, PanelBody, PanelRow, TextControl, RangeControl, ToggleControl, __experimentalUnitControl as UnitControl, Dashicon, Button, ToolbarGroup, ToolbarButton, TextareaControl } from '@wordpress/components';
+import produce from 'immer';
 
 // Components
-import { Label, BColor, BtnGroup } from '../../Components';
+import { Label, BColor, BtnGroup, Typography } from '../../Components';
 import { gearIcon } from '../../Components/utils/icons';
-import { pxUnit, perUnit, emUnit, remUnit } from '../../Components/utils/options';
+import { pxUnit, perUnit, emUnit } from '../../Components/utils/options';
 
 import options from './utils/options';
-const { types, topBottom, leftRight, fontStyles, fontWeights, generalStyleTabs } = options;
+const { types, topBottom, leftRight, tabs } = options;
 
 const Settings = ({ attributes, setAttributes, activeIndex, setActiveIndex, updateTimeline }) => {
 	const { timelines, type, labelLocation, startIndex, vigibleItems, moveItem, verticalTrigger, rtlMode, barBackground, barDotColor, itemBg, itemColor, itemTypo, itemBorder, labelTypo, labelColor } = attributes;
@@ -46,7 +47,7 @@ const Settings = ({ attributes, setAttributes, activeIndex, setActiveIndex, upda
 				Need more block like this? Checkout the bundle ➡ <a href='https://wordpress.org/plugins/b-blocks' target='_blank' rel='noopener noreferrer'>B Blocks</a>
 			</div>
 
-			<TabPanel className='bPlTabPanel' activeClass='activeTab' tabs={generalStyleTabs}>{tab => <>
+			<TabPanel className='bPlTabPanel' activeClass='activeTab' tabs={tabs}>{tab => <>
 				{'general' === tab.name && <>
 					<PanelBody className='bPlPanelBody addRemoveItems' title={__('Add or Remove timelines', 'timeline-block')}>
 						{null !== activeIndex && <>
@@ -105,46 +106,30 @@ const Settings = ({ attributes, setAttributes, activeIndex, setActiveIndex, upda
 				</>}
 
 
-				{'style' === tab.name && <PanelBody className='bPlPanelBody' title={__('Style & Typography', 'timeline-block')}>
-					<BColor label={__('Bar Background:', 'timeline-block')} value={barBackground} onChange={val => setAttributes({ barBackground: val })} defaultColor='#dddddd' />
+				{'style' === tab.name && <>
+					<PanelBody className='bPlPanelBody' title={__('Bar', 'timeline-block')}>
+						<BColor label={__('Background:', 'timeline-block')} value={barBackground} onChange={val => setAttributes({ barBackground: val })} defaultColor='#dddddd' />
 
-					<BColor label={__('Bar Dot Color:', 'timeline-block')} value={barDotColor} onChange={val => setAttributes({ barDotColor: val })} defaultColor='#dddddd' />
+						<BColor label={__('Dot Color:', 'timeline-block')} value={barDotColor} onChange={val => setAttributes({ barDotColor: val })} defaultColor='#dddddd' />
+					</PanelBody>
 
-					<BColor label={__('Item Background:', 'timeline-block')} value={itemBg} onChange={val => setAttributes({ itemBg: val })} defaultColor='#ffffff' />
 
-					<BColor label={__('Item Text Color:', 'timeline-block')} value={itemColor} onChange={val => setAttributes({ itemColor: val })} defaultColor='#333333' />
+					<PanelBody className='bPlPanelBody' title={__('Item', 'timeline-block')} initialOpen={false}>
+						<BColor label={__('Text Color:', 'timeline-block')} value={itemColor} onChange={val => setAttributes({ itemColor: val })} defaultColor='#333333' />
 
-					<Label>{__('Font Size:', 'timeline-block')}</Label>
-					<RangeControl value={itemTypo.fontSize} onChange={val => setAttributes({ itemTypo: { ...itemTypo, fontSize: val }, })} min={0} max={80} step={1} allowReset={true} resetFallbackValue={14} initialPosition={14} />
+						<BColor label={__('Background:', 'timeline-block')} value={itemBg} onChange={val => setAttributes({ itemBg: val })} defaultColor='#ffffff' />
 
-					<PanelRow className='mt20'>
-						<Label className=''>{__('Font Weight:', 'timeline-block')}</Label>
-						<BtnGroup value={itemTypo.fontWeight} onChange={val => setAttributes({ itemTypo: { ...itemTypo, fontWeight: val } })} options={fontWeights} />
-					</PanelRow>
+						<Typography className='mt20' label={__('Label Typography:', 'timeline-block')} value={labelTypo} onChange={val => setAttributes({ labelTypo: val })} defaults={{ fontSize: { desktop: 16, tablet: 16, mobile: 16 } }} produce={produce} />
 
-					<PanelRow className='mt20'>
-						<Label className=''>{__('Font Style:', 'timeline-block')}</Label>
-						<BtnGroup value={itemTypo.fontStyle} onChange={val => setAttributes({ itemTypo: { ...itemTypo, fontStyle: val }, })} options={fontStyles} />
-					</PanelRow>
+						<BColor label={__('Label Color:', 'timeline-block')} value={labelColor} onChange={val => setAttributes({ labelColor: val })} defaultColor='#222222' />
 
-					<UnitControl className='mt20' label={__('Item Border Width:', 'timeline-block')} labelPosition='left' value={itemBorder.width} onChange={val => setAttributes({ itemBorder: { ...itemBorder, width: val } })} units={[pxUnit(), emUnit()]} />
+						<Typography className='mt20' label={__('Description Typography:', 'timeline-block')} value={itemTypo} onChange={val => setAttributes({ itemTypo: val })} defaults={{ fontSize: { desktop: 14, tablet: 14, mobile: 14 } }} produce={produce} />
 
-					<BColor label={__('Item Border Color:', 'timeline-block')} value={itemBorder.color} onChange={val => setAttributes({ itemBorder: { ...itemBorder, color: val }, })} defaultColor='#cccccc' />
+						<UnitControl className='mt20' label={__('Border Width:', 'timeline-block')} labelPosition='left' value={itemBorder.width} onChange={val => setAttributes({ itemBorder: { ...itemBorder, width: val } })} units={[pxUnit(), emUnit()]} />
 
-					<UnitControl className='mt20' label={__('Label / Title Font-Size:', 'timeline-block')} labelPosition='left' value={labelTypo.fontSize} onChange={val => setAttributes({ labelTypo: { ...labelTypo, fontSize: val } })} units={[pxUnit(), emUnit(), remUnit()]} />
-
-					<PanelRow className='mt20'>
-						<Label className=''>{__('Label Font Style:', 'timeline-block')}</Label>
-						<BtnGroup value={labelTypo.fontStyle} onChange={val => setAttributes({ labelTypo: { ...labelTypo, fontStyle: val } })} options={fontStyles} />
-					</PanelRow>
-
-					<PanelRow className='mt20'>
-						<Label className=''>{__('Label Font Weight:', 'timeline-block')}</Label>
-						<BtnGroup value={labelTypo.fontWeight} onChange={val => setAttributes({ labelTypo: { ...labelTypo, fontWeight: val } })} options={fontWeights} />
-					</PanelRow>
-
-					<BColor label={__('Label / Title Color:', 'timeline-block')} value={labelColor} onChange={val => setAttributes({ labelColor: val })} defaultColor='#222222' />
-				</PanelBody>}
+						<BColor label={__('Border Color:', 'timeline-block')} value={itemBorder.color} onChange={val => setAttributes({ itemBorder: { ...itemBorder, color: val }, })} defaultColor='#cccccc' />
+					</PanelBody>
+				</>}
 			</>}</TabPanel>
 		</InspectorControls>
 

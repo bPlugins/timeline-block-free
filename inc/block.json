@@ -87,9 +87,7 @@
 					"desktop": 14,
 					"tablet": 14,
 					"mobile": 14
-				},
-				"fontWeight": "normal",
-				"fontStyle": "normal"
+				}
 			}
 		},
 		"itemBorder": {
@@ -106,9 +104,7 @@
 					"desktop": 16,
 					"tablet": 16,
 					"mobile": 16
-				},
-				"fontWeight": "normal",
-				"fontStyle": "normal"
+				}
 			}
 		},
 		"labelColor": {

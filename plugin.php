@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Timeline Block 
  * Description: Display timeline content on your site. 
- * Version: 1.0.5
+ * Version: 1.0.6
  * Author: bPlugins LLC
  * Author URI: http://bplugins.com
  * License: GPLv3
@@ -14,7 +14,7 @@
 if ( !defined( 'ABSPATH' ) ) { exit; }
 
 // Constant
-define( 'TLGB_VERSION', isset( $_SERVER['HTTP_HOST'] ) && 'localhost' === $_SERVER['HTTP_HOST'] ? time() : '1.0.5' );
+define( 'TLGB_VERSION', isset( $_SERVER['HTTP_HOST'] ) && 'localhost' === $_SERVER['HTTP_HOST'] ? time() : '1.0.6' );
 define( 'TLGB_DIR_URL', plugin_dir_url( __FILE__ ) );
 define( 'TLGB_DIR_PATH', plugin_dir_path( __FILE__ ) );
 
