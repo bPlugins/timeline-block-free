@@ -1,7 +1,6 @@
 import { __ } from '@wordpress/i18n';
 import { BlockControls, InspectorControls } from '@wordpress/block-editor';
 import { TabPanel, PanelBody, PanelRow, TextControl, RangeControl, ToggleControl, __experimentalUnitControl as UnitControl, Dashicon, Button, ToolbarGroup, ToolbarButton, TextareaControl } from '@wordpress/components';
-import produce from 'immer';
 
 // Components
 import { Label, BColor, BtnGroup, Typography } from '../../Components';
@@ -119,11 +118,11 @@ const Settings = ({ attributes, setAttributes, activeIndex, setActiveIndex, upda
 
 						<BColor label={__('Background:', 'timeline-block')} value={itemBg} onChange={val => setAttributes({ itemBg: val })} defaultColor='#ffffff' />
 
-						<Typography className='mt20' label={__('Label Typography:', 'timeline-block')} value={labelTypo} onChange={val => setAttributes({ labelTypo: val })} defaults={{ fontSize: { desktop: 16, tablet: 16, mobile: 16 } }} produce={produce} />
+						<Typography className='mt20' label={__('Label Typography:', 'timeline-block')} value={labelTypo} onChange={val => setAttributes({ labelTypo: val })} defaults={{ fontSize: { desktop: 16, tablet: 16, mobile: 16 } }} />
 
 						<BColor label={__('Label Color:', 'timeline-block')} value={labelColor} onChange={val => setAttributes({ labelColor: val })} defaultColor='#222222' />
 
-						<Typography className='mt20' label={__('Description Typography:', 'timeline-block')} value={itemTypo} onChange={val => setAttributes({ itemTypo: val })} defaults={{ fontSize: { desktop: 14, tablet: 14, mobile: 14 } }} produce={produce} />
+						<Typography className='mt20' label={__('Description Typography:', 'timeline-block')} value={itemTypo} onChange={val => setAttributes({ itemTypo: val })} defaults={{ fontSize: { desktop: 14, tablet: 14, mobile: 14 } }} />
 
 						<UnitControl className='mt20' label={__('Border Width:', 'timeline-block')} labelPosition='left' value={itemBorder.width} onChange={val => setAttributes({ itemBorder: { ...itemBorder, width: val } })} units={[pxUnit(), emUnit()]} />
 
@@ -135,7 +134,7 @@ const Settings = ({ attributes, setAttributes, activeIndex, setActiveIndex, upda
 
 
 		<BlockControls>
-			<ToolbarGroup>
+			<ToolbarGroup className='bPlToolbar'>
 				<ToolbarButton icon='trash' label={__(`Remove Timeline No ${activeIndex + 1}`, 'timeline-block')} onClick={removeTimeline} />
 
 				<ToolbarButton icon={<svg xmlns='http://www.w3.org/2000/svg' height='24' width='24' viewBox='0 0 48 48'>
