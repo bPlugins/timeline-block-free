@@ -3,8 +3,8 @@ Contributors: abuhayat, charlescormier
 Donate link: https://www.buymeacoffee.com/abuhayat
 Tags: block, timeline, content, Gutenberg block, widget
 Requires at least: 6.2+
-Tested up to: 6.4.2
-Stable tag: 1.0.6
+Tested up to: 6.4.3
+Stable tag: 1.0.7
 Requires PHP: 7.1
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -103,6 +103,9 @@ You can post your questions on the [support forum here](https://wordpress.org/su
 
 == Changelog ==
 
+= 1.0.7 - 14 Feb 2024 =
+* Fix issue
+
 = 1.0.6 =
 * Fix issue
 
@@ -125,6 +128,9 @@ You can post your questions on the [support forum here](https://wordpress.org/su
 
 
 == Upgrade Notice ==
+
+= 1.0.7 - 14 Feb 2024 =
+* Fix issue
 
 = 1.0.6 =
 * Fix issue

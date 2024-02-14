@@ -1,17 +1,17 @@
-# Copyright (C) 2023 bPlugins LLC
+# Copyright (C) 2024 bPlugins LLC
 # This file is distributed under the GPLv3.
 msgid ""
 msgstr ""
-"Project-Id-Version: Timeline Block 1.0.6\n"
+"Project-Id-Version: Timeline Block 1.0.7\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/timeline-block-block\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-09-16T06:56:20+00:00\n"
+"POT-Creation-Date: 2024-02-14T04:48:20+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.6.0\n"
+"X-Generator: WP-CLI 2.8.1\n"
 "X-Domain: timeline-block\n"
 
 #. Plugin Name of the plugin
@@ -31,183 +31,183 @@ msgid "http://bplugins.com"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6174
+#: dist/editor.js:11025
 msgid "Vertical"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6175
+#: dist/editor.js:11026
 msgid "Horizontal"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6178
+#: dist/editor.js:11029
 msgid "Top"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6179
+#: dist/editor.js:11030
 msgid "Bottom"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6182
+#: dist/editor.js:11033
 msgid "Left"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6183
+#: dist/editor.js:11034
 msgid "Right"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6186
+#: dist/editor.js:11037
 msgid "General"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6187
+#: dist/editor.js:11038
 msgid "Style"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6243
+#: dist/editor.js:11093
 msgid "Add or Remove timelines"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6248
+#: dist/editor.js:11098
 msgid "Label:"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6252
+#: dist/editor.js:11102
 msgid "Description:"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6254
+#: dist/editor.js:11104
 msgid "Can write html code."
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6257
+#: dist/editor.js:11107
 msgid "Remove"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6259
+#: dist/editor.js:11109
 msgid "Duplicate"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6264
+#: dist/editor.js:11114
 msgid "Add New Timeline"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6269
+#: dist/editor.js:11119
 msgid "Timeline Settings"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6271
+#: dist/editor.js:11121
 msgid "Type:"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6276
+#: dist/editor.js:11126
 msgid "Label Location:"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6280
+#: dist/editor.js:11130
 msgid "Label Location will be changed! When type will be changed"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6282
+#: dist/editor.js:11132
 msgid "Space in Bottom:"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6285
+#: dist/editor.js:11135
 msgid "Start Index:"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6288
+#: dist/editor.js:11138
 msgid "Visible Items:"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6291
+#: dist/editor.js:11141
 msgid "Move Item:"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6301
+#: dist/editor.js:11151
 msgid "Bar"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6302
-#: dist/editor.js:6311
+#: dist/editor.js:11152
+#: dist/editor.js:11161
 msgid "Background:"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6304
+#: dist/editor.js:11154
 msgid "Dot Color:"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6308
+#: dist/editor.js:11158
 msgid "Item"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6309
+#: dist/editor.js:11159
 msgid "Text Color:"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6313
+#: dist/editor.js:11163
 msgid "Label Typography:"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6315
+#: dist/editor.js:11165
 msgid "Label Color:"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6317
+#: dist/editor.js:11167
 msgid "Description Typography:"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6319
+#: dist/editor.js:11169
 msgid "Border Width:"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6321
+#: dist/editor.js:11171
 msgid "Border Color:"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6336
+#: dist/editor.js:11186
 msgid "Add Timeline"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6633
+#: dist/editor.js:11486
 msgid "Timeline label"
 msgstr ""
 
 #: dist/editor.js:1
-#: dist/editor.js:6635
+#: dist/editor.js:11488
 msgid "Timeline description"
 msgstr ""
 

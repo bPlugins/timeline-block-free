@@ -18,7 +18,9 @@ const Edit = props => {
 	useEffect(() => {
 		const timelineEl = document.querySelector(`#tlgbTimeline-${clientId} .timeline`);
 
-		timeline([timelineEl], timelineConfig(attributes));
+		if (timelineEl) {
+			timeline([timelineEl], timelineConfig(attributes));
+		}
 	}, [type, labelLocation, verticalTrigger, moveItem, startIndex, vigibleItems, rtlMode]);
 
 	// Change Timeline Data
@@ -33,8 +35,9 @@ const Edit = props => {
 	// Remove hidden-animated class for https://wordpress.org/support/topic/timeline-not-loading-on-mobile/
 	useEffect(() => {
 		const allTimelineItem = document.querySelectorAll(`#tlgbTimeline-${clientId} .timeline__items .timeline__item`);
+
 		setTimeout(() => {
-			allTimelineItem.forEach(item => {
+			allTimelineItem?.forEach(item => {
 				item.classList.remove('animated');
 				item.classList.remove('hidden-animated');
 			});

@@ -3,7 +3,7 @@ import { BlockControls, InspectorControls } from '@wordpress/block-editor';
 import { TabPanel, PanelBody, PanelRow, TextControl, RangeControl, ToggleControl, __experimentalUnitControl as UnitControl, Dashicon, Button, ToolbarGroup, ToolbarButton, TextareaControl } from '@wordpress/components';
 
 // Components
-import { Label, BColor, BtnGroup, Typography } from '../../Components';
+import { Label, BColor, BtnGroup, Typography } from '../../Components/index';
 import { gearIcon } from '../../Components/utils/icons';
 import { pxUnit, perUnit, emUnit } from '../../Components/utils/options';
 

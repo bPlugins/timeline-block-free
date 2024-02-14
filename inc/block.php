@@ -8,7 +8,7 @@ class TLGBBlock{
 	}
 
 	function enqueueBlockAssets(){ 
-		wp_enqueue_script( 'timelineJS', TLGB_DIR_URL . 'assets/js/timeline.min.js', [], TLGB_VERSION, true );
+		wp_register_script( 'timelineJS', TLGB_DIR_URL . 'assets/js/timeline.min.js', [], TLGB_VERSION, true );
 	}
 
 	function register() {
