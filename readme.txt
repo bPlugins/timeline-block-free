@@ -1,9 +1,9 @@
 === Timeline Block ===
-Contributors: abuhayat, charlescormier
+Contributors: bplugins, abuhayat, charlescormier
 Donate link: https://www.buymeacoffee.com/abuhayat
 Tags: block, timeline, content, Gutenberg block, widget
 Requires at least: 6.2+
-Tested up to: 6.4.3
+Tested up to: 6.5.2
 Stable tag: 1.0.7
 Requires PHP: 7.1
 License: GPLv3 or later
@@ -34,7 +34,7 @@ This is a block plugin that enables you to create and display timeline / Story c
 
 
 = Feedback =
-- Did you like this plugin? Dislike it? Have a feature request? [Please share your feedback with us](mailto:support@bplugins.com 'Send feedback')
+- Did you like this plugin? Dislike it? Do you have a feature request? [Please share your feedback with us](mailto:support@bplugins.com 'Send feedback')
 
 
 = ⭐ Check out the Parent Plugin of this plugin- =
