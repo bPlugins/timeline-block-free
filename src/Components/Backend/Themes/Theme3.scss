@@ -1,0 +1,69 @@
+.theme3-timeline {
+  .timeline-container {
+    .timeline-items {
+      > * + * {
+        margin-top: 2.5rem;
+      }
+      .timeline-item {
+        display: flex;
+        align-items: center;
+        .timeline-date {
+          flex-basis: 100px;
+          text-align: right;
+          display: flex;
+          justify-content: center;
+          span {
+            color: blue;
+            font-weight: bold;
+            font-size: 18px;
+          }
+        }
+        .timeline-dot-wrapper {
+          width: 70px;
+          position: relative;
+          .timeline-dot {
+            width: 30px;
+            height: 30px;
+            background-color: blueviolet;
+            border-radius: 50%;
+            position: relative;
+            z-index: 20;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            div {
+              height: 18px;
+              width: 18px;
+              background-color: white;
+              border-radius: 50%;
+            }
+          }
+        }
+        .timeline-content-wrapper {
+          flex-grow: 1;
+          width: 100%;
+          
+          .timeline-content {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            &:hover {
+              transform: translateX(-8px);
+            }
+            .timeline-label {
+              margin: 0;
+              margin-bottom: 8px;
+              font-size: 22px;
+            }
+            .timeline-description {
+              margin: 0;
+              font-size: 16px;
+              color: #666;
+            }
+          }
+        }
+      }
+    }
+  }
+}

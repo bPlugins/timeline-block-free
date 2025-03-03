@@ -1,0 +1,82 @@
+.theme6-timeline {
+  .timeline-container {
+    position: relative;
+    overflow: hidden;
+
+    .timeline-bar {
+      position: absolute;
+      width: 100%;
+      height: 4px;
+      background: orangered;
+      top: 130px;
+    }
+
+    .timeline-items {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      transform: translateX(0);
+      width: 96%;
+      margin: 0 auto;
+
+      .timeline-item {
+        // flex: 0 0 calc(25% - 60px);
+        position: relative;
+        padding: 0 30px;
+        padding-top: 134px;
+        z-index: 9999px;
+
+        .timeline-dot-wrapper {
+          position: absolute;
+          top: 110px;
+          left: 50%;
+          transform: translateX(-50%);
+
+          .timeline-dot {
+            width: 32px;
+            height: 32px;
+            background: white;
+            border-radius: 50%;
+            border: 4px solid orangered;
+          }
+        }
+
+        .timeline-content {
+          background-color: orange;
+          padding: 20px;
+          color: white;
+          transition: all 0.3s ease-in-out;
+          border-radius: 10px;
+          position: relative;
+
+          &:hover {
+            transform: translateY(-8px);
+          }
+        }
+      }
+    }
+
+    .carousel-button {
+      position: absolute;
+      top: 114px;
+      z-index: 10;
+      border: none;
+      padding: 7px;
+      font-size: 25px;
+      display: flex;
+      border-radius: 14px;
+
+      &:focus {
+        outline: none;
+        border-color: transparent;
+      }
+    }
+
+    .carousel-button.prev {
+      left: 0;
+    }
+
+    .carousel-button.next {
+      right: 0;
+    }
+  }
+}

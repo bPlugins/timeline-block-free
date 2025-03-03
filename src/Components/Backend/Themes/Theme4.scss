@@ -1,0 +1,72 @@
+.theme4-timeline {
+  .timeline-container {
+    position: relative;
+    padding: 30px 0;
+    .timeline-bar {
+      position: absolute;
+      width: 4px;
+      background-color: rgb(33, 180, 199);
+      height: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .timeline-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 35px;
+      &.even-item {
+        flex-direction: row-reverse;
+        .timeline-content {
+          text-align: left;
+        }
+      }
+      .timeline-content-wrapper {
+        width: 41.666667%;
+        text-align: right;
+        .timeline-content {
+          background-color: white;
+          padding: 20px;
+          border-radius: 10px;
+          border-top: 5px solid rgb(169, 169, 248);
+          transition: all 0.3s ease;
+          &:hover {
+            transform: scale(1.05);
+          }
+          .timeline-label {
+            font-size: 22px;
+            font-weight: bold;
+            margin: 0;
+            margin-bottom: 8px;
+          }
+          .timeline-description {
+            font-size: 14px;
+            color: #666;
+          }
+        }
+      }
+      .timeline-date {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 10px solid white;
+        background: #06b6d4;
+        z-index: 20;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        span {
+          font-size: 14px;
+          color: white;
+          font-weight: bold;
+        }
+      }
+      .empty-div {
+        width: 41.666667%;
+      }
+    }
+  }
+}

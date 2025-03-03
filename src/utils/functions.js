@@ -1,0 +1,107 @@
+import { produce } from "immer";
+
+export const updateData = (attr, value, ...props) => {
+	if (props.length === 0) {
+		return value;
+	}
+	const [currentProp, ...remainingProps] = props;
+	if (remainingProps.length === 0) {
+		return produce(attr, draft => {
+			draft[currentProp] = value;
+		});
+	}
+	return produce(attr, draft => {
+		if (!Object.prototype.hasOwnProperty.call(draft, currentProp)) {
+			draft[currentProp] = {};
+		}
+		draft[currentProp] = updateData(draft[currentProp], value, ...remainingProps);
+	});
+};
+
+
+
+export const themeSwitch = (theme = 'default', attributes) => produce(attributes, (draft) => {
+	draft['theme'] = theme;
+
+	switch (theme) {
+		case 'default':
+			draft['barBackground'] = "#dddddd";
+			draft['barDotColor'] = "#dddddd";
+			draft['itemBg'] = "#ffffff";
+			draft['labelColor'] = "#000";
+			draft['itemColor'] = " #4c5663";
+			draft['contentBorder'] = { width: "1px", style: "solid",color: "#dddddd"};
+			draft['labelTypo']['fontVariant'] = "300";
+			draft['labelTypo']['fontWeight'] = 300;
+			break;
+		case 'timeline-with-accordion':
+			draft['type'] = 'vertical';
+			draft['barBackground'] = "#dddddd";
+			draft['barDotColor'] = "#dddddd";
+			draft['itemBg'] = "#ffffff";
+			draft['labelColor'] = "#000";
+			draft['itemColor'] = " #4c5663";
+			draft['contentBorder'] = { width: "1px", style: "solid",color: "#dddddd"};
+			draft['labelTypo']['fontVariant'] = "300";
+			draft['labelTypo']['fontWeight'] = 300;
+			break;
+		case 'theme-2':
+			draft['barBackground'] = "#ff4400";
+			draft['dateStyles']['dateColor'] = "#000000";
+			draft['itemColor'] = " #4c5663";
+			draft['itemBg'] = "#ffffff";
+			draft['labelColor'] = "#000";
+			draft['contentBorder'] = { width: "1px", style: "solid",color: "#dddddd"};
+			draft['labelTypo']['fontVariant'] = "500";
+			draft['labelTypo']['fontWeight'] = 500;
+			break;
+		case 'theme-3':
+			draft['barDotColor'] = "#2664eb";
+			draft['dateStyles']['dateColor'] = "#2664eb";
+			draft['contentBorder'] = { width: "1px", style: "solid",color: "#dddddd"};
+			draft['dateStyles']['dateTypo']['fontSize']['desktop'] = 18;
+			draft['dateStyles']['dateTypo']['fontVariant'] = "700";
+			draft['dateStyles']['dateTypo']['fontWeight'] = 700;
+			draft['labelTypo']['fontSize']['desktop'] = 20;
+			draft['itemBg'] = "#ffffff";
+			draft['itemColor'] = " #4c5663";
+			draft['labelColor'] = "#000000";
+			break;
+		case 'theme-4':
+			draft['contentBorder'] = {
+				top: { width: '5px', style: 'solid', color: '#06b6d4' },
+				right: { width: '0px', style: 'solid', color: '#0000' },
+				bottom: { width: '0px', style: 'solid', color: '#0000' },
+				left: { width: '0px', style: 'solid', color: '#0000' },
+			};
+			draft['barBackground'] = "#06b6d4";
+			draft['dateStyles']['dateColor'] = "#ffffff";
+			draft['dateStyles']['dateTypo']['fontSize']['desktop'] = 16;
+			break;
+		case 'theme-5':
+			draft['contentBorder'] = { width: "1px", style: "solid",color: "#dddddd"};
+			draft['barBackground'] = "#f97316";
+			draft['barDotColor'] = "#f97316";
+			draft['itemBg'] = "#ffffff";
+			draft['labelColor'] = "#000000";
+			draft['itemColor'] = " #4c5663";
+			draft['dateStyles']['dateColor'] = "#f97316";
+			draft['dateStyles']['dateTypo']['fontSize']['desktop'] = 18;
+			draft['dateStyles']['dateTypo']['fontVariant'] = "700";
+			draft['dateStyles']['dateTypo']['fontWeight'] = 700;
+			draft['labelTypo']['fontSize']['desktop'] = 20;
+			break;
+		case 'theme-6':
+			draft['contentBorder'] = { width: '0px', style: 'solid', color: '#0000' }
+			draft['itemBg'] = '#dc2626';
+			draft['vigibleItems'] = 3;
+			draft['labelColor'] = "#ffffff";
+			draft['itemColor'] = "#ffedb3";
+			draft['barBackground'] = "#f97316";
+			draft['barDotColor'] = "#e8471e";
+			draft['labelTypo']['fontSize']['desktop'] = 18;
+			draft['labelTypo']['fontVariant'] = "700";
+			draft['labelTypo']['fontWeight'] = 700;
+			break;
+	}
+});

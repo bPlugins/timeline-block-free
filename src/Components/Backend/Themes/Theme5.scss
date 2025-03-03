@@ -1,0 +1,57 @@
+.theme5-timeline {
+  .timeline-container {
+    .timeline-items {
+      display: grid;
+      grid-template-columns: repeat(1fr);
+      gap: 30px;
+
+      .timeline-item {
+        position: relative;
+        padding-left: 35px;
+        border-left: 5px solid orangered;
+
+        .timeline-dot-wrapper {
+          position: absolute;
+          left: -15px;
+          top: 0;
+
+          .timeline-dot {
+            width: 25px;
+            height: 25px;
+            background: orangered;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .dot-childDiv {
+              width: 16px;
+              height: 16px;
+              background: white;
+              border-radius: 50%;
+            }
+          }
+        }
+
+        .timeline-content {
+          background: white;
+          padding: 15px;
+          border-radius: 6px;
+
+          .timeline-date {
+            margin-bottom: 8px;
+          }
+
+          .timeline-label {
+            margin: 0;
+            margin-bottom: 15px;
+          }
+
+          .timeline-description {
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+}
