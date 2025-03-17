@@ -8,11 +8,11 @@
   100% {
     opacity: 1;
     transform: translateY(0);
-    /* Final position */
   }
 }
 
 .wp-block-tlgb-b-timeline-block {
+
   // Global Theme CSS
   .timeline-container {
 
@@ -136,7 +136,6 @@
       box-sizing: border-box;
       padding: 0;
       width: 100%;
-      overflow: hidden;
       position: relative;
       width: 100%;
       padding-left: 40px;
