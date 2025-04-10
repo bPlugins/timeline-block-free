@@ -6,7 +6,6 @@ import { ArrowBack, ArrowForward } from '../../../utils/icons';
 const Theme2 = ({ attributes, activeIndex, setActiveIndex }) => {
   const { timelines, itemPosition, type } = attributes;
   const [inView, setInView] = useState(Array(timelines.length).fill(false));
-  const [timelineHeight, setTimelineHeight] = useState(0);
 
 
 
@@ -53,13 +52,6 @@ const Theme2 = ({ attributes, activeIndex, setActiveIndex }) => {
 
   const translateValue = -(activeIndex * (100 / 2));
 
-  useEffect(() => {
-    const timelineContent = document.querySelector('.timeline-items');
-    if (timelineContent) {
-      const height = timelineContent.offsetHeigh;
-      setTimelineHeight(height);
-    }
-  }, []);
 
   const getClassForItem = (index) => {
     if (itemPosition === "both-side") {

@@ -13,12 +13,11 @@ import Theme5 from '../Backend/Themes/Theme5';
 const Timeline = ({ attributes, id }) => {
   const { timelines, theme, itemPosition, type } = attributes;
   const [visibleDescriptions, setVisibleDescriptions] = useState({});
-  const [inView, setInView] = useState(Array(timelines.length).fill(false));
   const [activeIndex, setActiveIndex] = useState(0);
 
 
   useEffect(() => {
-    const timelineEl = document.querySelector(`.timeline`);
+    const timelineEl = document.querySelector(`#${id} .timeline`);
     const timelineItems = document.querySelectorAll(`.timeline__item`);
 
     if (timelineEl) {
@@ -106,100 +105,102 @@ const Timeline = ({ attributes, id }) => {
       }
 
 
-      {
-        (theme === "default" || theme === "timeline-with-accordion") && <div className="timeline tlgbTimeline">
-          <div className="timeline__wrap">
-            <div className="timeline__items">
-              {
-                timelines.map((timeline, index) => {
-                  const { label, description } = timeline;
-                  const isVisible = visibleDescriptions[index];
-                  return (
-                    <div key={index} className='timeline__item fadeIn' id={`tlgbTimelineItem-${index}`}>
-                      <div className='timeline__content'>
-                        {
-                          theme === "timeline-with-accordion" ? (<>
-                            <label onClick={() => toggleDescription(index)} dangerouslySetInnerHTML={{ __html: label.replace(/\n/g, '<br />') }}></label>
-                            <p
-                              className={`timeline__description ${isVisible ? 'visible' : 'hidden'}`}
-                              dangerouslySetInnerHTML={{ __html: description.replace(/\n/g, '<br />') }}></p>
-                          </>) : (
-                            <>
-                              <label dangerouslySetInnerHTML={{ __html: label.replace(/\n/g, '<br />') }}></label>
-                              <p dangerouslySetInnerHTML={{ __html: description.replace(/\n/g, '<br />') }}></p>
-                            </>
-                          )
-                        }
+      <div className='timeline-container' id={id}>
+        {
+          (theme === "default" || theme === "timeline-with-accordion") && <div className="timeline tlgbTimeline">
+            <div className="timeline__wrap">
+              <div className="timeline__items">
+                {
+                  timelines.map((timeline, index) => {
+                    const { label, description } = timeline;
+                    const isVisible = visibleDescriptions[index];
+                    return (
+                      <div key={index} className='timeline__item fadeIn' id={`tlgbTimelineItem-${index}`}>
+                        <div className='timeline__content'>
+                          {
+                            theme === "timeline-with-accordion" ? (<>
+                              <label onClick={() => toggleDescription(index)} dangerouslySetInnerHTML={{ __html: label.replace(/\n/g, '<br />') }}></label>
+                              <p
+                                className={`timeline__description ${isVisible ? 'visible' : 'hidden'}`}
+                                dangerouslySetInnerHTML={{ __html: description.replace(/\n/g, '<br />') }}></p>
+                            </>) : (
+                              <>
+                                <label dangerouslySetInnerHTML={{ __html: label.replace(/\n/g, '<br />') }}></label>
+                                <p dangerouslySetInnerHTML={{ __html: description.replace(/\n/g, '<br />') }}></p>
+                              </>
+                            )
+                          }
+                        </div>
                       </div>
-                    </div>
-                  )
-                })
-              }
+                    )
+                  })
+                }
+              </div>
             </div>
           </div>
-        </div>
-      }
+        }
 
-      {
-        theme === "theme-2" && <div className={`timeline-container ${type === "horizontal" ? "horizontal" : "vertical"}`} >
+        {
+          theme === "theme-2" && <div className={`timeline-container ${type === "horizontal" ? "horizontal" : "vertical"}`} >
 
-          <button className="carousel-button prev" onClick={handlePrev}>
-            <ArrowBack />
-          </button>
+            <button className="carousel-button prev" onClick={handlePrev}>
+              <ArrowBack />
+            </button>
 
-          <div className="timeline-bar"></div>
-          <div className="timeline-items" style={{ transform: `translateX(${translateValue}%)` }} >
-            {timelines.map((event, index) => (
-              <div key={index} className={`timeline-item ${getClassForItem(index)} ${inView[index] ? "in-view" : ""}`}>
-                <div className="timeline-date">{event.date}</div>
-                <div className="timeline-icon" dangerouslySetInnerHTML={{ __html: event.icon }}></div>
-                <div className="timeline-content">
-                  <label className="timeline-title" dangerouslySetInnerHTML={{ __html: event.label }}></label>
-                  <p className="timeline-description" dangerouslySetInnerHTML={{ __html: event.description }}></p>
+            <div className="timeline-bar"></div>
+            <div className="timeline-items" style={{ transform: `translateX(${translateValue}%)` }} >
+              {timelines.map((event, index) => (
+                <div key={index} className={`timeline-item ${getClassForItem(index)}`}>
+                  <div className="timeline-date">{event.date}</div>
+                  <div className="timeline-icon" dangerouslySetInnerHTML={{ __html: event.icon }}></div>
+                  <div className="timeline-content">
+                    <label className="timeline-title" dangerouslySetInnerHTML={{ __html: event.label }}></label>
+                    <p className="timeline-description" dangerouslySetInnerHTML={{ __html: event.description }}></p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
+
+            <button className="carousel-button next" onClick={handleNext}>
+              <ArrowForward />
+            </button>
           </div>
+        }
 
-          <button className="carousel-button next" onClick={handleNext}>
-            <ArrowForward />
-          </button>
-        </div>
-      }
+        {
+          theme === "theme-3" && <Theme3
+            attributes={attributes}
+            labelEl={labelEl}
+            descriptionEl={descriptionEl}
+          />
+        }
 
-      {
-        theme === "theme-3" && <Theme3
-          attributes={attributes}
-          labelEl={labelEl}
-          descriptionEl={descriptionEl}
-        />
-      }
+        {
+          theme === "theme-4" && <Theme4
+            attributes={attributes}
+            labelEl={labelEl}
+            descriptionEl={descriptionEl}
+          />
+        }
 
-      {
-        theme === "theme-4" && <Theme4
-          attributes={attributes}
-          labelEl={labelEl}
-          descriptionEl={descriptionEl}
-        />
-      }
+        {
+          theme === "theme-5" && <Theme5
+            attributes={attributes}
+            labelEl={labelEl}
+            descriptionEl={descriptionEl}
+          />
+        }
 
-      {
-        theme === "theme-5" && <Theme5
-          attributes={attributes}
-          labelEl={labelEl}
-          descriptionEl={descriptionEl}
-        />
-      }
-
-      {
-        theme === "theme-6" && <Theme6
-          attributes={attributes}
-          activeIndex={activeIndex}
-          setActiveIndex={setActiveIndex}
-          labelEl={labelEl}
-          descriptionEl={descriptionEl}
-        />
-      }
+        {
+          theme === "theme-6" && <Theme6
+            attributes={attributes}
+            activeIndex={activeIndex}
+            setActiveIndex={setActiveIndex}
+            labelEl={labelEl}
+            descriptionEl={descriptionEl}
+          />
+        }
+      </div>
     </>
   )
 };
