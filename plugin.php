@@ -1,9 +1,8 @@
 <?php
-
 /**
  * Plugin Name: Timeline Block
  * Description: Display timeline content on your site. 
- * Version: 1.1.6
+ * Version: 1.2.0
  * Author: bPlugins
  * Author URI: https://bplugins.com
  * License: GPLv3
@@ -34,8 +33,6 @@ if (function_exists('tlgb_fs')) {
   define('TLGB_DIR_PATH', plugin_dir_path(__FILE__));
   define('TLGB_HAS_FREE', 'timeline-block-block/plugin.php' === plugin_basename(__FILE__));
   define('TLGB_HAS_PRO', 'timeline-block-block-pro/plugin.php' === plugin_basename(__FILE__));
-
-
 
   // DO NOT REMOVE THIS IF, IT IS ESSENTIAL FOR THE `function_exists` CALL ABOVE TO PROPERLY WORK.
   if (!function_exists('tlgb_fs')) {
@@ -93,7 +90,6 @@ if (function_exists('tlgb_fs')) {
     do_action('tlgb_fs_loaded');
   }
 
-
   function tlgbIsPremium()
   {
     return TLGB_HAS_PRO ? tlgb_fs()->can_use_premium_code() : false;
@@ -109,14 +105,12 @@ if (function_exists('tlgb_fs')) {
 
     // Conditional CPT Block
     if (TLGB_HAS_PRO && tlgbIsPremium()) {
-      include_once TLGB_DIR_PATH . 'b-timeline/b-titmeline.php';
+      include_once TLGB_DIR_PATH . 'b-timeline/b-timeline.php';
     }
 
 
-    class TLGBPlugin
-    {
-      public function __construct()
-      {
+    class TLGBPlugin {
+      public function __construct() {
         add_action('init', [$this, 'init']);  // Block registration
         add_action('enqueue_block_assets', [$this, 'tlgb_enqueue_scripts']);  // Enqueue Block Assets For Frontend and Backend
 
@@ -126,8 +120,7 @@ if (function_exists('tlgb_fs')) {
         add_action('rest_api_init', [$this, 'registerSettings']);
       }
 
-      function tlgbPipeChecker()
-      {
+      function tlgbPipeChecker() {
         if (! isset($_POST['_wpnonce'])) {
           wp_send_json_error('Invalid Request');
         }
@@ -142,8 +135,7 @@ if (function_exists('tlgb_fs')) {
         ]);
       }
 
-      function registerSettings()
-      {
+      function registerSettings() {
         register_setting('tlgbUtils', 'tlgbUtils', [
           'show_in_rest' => [
             'name' => 'tlgbUtils',
@@ -156,8 +148,7 @@ if (function_exists('tlgb_fs')) {
       }
 
       // Function to enqueue block assets for backend and frontend
-      public function tlgb_enqueue_scripts()
-      {
+      public function tlgb_enqueue_scripts() {
         wp_enqueue_script(
           'timelineJS',
           TLGB_DIR_URL . 'assets/js/timeline.min.js',
@@ -176,13 +167,12 @@ if (function_exists('tlgb_fs')) {
       }
 
 
-      function init()
-      {
+      function init() {
         register_block_type(__DIR__ . '/build');
-
         wp_set_script_translations('tlgb-editor', 'timeline-block', plugin_dir_path(__FILE__) . 'languages');
       }
     }
+    
     new TLGBPlugin();
   }
 }
