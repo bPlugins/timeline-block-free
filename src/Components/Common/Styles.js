@@ -4,11 +4,14 @@ import { getTypoCSS } from '../../../../bpl-tools/utils/getCSS';
 const Styles = ({ attributes, id }) => {
 	const { barBackground, barDotColor, itemBg, itemColor, itemTypo, itemBorder, labelTypo, labelColor, theme } = attributes;
 
-	const contentCl = '.timeline__content';
 	const mainSl = `#${id}`;
+	const contentCl = '.timeline__content';
 	const timelineSl = `${mainSl} .timeline`;
+	const accordionTimelineSl = `${mainSl} .timeline.accordion`;
+	const horizontalTimelineSl = `${timelineSl}.timeline--horizontal`;
 	const contentSl = `${timelineSl} ${contentCl}`;
 	const itemSl = `${mainSl} .timeline__item`;
+
 
 
 	return <style dangerouslySetInnerHTML={{
@@ -48,6 +51,12 @@ const Styles = ({ attributes, id }) => {
 		${itemSl}::after {
 			background-color: ${itemBg};
 			border: 5px solid ${barDotColor};
+		}
+		${horizontalTimelineSl} .timeline__item--top .timeline__content__wrap {
+		    align-items: end;
+		}
+		${horizontalTimelineSl} .timeline__item--bottom .timeline__content__wrap {
+		    align-items: start;
 		}
 		${timelineSl}--horizontal .timeline-divider, 
 		${timelineSl}:not(.timeline--horizontal)::before {

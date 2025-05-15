@@ -4,7 +4,6 @@ class BPLShortcode {
     public function __construct() {
         add_action('init', [__CLASS__, 'init'], 0);
         add_action('plugins_loaded', [__CLASS__, 'load_dependencies']);
-        // add_action('admin_menu', [__CLASS__, 'add_dashboard_submenu']);
         add_action('admin_menu', [__CLASS__, 'add_help_pages']);
         add_action('admin_enqueue_scripts', [__CLASS__, 'admin_style']);
         add_action('wp_enqueue_scripts', [__CLASS__, 'timeline_scripts']);
@@ -26,11 +25,9 @@ class BPLShortcode {
     public static function timeline_scripts() {
         wp_register_script('bptl-timeline', TLGB_DIR_URL . 'b-timeline/public/assets/js/timeline.min.js', ['jquery'], TLGB_VERSION, true);
         wp_register_script('bptl-timeline-config', TLGB_DIR_URL . 'b-timeline/public/assets/js/public.js', ['jquery', 'bptl-timeline'], TLGB_VERSION, true);
-        wp_enqueue_script('bptl-timeline');
-        wp_enqueue_script('bptl-timeline-config');
     
         wp_register_style('timeline-style', TLGB_DIR_URL . 'b-timeline/public/assets/css/timeline.min.css', NULL, 'v0.0.2', 'all');
-        wp_enqueue_style('timeline-style');
+        
     }
 
     public static function admin_style($hook) {
@@ -57,10 +54,14 @@ class BPLShortcode {
         extract(shortcode_atts(array(
             'id' => null
         ), $atts));
-        ob_start(); ?>
+        ob_start();
+        
+        wp_enqueue_script('bptl-timeline');
+        wp_enqueue_script('bptl-timeline-config');
+        wp_enqueue_style('timeline-style');
     
-        <!-- Timeline Meta Data -->
-        <?php $bptl_datas = get_post_meta($id, '_bptimeline_', true); ?>
+        // Timeline Meta Data 
+        $bptl_datas = get_post_meta($id, '_bptimeline_', true); ?>
     
         <!-- Start Parent Container -->
         <div id="btimeline-<?php echo esc_attr($id); ?>">

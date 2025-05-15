@@ -29,14 +29,14 @@ const Edit = props => {
 
 	useEffect(() => {
 		const timelineEl = document.querySelector(`#${id} .timeline`);
-		const timelineItems = document.querySelectorAll(`.timeline__item`);
+		const timelineItems = document.querySelectorAll(`#${id} .timeline__items .timeline__item`);
 
 		if (timelineEl) {
 			timeline([timelineEl], timelineConfig(attributes));
 		}
 
-		if (timelineItems.length > 0) {
-			if (theme === "timeline-with-accordion") {
+		if (theme === "timeline-with-accordion") {
+			if (timelineItems.length > 0) {
 				timelineItems.forEach(item => {
 					item.classList.remove("timeline__item--left");
 					item.classList.add("timeline__item--right");
@@ -128,7 +128,7 @@ const Edit = props => {
 
 			{
 				(theme === 'default' || theme === "timeline-with-accordion") && <>
-					<div className='timeline tlgbTimeline'>
+					<div className={`timeline tlgbTimeline ${theme === "timeline-with-accordion" && "accordion"}`}>
 						<div className='timeline__wrap'>
 							<div className='timeline__items'>
 								{timelines?.map((item, index) => {
@@ -143,14 +143,6 @@ const Edit = props => {
 													theme === "timeline-with-accordion" && toggleDescription(index)
 												}}></label>
 
-											{/* <RichText
-												tagName='p'
-												className={`timeline__description ${theme === "timeline-with-accordion" ? (isVisible ? 'visible' : 'hidden') : "visible"}`}
-												value={description}
-												onChange={val => updateTimeline(index, 'description', val)}
-												placeholder={__('Timeline description', 'timeline-block')}
-												inlineToolbar
-											/> */}
 											<p className={`timeline__description ${theme === "timeline-with-accordion" ? (isVisible ? 'visible' : 'hidden') : "visible"}`} dangerouslySetInnerHTML={{ __html: description }}>
 											</p>
 										</div>
