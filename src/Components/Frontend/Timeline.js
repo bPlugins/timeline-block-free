@@ -18,7 +18,7 @@ const Timeline = ({ attributes, id }) => {
 
   useEffect(() => {
     const timelineEl = document.querySelector(`#${id} .timeline`);
-    const timelineItems = document.querySelectorAll(`.timeline__item`);
+    const timelineItems = document.querySelectorAll(`#${id} .timeline__items .timeline__item`);
 
     if (timelineEl) {
       timeline([timelineEl], timelineConfig(attributes));
