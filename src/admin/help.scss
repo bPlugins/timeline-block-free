@@ -28,11 +28,13 @@
           display: flex;
           align-items: center;
           gap: 15px;
+
           .block-logo {
             width: 50px;
             display: block;
             height: 50px;
           }
+
           .heading-title {
             font-size: 1.875rem;
             font-weight: 700;
@@ -41,6 +43,7 @@
             margin-top: 18px;
           }
         }
+
         .plugin-version {
           background-color: #e4e6eb;
           padding: 6px 14px;
@@ -57,9 +60,11 @@
         justify-content: space-between;
         align-items: center;
         margin: 15px auto;
+
         .firstLinks {
           display: flex;
           font-size: 1rem;
+
           .links {
             margin-right: 35px;
             padding-bottom: 20px;
@@ -68,18 +73,22 @@
             border: none;
             outline: none;
           }
+
           .links:hover {
             border-bottom: 2px solid #1f2a38;
             color: black;
           }
+
           .links.active {
             border-bottom: 2px solid #1f2a38;
             color: black;
           }
+
           .links:focus {
             box-shadow: none;
           }
         }
+
         .secondLinksDiv {
           padding-bottom: 20px;
 
@@ -91,14 +100,17 @@
             align-items: center;
             outline: none;
             border: none;
+
             svg {
               margin-right: 5px;
               font-size: 20px;
             }
           }
+
           .secondLinks:hover {
             color: black;
           }
+
           .secondLinks:focus {
             box-shadow: none;
           }
@@ -117,7 +129,6 @@
         display: block;
         margin: 0 auto;
         padding: 20px 30px;
-        width: 100%;
 
         .feature-grid {
           margin: 0 auto;
@@ -148,12 +159,12 @@
               color: #4a5568;
               text-align: left;
             }
+
             .feature-list {
               margin-top: 3rem;
               display: grid;
-              gap: 4rem;
+              gap: 2rem;
               grid-template-columns: repeat(3, 1fr);
-              padding: 15px;
 
               .feature-item {
                 border: 1px solid gray;
@@ -172,6 +183,7 @@
                 }
               }
             }
+
             .upgrade-btn {
               display: flex;
               justify-content: center;
@@ -193,6 +205,7 @@
       width: 1090px;
       margin: 40px auto;
       text-align: center;
+
       .header {
         width: 1090px;
         margin: 20px auto;
@@ -204,12 +217,14 @@
           padding: 30px;
         }
       }
+
       .box {
         background: #fff;
         border-radius: 4px;
         // box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px; // Choose
         box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
       }
+
       .features {
         width: 1090px;
         display: grid;
@@ -255,6 +270,7 @@
             line-height: 1.5;
             margin: 0 0 13px 0;
           }
+
           a {
             background-color: #3858e9;
             border-color: #3858e9;
@@ -275,20 +291,23 @@
 
   .dashboard-header-main-section {
     display: flex;
-    align-items: center;
+    justify-content: space-between;
     gap: 139px;
 
     .dashboard-header-section {
       margin-bottom: 20px;
       text-align: left;
+
       .blockName {
         font-weight: 700;
         color: #4527a4;
       }
+
       .premium-head {
         display: flex;
         align-items: center;
         justify-content: left;
+
         .leftDownIcon {
           width: 30px;
           height: 30px;
@@ -303,6 +322,7 @@
   min-height: 100%;
   justify-content: center;
   margin-bottom: 50px;
+
   .ul-head {
     text-align: left;
     border-bottom: 2px solid #e0e0e0;
@@ -314,8 +334,10 @@
     width: 200px;
     background-color: white;
     border-right: 1px solid #e0e0e0;
+
     .tab-list {
       list-style: none;
+
       .tab-item {
         padding: 1rem 1rem;
         display: flex;
@@ -329,10 +351,12 @@
           background-color: #f0f0f0;
           color: #333;
         }
+
         &.active {
           color: #0ea5e9;
           position: relative;
         }
+
         &.active::before {
           content: "";
           position: absolute;
@@ -342,14 +366,17 @@
           width: 4px;
           background-color: #0ea5e9;
         }
+
         .tab-content {
           display: flex;
           align-items: center;
           gap: 10px;
+
           .tab-label {
             font-size: 16px;
             font-weight: 500;
           }
+
           .pro-badge {
             background-color: #4527a4;
             color: #fff;
@@ -372,6 +399,7 @@
     flex-direction: column;
     align-items: center;
     padding: 10px 30px;
+
     .theme-content {
       h2 {
         font-size: 1.5rem;
@@ -411,6 +439,7 @@
         &:hover {
           background-position: bottom center;
         }
+
         /* Close button */
         .close-button {
           position: absolute;
