@@ -35,9 +35,8 @@ class BPLShortcode {
         wp_enqueue_style('bptl-admin-style');
     
         if ("btimeline_page_dashboard" === $hook) {
-            wp_enqueue_style('tlgb-admin-help', TLGB_DIR_URL . 'build/admin-help.css', [], TLGB_VERSION);
-            wp_enqueue_script('tlgb-admin-help', TLGB_DIR_URL . 'build/admin-help.js', ['react', 'react-dom'], TLGB_VERSION);
-            wp_enqueue_script('fs', TLGB_DIR_URL . 'assets/js/fs.js', [], '1');
+            wp_enqueue_style('tlgb-admin-dashboard', TLGB_DIR_URL . 'build/admin-dashboard.css', [], TLGB_VERSION);
+            wp_enqueue_script('tlgb-admin-dashboard', TLGB_DIR_URL . 'build/admin-dashboard.js', ['react', 'react-dom'], TLGB_VERSION);
             wp_set_script_translations('tlgb-admin-help', 'timeline-block', TLGB_DIR_PATH . 'languages');
         }
     }
@@ -239,7 +238,11 @@ class BPLShortcode {
 
     public static function render_dashboard() {
         ?>
-        <div id="bplAdminHelpPage" data-version="<?php echo esc_attr(TLGB_VERSION); ?>"  data-is-premium='<?php echo esc_attr(tlgbIsPremium()); ?>'>
+        <div id="tlgbAdminDashboardWrapper"
+            data-info='<?php echo esc_attr( wp_json_encode( [
+                'version' => TLGB_VERSION,
+                'isPremium' => esc_attr(tlgbIsPremium()),
+            ] ) ); ?>'>
         </div>
         <?php
     }

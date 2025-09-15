@@ -1,12 +1,35 @@
-import React from 'react';
-import { getBackgroundCSS, getBorderCSS, getTypoCSS } from '../../../../bpl-tools/utils/getCSS';
+import React from "react";
+import {
+  getBackgroundCSS,
+  getBorderCSS,
+  getTypoCSS,
+} from "../../../../bpl-tools/utils/getCSS";
 
 const ThemeStyles = ({ attributes, id }) => {
-  const { barBackground, iconStyles, contentBorder, labelTypo, itemTypo, labelColor, itemColor, dateStyles, horizontalDatePosition, theme, itemBg, barDotColor } = attributes;
-  const { iconColor, iconColorHover, background, borderControl, iconSize, iconContainerSize } = iconStyles;
+  const {
+    barBackground,
+    iconStyles,
+    contentBorder,
+    labelTypo,
+    itemTypo,
+    labelColor,
+    itemColor,
+    dateStyles,
+    horizontalDatePosition,
+    theme,
+    itemBg,
+    barDotColor,
+  } = attributes;
+  const {
+    iconColor,
+    iconColorHover,
+    background,
+    borderControl,
+    iconSize,
+    iconContainerSize,
+  } = iconStyles;
 
   // In this css file, Theme 2, 3, 4, 5, 6 all dynamic styles are applied.
-
 
   const mainSl = `#${id}`;
   const timelineContainer = `${mainSl} .timeline-container`;
@@ -33,24 +56,52 @@ const ThemeStyles = ({ attributes, id }) => {
 
 
         ${timelineContainer}.horizontal {
-          ${horizontalDatePosition === "top" ? "padding-top: 150px" : "padding-bottom: 150px"}
+          ${
+            horizontalDatePosition === "top"
+              ? "padding-top: 150px"
+              : "padding-bottom: 150px"
+          }
         }
         ${timelineContainer}.horizontal .timeline-icon {
-          ${horizontalDatePosition === "top" && (theme === "theme-2") ? "top: -100px;" : "bottom: -100px;"}
+          ${
+            horizontalDatePosition === "top" && theme === "theme-2"
+              ? "top: -100px;"
+              : "bottom: -100px;"
+          }
         }
         ${timelineBar} {
-          ${theme === "theme-2" ? (horizontalDatePosition === "top" ? "top: 76px;" : "bottom: 76px;") : ""}
+          ${
+            theme === "theme-2"
+              ? horizontalDatePosition === "top"
+                ? "top: 76px;"
+                : "bottom: 76px;"
+              : ""
+          }
           background-color: ${barBackground};
         }
         ${timelineDot} {
-          ${theme !== "theme-6" ? `background-color: ${barDotColor};` : `border: 4px solid ${barDotColor};`}
+          ${
+            theme !== "theme-6"
+              ? `background-color: ${barDotColor};`
+              : `border: 4px solid ${barDotColor};`
+          }
         }
         ${timelineContent} {
-          border: ${contentBorder.width} ${contentBorder.style} ${contentBorder.color};
-          border-top: ${contentBorder.top?.width} ${contentBorder.top?.style} ${contentBorder.top?.color};
-          border-right: ${contentBorder.right?.width} ${contentBorder.right?.style} ${contentBorder.right?.color};
-          border-bottom: ${contentBorder.bottom?.width} ${contentBorder.bottom?.style} ${contentBorder.bottom?.color};
-          border-left: ${contentBorder.left?.width} ${contentBorder.left?.style} ${contentBorder.left?.color};
+          border: ${contentBorder.width} ${contentBorder.style} ${
+            contentBorder.color
+          };
+          border-top: ${contentBorder.top?.width} ${contentBorder.top?.style} ${
+            contentBorder.top?.color
+          };
+          border-right: ${contentBorder.right?.width} ${
+            contentBorder.right?.style
+          } ${contentBorder.right?.color};
+          border-bottom: ${contentBorder.bottom?.width} ${
+            contentBorder.bottom?.style
+          } ${contentBorder.bottom?.color};
+          border-left: ${contentBorder.left?.width} ${
+            contentBorder.left?.style
+          } ${contentBorder.left?.color};
           background: ${itemBg};
         }
         ${timelineContent} .timeline-label{
@@ -75,7 +126,11 @@ const ThemeStyles = ({ attributes, id }) => {
           color: ${iconColorHover};
         }
         ${timelineItem} {
-          ${theme === "theme-5" ? `border-left: 5px solid ${barBackground};` : ""}
+          ${
+            theme === "theme-5"
+              ? `border-left: 5px solid ${barBackground};`
+              : ""
+          }
         }
 
         ${timelineItem}:hover .timeline-icon {
@@ -86,11 +141,29 @@ const ThemeStyles = ({ attributes, id }) => {
         }
         ${timelineDate} {
           color: ${dateStyles.dateColor};
-          ${theme === "theme-2" ? (horizontalDatePosition === "top" ? "top: -145px;" : "bottom: -145px;") : ""}
-          ${theme === "theme-4" ? `width: ${dateStyles.dateContainerSize}px; height: ${dateStyles.dateContainerSize}px; ${getBackgroundCSS(dateStyles.dateBg)}` : ""}
+          ${
+            theme === "theme-2"
+              ? horizontalDatePosition === "top"
+                ? "top: -145px;"
+                : "bottom: -145px;"
+              : ""
+          }
+          ${
+            theme === "theme-4"
+              ? `width: ${dateStyles.dateContainerSize}px; height: ${
+                  dateStyles.dateContainerSize
+                }px; ${getBackgroundCSS(dateStyles.dateBg)}`
+              : ""
+          }
         }
         ${carouselBtn} {
-          ${theme === "theme-2" ? (horizontalDatePosition === "top" ? "top: 65px;" : "bottom: 65px;") : ""}
+          ${
+            theme === "theme-2"
+              ? horizontalDatePosition === "top"
+                ? "top: 65px;"
+                : "bottom: 65px;"
+              : ""
+          }
         }
       `}
     </style>

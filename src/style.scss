@@ -12,10 +12,8 @@
 }
 
 .wp-block-tlgb-b-timeline-block {
-
   // Global Theme CSS
   .timeline-container {
-
     // Theme2: Icon Timeline CSS
     &.vertical {
       padding: 0;
@@ -140,6 +138,7 @@
       width: 100%;
       padding-left: 40px;
       padding-right: 40px;
+      overflow: hidden;
 
       .timeline-bar {
         position: absolute;
@@ -189,6 +188,7 @@
 
       .carousel-button {
         position: absolute;
+        display: flex;
       }
 
       .carousel-button.prev {
