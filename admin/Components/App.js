@@ -1,19 +1,16 @@
 import { HashRouter as Router, Route, Routes } from "react-router-dom";
 
 import ListDemos from "../../../bpl-tools/Admin/Demos/ListDemos";
-import FSCheckoutButton from "../../../bpl-tools/Admin/FSCheckoutButton/FSCheckoutButton";
-import FSCheckoutForm from "../../../bpl-tools/Admin/FSCheckoutForm/FSCheckoutForm";
 import Pricing from "../../../bpl-tools/Admin/Pricing/Pricing";
 import FeatureCompare from "../../../bpl-tools/Admin/FeatureCompare/FeatureCompare";
-// import PopularPlugins from "../../../bpl-tools/Admin/";
 
 import Layout from "./Layout";
 import { demoInfo, featureCompareInfo, pricingInfo } from "../utils/data";
 import Welcome from "./Welcome";
-import PopularPlugins from "./PopularPlugins";
+import Button from "../../../bpl-tools/Components/Button/Button";
 
 const App = (props) => {
-  const { name, isPremium, freemius } = props;
+  const { name, isPremium, adminUrl } = props;
 
   return (
     <Router>
@@ -29,14 +26,14 @@ const App = (props) => {
               element={
                 <ListDemos demoInfo={demoInfo} {...props}>
                   {!isPremium && (
-                    <FSCheckoutButton
-                      {...{
-                        freemius,
-                        options: { title: name },
-                      }}
+                    <Button
+                      href={`${adminUrl}tools.php?page=timeline-block#/pricing`}
+                      // target="_blank"
+                      // rel="noreferrer"
+                      variant="secondary"
                     >
                       Buy Now
-                    </FSCheckoutButton>
+                    </Button>
                   )}
                 </ListDemos>
               }

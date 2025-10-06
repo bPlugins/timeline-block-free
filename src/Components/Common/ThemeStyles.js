@@ -19,6 +19,7 @@ const ThemeStyles = ({ attributes, id }) => {
     theme,
     itemBg,
     barDotColor,
+    timelineBar: barStyles,
   } = attributes;
   const {
     iconColor,
@@ -40,16 +41,19 @@ const ThemeStyles = ({ attributes, id }) => {
   const timelineIcon = `${timelineItem} .timeline-icon`;
   const timelineContent = `${timelineItem} .timeline-content`;
   const timelineDate = `${timelineItem} .timeline-date`;
+  const timelineLabel = `${timelineItem} .timeline-label`;
+  const timelineDescription = `${timelineItem} .timeline-description`;
   const timelineDot = `${timelineContainer} .timeline-dot-wrapper .timeline-dot`;
+  const timelineProgressBar = `${timelineItemsContainer} .timeline-bar .timeline_progress-bar`;
 
   return (
     <style>
       {`
         ${getTypoCSS("", labelTypo)?.googleFontLink}
-        ${getTypoCSS(`${timelineContent} label`, labelTypo).styles}
+        ${getTypoCSS(`${timelineLabel}`, labelTypo).styles}
 
         ${getTypoCSS("", itemTypo)?.googleFontLink}
-        ${getTypoCSS(`${timelineContent} p`, itemTypo).styles}
+        ${getTypoCSS(`${timelineDescription}`, itemTypo).styles}
 
         ${getTypoCSS("", dateStyles.dateTypo)?.googleFontLink}
 	    	${getTypoCSS(`${timelineDate}`, dateStyles.dateTypo).styles}
@@ -95,7 +99,8 @@ const ThemeStyles = ({ attributes, id }) => {
           };
           border-right: ${contentBorder.right?.width} ${
             contentBorder.right?.style
-          } ${contentBorder.right?.color};
+          }
+          ${contentBorder.right?.color};
           border-bottom: ${contentBorder.bottom?.width} ${
             contentBorder.bottom?.style
           } ${contentBorder.bottom?.color};
@@ -104,11 +109,11 @@ const ThemeStyles = ({ attributes, id }) => {
           } ${contentBorder.left?.color};
           background: ${itemBg};
         }
-        ${timelineContent} .timeline-label{
+        ${timelineLabel}{
           color: ${labelColor};
           display: block;
         }
-        ${timelineContent} p{
+        ${timelineDescription} {
           color: ${itemColor};
         }
         ${timelineIcon} {
@@ -165,6 +170,12 @@ const ThemeStyles = ({ attributes, id }) => {
               : ""
           }
         }
+
+        ${timelineProgressBar} {
+          ${getBackgroundCSS(barStyles?.progressBarbgColor)}
+        }
+
+
       `}
     </style>
   );

@@ -4,7 +4,7 @@ Donate link: https://www.buymeacoffee.com/abuhayat
 Tags: block, timeline, vertical timeline, horizontal timeline, widget
 Requires at least: 6.5+
 Tested up to: 6.8
-Stable tag: 1.2.3
+Stable tag: 1.2.4
 Requires PHP: 7.1
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -110,6 +110,10 @@ You can use unlimited times as you want.
 
 You can post your questions on the [support forum here](https://wordpress.org/support/plugin/timeline-block-block/)
 
+= Where do I report security bugs found in this plugin? =
+
+Please report security bugs found in the source code of the Timeline Block plugin through the [Patchstack Vulnerability Disclosure Program](https://patchstack.com/database/vdp/9e5fb645-ef15-4628-91b6-de61c8ef0e78). The Patchstack team will assist you with verification, CVE assignment, and notify the developers of this plugin.
+
 
 == Screenshots ==
 
@@ -117,6 +121,9 @@ You can post your questions on the [support forum here](https://wordpress.org/su
 
 
 == Changelog ==
+
+= 1.2.4 - 6 October, 2025 = 
+* Add New Timeline Template
 
 = 1.2.3 - 15 September, 2025 = 
 * Add Modern Dashboard & Fixed Issues

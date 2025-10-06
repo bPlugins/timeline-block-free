@@ -1,7 +1,7 @@
 const slug = "timeline-block-block";
 
 export const dashboardInfo = (info) => {
-  const { version, isPremium, hasPro } = info;
+  const { version, isPremium, hasPro, adminUrl } = info;
 
   const proSuffix = isPremium ? " Pro" : "";
 
@@ -15,13 +15,14 @@ export const dashboardInfo = (info) => {
     banner: `https://ps.w.org/${slug}/assets/banner-772x250.png`,
     // video: "https://www.youtube.com/watch?v=mUlMpuPMP5Q",
     // isYoutube: true,
+    adminUrl: adminUrl,
     version,
     isPremium,
     hasPro,
     pages: {
       org: `https://wordpress.org/plugins/${slug}/`,
       landing: `https://bplugins.com/products/${slug}/`,
-      docs: `https://bplugins.com/products/b-timeline/`, // Add Documentation link here
+      // docs: `https://bplugins.com/products/b-timeline/`, // Add Documentation link here
       pricing: `https://bplugins.com/products/${slug}/pricing`,
     },
     freemius: {
@@ -33,6 +34,10 @@ export const dashboardInfo = (info) => {
 };
 
 export const changelogs = [
+  {
+    version: "1.2.4, 6 October 2025",
+    list: ["Add New Template"],
+  },
   {
     version: "1.2.3, 15 September 2025",
     list: ["Add Modern Dashboard & Fixed Issues"],
@@ -319,7 +324,7 @@ export const pricingInfo = {
   ],
   features: [
     "Add Classic Editor for Timeline Description",
-    "6 Brand New Unique Timeline Templates",
+    "7 Brand New Unique Timeline Templates",
     "Responsive Design",
     "Customization Options for All Templates",
   ],

@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Timeline Block
  * Description: Display timeline content on your site. 
- * Version: 1.2.3
+ * Version: 1.2.4
  * Author: bPlugins
  * Author URI: https://bplugins.com
  * License: GPLv3
@@ -28,7 +28,7 @@ if (function_exists('tlgb_fs')) {
   });
 } else {
   // Constant
-  define('TLGB_VERSION', isset($_SERVER['HTTP_HOST']) && 'localhost' === $_SERVER['HTTP_HOST'] ? time() : '1.2.3');
+  define('TLGB_VERSION', isset($_SERVER['HTTP_HOST']) && 'localhost' === $_SERVER['HTTP_HOST'] ? time() : '1.2.4');
   define('TLGB_DIR_URL', plugin_dir_url(__FILE__));
   define('TLGB_DIR_PATH', plugin_dir_path(__FILE__));
   define('TLGB_HAS_FREE', 'timeline-block-block/plugin.php' === plugin_basename(__FILE__));
@@ -94,22 +94,15 @@ if (function_exists('tlgb_fs')) {
     return TLGB_HAS_PRO ? tlgb_fs()->can_use_premium_code() : false;
   }
 
-  // ... Your plugin's main file logic ...
+  // Conditional Admin Dashboard
+
+  if (TLGB_HAS_PRO && tlgbIsPremium()) {
+    include_once TLGB_DIR_PATH . 'b-timeline/b-timeline.php';
+  } else {
+    require_once TLGB_DIR_PATH . 'includes/AdminMenu.php';
+  }
+
   if (!class_exists('TLGBPlugin')) {
-
-    // Main Plugin Logic
-    // if (TLGB_HAS_FREE && !tlgbIsPremium()) {
-    //   require_once TLGB_DIR_PATH . 'includes/AdminMenu.php';
-    // }
-
-    // Conditional CPT Block
-    if (TLGB_HAS_PRO && tlgbIsPremium()) {
-      include_once TLGB_DIR_PATH . 'b-timeline/b-timeline.php';
-    } else {
-      require_once TLGB_DIR_PATH . 'includes/AdminMenu.php';
-    }
-
-
     class TLGBPlugin {
       public function __construct() {
         add_action('init', [$this, 'init']);  // Block registration
@@ -132,7 +125,10 @@ if (function_exists('tlgb_fs')) {
         }
 
         wp_send_json_success([
-          'isPipe' => tlgbIsPremium()
+          'isPipe' => [
+            'isPipe' => tlgbIsPremium(),
+            'adminUrl' => admin_url()
+          ]
         ]);
       }
 

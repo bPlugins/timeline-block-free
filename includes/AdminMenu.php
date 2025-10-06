@@ -26,6 +26,7 @@ if (!class_exists('TLGBAdminMenu')) {
             data-info='<?php echo esc_attr( wp_json_encode( [
                 'version' => TLGB_VERSION,
                 'isPremium' => esc_attr(tlgbIsPremium()),
+                'adminUrl' => admin_url()
             ] ) ); ?>'>
         </div>
       <?php
