@@ -144,21 +144,3 @@ export const themeSwitch = (theme = "default", attributes) =>
         break;
     }
   });
-
-<div style="padding:18px;text-align:center;border:1px solid #eee;border-radius:8px;">
-  <p style="margin:0 0 12px;font-size:16px;line-height:1.5;color:#333;">
-    This is a simple paragraph explaining the image below. Use this for short
-    announcements or featured notes.
-  </p>
-  <img
-    src="https://images.pexels.com/photos/12323407/pexels-photo-12323407.jpeg"
-    alt="Beautiful scene"
-    style="width:100%;height:300px;border-radius:6px;margin-bottom:12px;display:block;"
-  />
-  <a
-    href="#"
-    style="display:inline-block;padding:10px 18px;border-radius:6px;background:#0073aa;color:#fff;text-decoration:none;font-weight:600;"
-  >
-    Learn more
-  </a>
-</div>;
