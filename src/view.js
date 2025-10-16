@@ -12,12 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     createRoot(timelineBlockEl).render(
       <>
-        <Timeline
-          attributes={attributes}
-          id={timelineBlockEl.id}
-          isPremium={tlgbIsPremium}
-          adminUrl={adminUrl}
-        />
+        <Timeline attributes={attributes} id={timelineBlockEl.id} />
       </>
     );
 

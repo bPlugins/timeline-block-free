@@ -159,13 +159,6 @@ if (function_exists('tlgb_fs')) {
           [],
           TLGB_VERSION
         );
-
-        wp_add_inline_script(
-          'tlgb-b-timeline-block-view-script',
-          'const tlgbIsPremium = ' . wp_json_encode( tlgbIsPremium() ) . ';' .
-          'const adminUrl = ' . wp_json_encode( admin_url() ) . ';',
-          'before'
-        );
       }
 
 

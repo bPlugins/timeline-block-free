@@ -10,7 +10,7 @@ import Theme6 from "../Backend/Themes/Theme6";
 import Theme5 from "../Backend/Themes/Theme5";
 import Theme7 from "../Backend/Themes/Theme7";
 
-const Timeline = ({ attributes, id, isPremium, adminUrl }) => {
+const Timeline = ({ attributes, id }) => {
   const { timelines, theme, itemPosition, type } = attributes;
   const [visibleDescriptions, setVisibleDescriptions] = useState({});
   const [activeIndex, setActiveIndex] = useState(0);
@@ -120,31 +120,7 @@ const Timeline = ({ attributes, id, isPremium, adminUrl }) => {
         <ThemeStyles attributes={attributes} id={id} />
       )}
 
-      <div
-        className={`timeline-container ${
-          !isPremium && theme !== "default" ? "blurred" : ""
-        }`}
-        id={id}
-      >
-        {!isPremium && theme !== "default" && (
-          <div className="premium-overlay">
-            <div className="premium-message">
-              <p>Please active your license please!.</p>
-              <button
-                className="premium-btn"
-                onClick={() =>
-                  window.open(
-                    `${adminUrl}tools.php?page=timeline-block#/pricing`,
-                    "_blank"
-                  )
-                }
-              >
-                Renew Your License
-              </button>
-            </div>
-          </div>
-        )}
-
+      <div className="timeline-container" id={id}>
         {(theme === "default" || theme === "timeline-with-accordion") && (
           <div className="timeline tlgbTimeline">
             <div className="timeline__wrap">
