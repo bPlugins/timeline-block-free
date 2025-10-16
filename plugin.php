@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Timeline Block
  * Description: Display timeline content on your site. 
- * Version: 1.2.4
+ * Version: 1.2.5
  * Author: bPlugins
  * Author URI: https://bplugins.com
  * License: GPLv3
@@ -28,7 +28,7 @@ if (function_exists('tlgb_fs')) {
   });
 } else {
   // Constant
-  define('TLGB_VERSION', isset($_SERVER['HTTP_HOST']) && 'localhost' === $_SERVER['HTTP_HOST'] ? time() : '1.2.4');
+  define('TLGB_VERSION', isset($_SERVER['HTTP_HOST']) && 'localhost' === $_SERVER['HTTP_HOST'] ? time() : '1.2.5');
   define('TLGB_DIR_URL', plugin_dir_url(__FILE__));
   define('TLGB_DIR_PATH', plugin_dir_path(__FILE__));
   define('TLGB_HAS_FREE', 'timeline-block-block/plugin.php' === plugin_basename(__FILE__));
@@ -37,8 +37,7 @@ if (function_exists('tlgb_fs')) {
   // DO NOT REMOVE THIS IF, IT IS ESSENTIAL FOR THE `function_exists` CALL ABOVE TO PROPERLY WORK.
   if (!function_exists('tlgb_fs')) {
     // ... Freemius integration snippet ...
-    function tlgb_fs()
-    {
+    function tlgb_fs() {
       global $tlgb_fs;
 
       if (!isset($tlgb_fs)) {
@@ -95,7 +94,6 @@ if (function_exists('tlgb_fs')) {
   }
 
   // Conditional Admin Dashboard
-
   if (TLGB_HAS_PRO && tlgbIsPremium()) {
     include_once TLGB_DIR_PATH . 'b-timeline/b-timeline.php';
   } else {
@@ -105,8 +103,8 @@ if (function_exists('tlgb_fs')) {
   if (!class_exists('TLGBPlugin')) {
     class TLGBPlugin {
       public function __construct() {
-        add_action('init', [$this, 'init']);  // Block registration
-        add_action('enqueue_block_assets', [$this, 'tlgb_enqueue_scripts']);  // Enqueue Block Assets For Frontend and Backend
+        add_action('init', [$this, 'init']); 
+        add_action('enqueue_block_assets', [$this, 'tlgb_enqueue_scripts']); 
 
         add_action('wp_ajax_tlgbPipeChecker', [$this, 'tlgbPipeChecker']);
         add_action('wp_ajax_nopriv_tlgbPipeChecker', [$this, 'tlgbPipeChecker']);
@@ -161,6 +159,13 @@ if (function_exists('tlgb_fs')) {
           [],
           TLGB_VERSION
         );
+
+        wp_add_inline_script(
+          'tlgb-b-timeline-block-view-script',
+          'const tlgbIsPremium = ' . wp_json_encode( tlgbIsPremium() ) . ';' .
+          'const adminUrl = ' . wp_json_encode( admin_url() ) . ';',
+          'before'
+        );
       }
 
 
@@ -172,4 +177,5 @@ if (function_exists('tlgb_fs')) {
     
     new TLGBPlugin();
   }
+
 }

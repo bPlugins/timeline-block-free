@@ -15,7 +15,7 @@ export const dashboardInfo = (info) => {
     banner: `https://ps.w.org/${slug}/assets/banner-772x250.png`,
     // video: "https://www.youtube.com/watch?v=mUlMpuPMP5Q",
     // isYoutube: true,
-    adminUrl: adminUrl,
+    adminUrl,
     version,
     isPremium,
     hasPro,
@@ -34,6 +34,10 @@ export const dashboardInfo = (info) => {
 };
 
 export const changelogs = [
+  {
+    version: "1.2.5, 16 October 2025",
+    list: ["Update dasboard and license settings"],
+  },
   {
     version: "1.2.4, 6 October 2025",
     list: ["Add New Template"],
@@ -182,6 +186,14 @@ export const demoInfo = {
       category: "",
       type: "iframe",
       url: "https://bblockswp.com/demo/timeline-block-theme-6-pro/",
+    },
+    {
+      icon: "",
+      title: "Tamplate 7",
+      description: "",
+      category: "",
+      type: "iframe",
+      url: "https://bblockswp.com/demo/timeline-block-theme-7-pro/",
     },
   ],
 };

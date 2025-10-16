@@ -64,6 +64,9 @@
       font-size: 25px;
       display: flex;
       border-radius: 14px;
+      background: #a3a3a3;
+      color: white;
+      cursor: pointer;
 
       &:focus {
         outline: none;

@@ -1,4 +1,3 @@
-import FSCheckoutButton from "../../../bpl-tools/Admin/FSCheckoutButton/FSCheckoutButton";
 import Changelog from "../../../bpl-tools//Admin/Changelog/Changelog";
 import Overview from "../../../bpl-tools/Admin/Overview/Overview";
 
@@ -6,7 +5,7 @@ import { changelogs } from "../utils/data";
 import Button from "../../../bpl-tools/Components/Button/Button";
 
 const Welcome = (props) => {
-  const { name, isPremium, freemius, adminUrl } = props;
+  const { isPremium, adminUrl } = props;
 
   return (
     <>

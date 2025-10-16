@@ -1,5 +1,5 @@
 {
-  "name": "b-timeline-block",
+  "name": "timeline-block",
   "version": "1.0.0",
   "description": "Show your story or memories on the web.",
   "main": "index.js",
