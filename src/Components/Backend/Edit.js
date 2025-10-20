@@ -1,5 +1,6 @@
 import { produce } from "immer";
 import { useEffect, useState } from "react";
+import { withSelect } from "@wordpress/data";
 
 import { usePremiumInEditor } from "../../../../bpl-tools/hooks";
 import { timelineConfig } from "../../utils/config";
@@ -13,9 +14,17 @@ import Theme6 from "./Themes/Theme6";
 import ThemeStyles from "../Common/ThemeStyles";
 import { updateData } from "../../../../bpl-tools/utils/functions";
 import Theme7 from "./Themes/Theme7";
+import ClipBoard from "./ShortCodeClip";
 
 const Edit = (props) => {
-  const { className, attributes, setAttributes, clientId } = props;
+  const {
+    className,
+    attributes,
+    setAttributes,
+    clientId,
+    currentPostId,
+    postType,
+  } = props;
   const {
     timelines,
     type,
@@ -35,6 +44,9 @@ const Edit = (props) => {
   const { isPremium } = usePremiumInEditor("tlgbUtils", "tlgbPipeChecker");
 
   const [visibleDescriptions, setVisibleDescriptions] = useState({});
+
+  const shortcode = `[timeline_block id=${currentPostId}]`;
+  const isBlockEditor = window?.wp?.blockEditor;
 
   useEffect(() => {
     const timelineEl = document.querySelector(`#${id} .timeline`);
@@ -167,6 +179,10 @@ const Edit = (props) => {
       />
 
       <div className={className} id={id}>
+        {isBlockEditor && postType === "timeline_block" && (
+          <ClipBoard shortcode={shortcode} />
+        )}
+
         {theme === "default" || theme === "timeline-with-accordion" ? (
           <Styles attributes={attributes} id={id} />
         ) : (
@@ -274,6 +290,7 @@ const Edit = (props) => {
             descriptionEl={descriptionEl}
           />
         )}
+
         {theme === "theme-7" && (
           <Theme7
             attributes={attributes}
@@ -287,4 +304,11 @@ const Edit = (props) => {
     </>
   );
 };
-export default Edit;
+export default withSelect((select) => {
+  const currentPostId = select("core/editor").getCurrentPostId();
+  const postType = select("core/editor").getCurrentPostType?.();
+  return {
+    currentPostId,
+    postType,
+  };
+})(Edit);
