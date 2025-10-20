@@ -57,7 +57,7 @@ if (function_exists('tlgb_fs')) {
           'has_addons' => false,
           'has_paid_plans' => true,
           'menu' => [
-              'slug' => 'edit.php?post_type=timeline_block',
+              'slug' => 'edit.php?post_type=timeline_block&page=tlgb-dashboard',
               'support' => false,
           ],
         ];

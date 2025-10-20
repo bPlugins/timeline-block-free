@@ -27,7 +27,7 @@ if(!class_exists('tlgbCPT')) {
                 'has_archive' => true,
                 "show_in_rest" => true,
                 "template_lock" => "all",
-                'menu_icon' => TLGB_DIR_URL . 'b-timeline/public/assets/images/timeline.png',
+                'menu_icon' => TLGB_DIR_URL . 'assets/images/timeline.png',
                 "template" => [["tlgb/b-timeline-block"]],
                 'show_in_menu' => true,
             ]);
