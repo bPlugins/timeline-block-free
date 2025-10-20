@@ -122,8 +122,9 @@ Please report security bugs found in the source code of the Timeline Block plugi
 
 == Changelog ==
 
-= 1.2.5 - 16 October, 2025 = 
-* Updated dashboard and license settings
+= 1.3.0 - 20 October, 2025 = 
+* Add timeline block shortcode
+* Modified the plugin. 
 
 = 1.2.4 - 6 October, 2025 = 
 * Add New Timeline Template

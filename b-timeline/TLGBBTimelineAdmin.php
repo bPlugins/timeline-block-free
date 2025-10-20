@@ -25,7 +25,7 @@ if(!class_exists('TLGBBTimelineAdmin')){
                 'new_item' => __('New Timeline ', 'timeline-block'),
                 'edit_item' => __('Edit Timeline ', 'timeline-block'),
                 'view_item' => __('View Timeline ', 'timeline-block'),
-                'all_items' => __('B-Timeline', 'timeline-block'),
+                'all_items' => __('B-Timeline - Lagacy', 'timeline-block'),
                 'not_found' => __('Sorry, we couldn\'t find the Feed you are looking for.')
             );
             $args = array(

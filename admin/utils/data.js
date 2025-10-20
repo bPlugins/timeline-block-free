@@ -35,8 +35,8 @@ export const dashboardInfo = (info) => {
 
 export const changelogs = [
   {
-    version: "1.2.5, 16 October 2025",
-    list: ["Update dasboard and license settings"],
+    version: "1.3.0, 20 October 2025",
+    list: ["Add timeline block shortcode.", "Modified the plugin."],
   },
   {
     version: "1.2.4, 6 October 2025",
@@ -141,7 +141,7 @@ export const demoInfo = {
     },
     {
       icon: "",
-      title: "Tamplate 1(Accordion Timeline)",
+      title: "Template 1(Accordion Timeline)",
       description: "",
       category: "",
       type: "iframe",
@@ -149,7 +149,7 @@ export const demoInfo = {
     },
     {
       icon: "",
-      title: "Tamplate 2(Vertical & Horizontal Options)",
+      title: "Template 2(Vertical & Horizontal Options)",
       description: "",
       category: "",
       type: "iframe",
@@ -157,7 +157,7 @@ export const demoInfo = {
     },
     {
       icon: "",
-      title: "Tamplate 3",
+      title: "Template 3",
       description: "",
       category: "",
       type: "iframe",
@@ -165,7 +165,7 @@ export const demoInfo = {
     },
     {
       icon: "",
-      title: "Tamplate 4",
+      title: "Template 4",
       description: "",
       category: "",
       type: "iframe",
@@ -173,7 +173,7 @@ export const demoInfo = {
     },
     {
       icon: "",
-      title: "Tamplate 5",
+      title: "Template 5",
       description: "",
       category: "",
       type: "iframe",
@@ -181,7 +181,7 @@ export const demoInfo = {
     },
     {
       icon: "",
-      title: "Tamplate 6",
+      title: "Template 6",
       description: "",
       category: "",
       type: "iframe",
@@ -189,7 +189,7 @@ export const demoInfo = {
     },
     {
       icon: "",
-      title: "Tamplate 7",
+      title: "Template 7",
       description: "",
       category: "",
       type: "iframe",
@@ -335,6 +335,8 @@ export const pricingInfo = {
     },
   ],
   features: [
+    "ShortCode supported",
+    "A lagacy version of B Timeline plugin.",
     "Add Classic Editor for Timeline Description",
     "7 Brand New Unique Timeline Templates",
     "Responsive Design",

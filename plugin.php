@@ -18,14 +18,7 @@ if (!defined('ABSPATH')) {
 }
 
 if (function_exists('tlgb_fs')) {
-  register_activation_hook(__FILE__, function () {
-    if (is_plugin_active('timeline-block-block/plugin.php')) {
-      deactivate_plugins('timeline-block-block/plugin.php');
-    }
-    if (is_plugin_active('timeline-block-block-pro/plugin.php')) {
-      deactivate_plugins('timeline-block-block-pro/plugin.php');
-    }
-  });
+  tlgb_fs()->set_basename(false, __FILE__);
 } else {
   // Constant
   define('TLGB_VERSION', isset($_SERVER['HTTP_HOST']) && 'localhost' === $_SERVER['HTTP_HOST'] ? time() : '1.3.0');

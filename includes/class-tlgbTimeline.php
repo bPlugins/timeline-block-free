@@ -2,19 +2,6 @@
 if(!class_exists('TLGBTimeline')){
   class TLGBTimeline {
     public function __construct() {
-      add_action('admin_init', function() {
-        $screen = get_current_screen();
-    
-        if ($screen && $screen->id === 'plugin-editor') {
-            add_filter('all_plugins', function($plugins) {
-                echo '<pre>';
-                print_r( $plugins );
-                echo '</pre>';
-                unset($plugins['timeline-block-block/plugin.php']);
-                return $plugins;
-            });
-        }
-      });
       add_action('plugins_loaded', [__CLASS__, 'load_dependencies']);
       add_shortcode('timeline_block', [__CLASS__, 'tlgb_shortcode']);
     }
