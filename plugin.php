@@ -83,7 +83,6 @@ if (function_exists('tlgb_fs')) {
       if (function_exists('deactivate_plugins')) {
         $plugin_to_deactivate = 'b-timeline/b-titmeline.php';
         if (is_plugin_active($plugin_to_deactivate)) {
-            echo "Tanin Rahman";
               deactivate_plugins($plugin_to_deactivate);
               add_action('admin_notices', function() use ($plugin_to_deactivate) {
                   ?>
