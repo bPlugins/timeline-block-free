@@ -57,7 +57,8 @@ if (function_exists('tlgb_fs')) {
           'has_addons' => false,
           'has_paid_plans' => true,
           'menu' => [
-              'slug' => 'edit.php?post_type=timeline_block&page=tlgb-dashboard',
+              'slug' => 'edit.php?post_type=timeline_block',
+              'first-path' => "edit.php?post_type=timeline_block&page=tlgb-dashboard#/welcome",
               'support' => false,
           ],
         ];
@@ -76,4 +77,23 @@ if (function_exists('tlgb_fs')) {
   // Initialized The Plugin
   require_once TLGB_DIR_PATH. 'includes/class-tlgbTimeline.php';
   new TLGBTimeline();
+
+  // Deactivate B-Timeline if Timeline Block Pro is active and Premium Code is available
+  if (tlgb_fs()->can_use_premium_code() && TLGB_HAS_PRO) {
+      if (function_exists('deactivate_plugins')) {
+        $plugin_to_deactivate = 'b-timeline/b-titmeline.php';
+        if (is_plugin_active($plugin_to_deactivate)) {
+            echo "Tanin Rahman";
+              deactivate_plugins($plugin_to_deactivate);
+              add_action('admin_notices', function() use ($plugin_to_deactivate) {
+                  ?>
+                  <div class="notice notice-warning is-dismissible">
+                    <p><strong>Timeline Block Pro</strong> has deactivated <code><?php echo esc_html($plugin_to_deactivate); ?></code> to prevent conflicts. The old B-Timeline plugin is now recognized as <strong>B-Timeline (Legacy)</strong>.</p>
+                  </div>
+                  <?php
+              });
+          }
+      }
+  }
+
 }
