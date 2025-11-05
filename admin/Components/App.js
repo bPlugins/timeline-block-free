@@ -27,7 +27,7 @@ const App = (props) => {
                 <ListDemos demoInfo={demoInfo} {...props}>
                   {!isPremium && (
                     <Button
-                      href={`${adminUrl}tools.php?page=timeline-block#/pricing`}
+                      href={`${adminUrl}edit.php?post_type=timeline_block&page=tlgb-dashboard#/pricing`}
                       // target="_blank"
                       // rel="noreferrer"
                       variant="secondary"

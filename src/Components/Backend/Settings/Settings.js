@@ -142,7 +142,7 @@ const Settings = ({
       <AboutProModal
         isProModalOpen={isProModalOpen}
         setIsProModalOpen={setIsProModalOpen}
-        link={`${isPremium.adminUrl}tools.php?page=timeline-block#/pricing`}
+        link={`${isPremium.adminUrl}edit.php?post_type=timeline_block&page=tlgb-dashboard#/pricing`}
       >
         <li>
           &emsp;

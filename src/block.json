@@ -2,13 +2,10 @@
   "apiVersion": "1",
   "name": "tlgb/b-timeline-block",
   "title": "B Timeline Block",
+  "version": "1.3.1",
   "description": "Show your story or Memories on the web.",
   "category": "widgets",
-  "keywords": [
-    "b-timeline",
-    "timeline",
-    "timeline-block"
-  ],
+  "keywords": ["b-timeline", "timeline", "timeline-block"],
   "textdomain": "timeline-block",
   "attributes": {
     "align": {
@@ -159,7 +156,7 @@
         "dateColor": "black",
         "dateContainerSize": 50,
         "dateBg": {
-            "color": "#06b6d4"
+          "color": "#06b6d4"
         }
       }
     },
@@ -188,10 +185,7 @@
     }
   },
   "supports": {
-    "align": [
-      "wide",
-      "full"
-    ],
+    "align": ["wide", "full"],
     "html": false
   },
   "example": {
@@ -199,16 +193,9 @@
       "preview": true
     }
   },
-  "editorScript": [
-    "file:./index.js",
-    "wp-api"
-  ],
+  "editorScript": ["file:./index.js", "wp-api"],
   "editorStyle": "file:./index.css",
   "style": "file:./view.css",
   "render": "file:./render.php",
-  "viewScript": [
-    "file:./view.js",
-    "react",
-    "react-dom"
-  ]
+  "viewScript": ["file:./view.js", "react", "react-dom"]
 }

@@ -35,6 +35,10 @@ export const dashboardInfo = (info) => {
 
 export const changelogs = [
   {
+    version: "1.3.1, 5 November 2025",
+    list: ["Updated freemius-lite sdk."],
+  },
+  {
     version: "1.3.0, 20 October 2025",
     list: ["Add timeline block shortcode.", "Modified the plugin."],
   },
