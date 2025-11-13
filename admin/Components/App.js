@@ -57,11 +57,7 @@ const App = (props) => {
                   pricingInfo={pricingInfo}
                   options={{ title: `${name} Pro` }}
                   {...props}
-                >
-                  <h2 className="achb-pricing-title">
-                    One time payment, Lifetime Access
-                  </h2>
-                </Pricing>
+                ></Pricing>
               }
             />
           )}

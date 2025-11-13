@@ -1,10 +1,10 @@
 === Timeline Block - Beautiful Timeline Builder for WordPress (Vertical & Horizontal Timelines) ===
 Contributors: bplugins, abuhayat, taninrahman, charlescormier
 Donate link: https://www.buymeacoffee.com/abuhayat
-Tags: timeline, block, vertical timeline, horizontal timeline, timeline builder
+Tags:  block, timeline, vertical timeline, horizontal timeline, timeline builder
 Requires at least: 6.5+
 Tested up to: 6.8
-Stable tag: 1.3.1
+Stable tag: 1.3.2
 Requires PHP: 7.1
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -117,10 +117,22 @@ Please report security bugs found in the source code of the Timeline Block plugi
 
 == Screenshots ==
 
-1. All Block Directory
+1. Timeline Block ShortCodes
+2. Add New Timeline Block ShortCode
+3. Default Timeline
+4. Template 1
+5. Template 2
+6. Template 3
+7. Template 4
+8. Template 5
+9. Template 6
+10. Template 7
 
 
 == Changelog ==
+
+= 1.3.2 - 13 November 2025 = 
+* updated freemius version and readme.txt
 
 = 1.3.1 - 5 November 2025 = 
 * Updated freemius-lite sdk
