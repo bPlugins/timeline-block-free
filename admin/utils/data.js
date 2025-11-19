@@ -21,7 +21,7 @@ export const dashboardInfo = (info) => {
     hasPro,
     pages: {
       org: `https://wordpress.org/plugins/${slug}/`,
-      landing: `https://bplugins.com/products/${slug}/`,
+      landing: `https://bplugins.com/products/timeline-block/`,
       // docs: `https://bplugins.com/products/b-timeline/`, // Add Documentation link here
       pricing: `https://bplugins.com/products/${slug}/pricing`,
     },
@@ -34,6 +34,10 @@ export const dashboardInfo = (info) => {
 };
 
 export const changelogs = [
+  {
+    version: "1.3.3 - 19 November 2025",
+    list: ["Fixed issues"],
+  },
   {
     version: "1.3.2 - 13 November 2025",
     list: ["updated freemius version and readme.txt"],

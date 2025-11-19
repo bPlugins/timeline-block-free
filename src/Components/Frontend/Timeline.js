@@ -10,10 +10,12 @@ import Theme6 from "../Backend/Themes/Theme6";
 import Theme5 from "../Backend/Themes/Theme5";
 import Theme7 from "../Backend/Themes/Theme7";
 
-const Timeline = ({ attributes, id }) => {
+const Timeline = ({ attributes, id, isPremium }) => {
   const { timelines, theme, itemPosition, type } = attributes;
   const [visibleDescriptions, setVisibleDescriptions] = useState({});
   const [activeIndex, setActiveIndex] = useState(0);
+
+  const pricingLocation = `/wp-admin/edit.php?post_type=timeline_block&page=tlgb-dashboard#/pricing`;
 
   useEffect(() => {
     const timelineEl = document.querySelector(`#${id} .timeline`);
@@ -225,6 +227,7 @@ const Timeline = ({ attributes, id }) => {
             attributes={attributes}
             labelEl={labelEl}
             descriptionEl={descriptionEl}
+            setActiveIndex={setActiveIndex}
           />
         )}
 
@@ -262,6 +265,23 @@ const Timeline = ({ attributes, id }) => {
             labelEl={labelEl}
             descriptionEl={descriptionEl}
           />
+        )}
+
+        {/* PREMIUM OVERLAY (Shown if isPremium === false) */}
+        {theme !== "default" && !isPremium && (
+          <div className="premium-overlay">
+            <div className="premium-box">
+              <h3>This is a Premium Feature</h3>
+              <a
+                className="premium-btn"
+                href={pricingLocation}
+                rel="noreferrer"
+                target="_blank"
+              >
+                Upgrade Now
+              </a>
+            </div>
+          </div>
         )}
       </div>
     </>

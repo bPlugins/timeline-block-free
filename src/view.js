@@ -10,9 +10,15 @@ document.addEventListener("DOMContentLoaded", () => {
   timelineBlockEls.forEach((timelineBlockEl) => {
     const attributes = JSON.parse(timelineBlockEl.dataset.attributes);
 
+    const isPremium = tlgbIsPipeChecker;
+
     createRoot(timelineBlockEl).render(
       <>
-        <Timeline attributes={attributes} id={timelineBlockEl.id} />
+        <Timeline
+          attributes={attributes}
+          id={timelineBlockEl.id}
+          isPremium={isPremium}
+        />
       </>
     );
 

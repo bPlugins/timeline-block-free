@@ -2,7 +2,6 @@ import { produce } from "immer";
 import { useEffect, useState } from "react";
 import { withSelect } from "@wordpress/data";
 
-import { usePremiumInEditor } from "../../../../bpl-tools/hooks";
 import { timelineConfig } from "../../utils/config";
 import Settings from "../Backend/Settings/Settings";
 import Styles from "../Common/Styles";
@@ -41,7 +40,7 @@ const Edit = (props) => {
 
   const id = `tlgbTimeline-${clientId}`;
 
-  const { isPremium } = usePremiumInEditor("tlgbUtils", "tlgbPipeChecker");
+  const isPremium = tlgbIsPipeChecker;
 
   const [visibleDescriptions, setVisibleDescriptions] = useState({});
 

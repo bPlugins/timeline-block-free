@@ -11,6 +11,8 @@ import { AboutProModal } from "../../../../../bpl-tools/ProControls";
 import { generalStyleTabs } from "../../../utils/options";
 import General from "./General/General";
 import Styles from "./Styles/Styles";
+import BlockPreview from "./Panel/BlockPreview";
+import { themeSwitch, toolTipPresets } from "../../../utils/functions";
 
 const Settings = ({
   attributes,
@@ -21,11 +23,11 @@ const Settings = ({
   isPremium,
   updateObj,
 }) => {
-  const { timelines } = attributes;
+  const { timelines, theme } = attributes;
   const [isProModalOpen, setIsProModalOpen] = useState(false);
 
   const premiumProps = {
-    isPremium: isPremium.isPipe,
+    isPremium,
     setIsProModalOpen,
   };
 
@@ -137,6 +139,13 @@ const Settings = ({
             onClick={addTimeline}
           />
         </ToolbarGroup>
+
+        <BlockPreview
+          options={toolTipPresets}
+          isPremium={isPremium}
+          value={theme}
+          onChange={(val) => setAttributes(themeSwitch(val, attributes))}
+        ></BlockPreview>
       </BlockControls>
 
       <AboutProModal

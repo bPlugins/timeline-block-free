@@ -144,3 +144,70 @@ export const themeSwitch = (theme = "default", attributes) =>
         break;
     }
   });
+
+export const toolTipPresets = [
+  {
+    label: "Default",
+    value: "default",
+    img: "https://templates.bplugins.com/wp-content/uploads/2025/11/default-timeline.png",
+    height: "auto",
+    width: "160px",
+    isPro: false,
+  },
+  {
+    label: "Accordion Timeline",
+    value: "timeline-with-accordion",
+    img: "https://templates.bplugins.com/wp-content/uploads/2025/11/accordion-timeline.png",
+    height: "auto",
+    width: "160px",
+    isPro: true,
+  },
+  {
+    label: "Timeline with Icon & Date",
+    value: "theme-2",
+    img: "https://templates.bplugins.com/wp-content/uploads/2025/11/theme-2.png",
+    height: "auto",
+    width: "160px",
+    isPro: true,
+  },
+  {
+    label: "Theme-3",
+    value: "theme-3",
+    img: "https://templates.bplugins.com/wp-content/uploads/2025/11/theme-3.png",
+    height: "auto",
+    width: "160px",
+    isPro: true,
+  },
+  {
+    label: "Theme-4",
+    value: "theme-4",
+    img: "https://templates.bplugins.com/wp-content/uploads/2025/11/theme-4.png",
+    height: "auto",
+    width: "160px",
+    isPro: true,
+  },
+  {
+    label: "Theme-5",
+    value: "theme-5",
+    img: "https://templates.bplugins.com/wp-content/uploads/2025/11/theme-5.png",
+    height: "auto",
+    width: "160px",
+    isPro: true,
+  },
+  {
+    label: "Theme-6",
+    value: "theme-6",
+    img: "https://templates.bplugins.com/wp-content/uploads/2025/11/theme-6.png",
+    height: "auto",
+    width: "160px",
+    isPro: true,
+  },
+  {
+    label: "Theme-7",
+    value: "theme-7",
+    img: "https://templates.bplugins.com/wp-content/uploads/2025/11/theme-7.png",
+    height: "auto",
+    width: "160px",
+    isPro: true,
+  },
+];

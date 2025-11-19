@@ -17,6 +17,7 @@ module.exports = {
     timeline: "readonly",
     tlgbIsPremium: "readonly",
     adminUrl: "readonly",
+    tlgbIsPipeChecker: "readonly",
   },
   parserOptions: {
     ecmaFeatures: {
