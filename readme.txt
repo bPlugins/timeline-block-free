@@ -1,10 +1,10 @@
 === Timeline Block - Beautiful Timeline Builder for WordPress (Vertical & Horizontal Timelines) ===
-Contributors: bplugins, abuhayat, taninrahman, charlescormier
+Contributors: bplugins, abuhayat, taninrahman, charlescormier, freemius
 Donate link: https://www.buymeacoffee.com/abuhayat
 Tags:  block, timeline, vertical timeline, horizontal timeline, timeline builder
 Requires at least: 6.5+
-Tested up to: 6.8
-Stable tag: 1.3.3
+Tested up to: 6.9
+Stable tag: 1.3.4
 Requires PHP: 7.1
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -13,12 +13,14 @@ Design Timeline with ease! Featuring 7 customizable themes in both horizontal an
 
 == Description ==
 
+**Design Stunning WordPress Timelines Without Writing a Single Line of Code.**
+
 The Timeline Block Plugin is your ultimate solution for creating visually stunning and fully customizable timelines in WordPress. With 6 unique themes, each supporting both horizontal and vertical layouts, this plugin offers unparalleled flexibility to showcase your stories, projects, milestones, or events in a captivating format.
 
 Designed with user-friendliness in mind, the Timeline Block Plugin empowers you to effortlessly add, edit, and style your timeline directly in the WordPress editor. Customize colors, fonts, icons, and more to align perfectly with your brand or website design. Whether you're creating a project roadmap, a personal story, or a historical timeline, the plugin adapts to your needs with precision. 
 
 
-**[Demos](https://bblockswp.com/demo/timeline/)** **[Demos](https://bplugins.com/products/b-timeline/#pricing)**
+[**Timeline Block**](https://bplugins.com/products/timeline-block/) | [**Pricing**](https://bplugins.com/products/timeline-block/pricing/) | [**Support**](https://bplugins.com/support/) | [**Demo**]((https://bblockswp.com/demo/timeline-block-all-demos/))
 
 
 = Key Features =
@@ -31,7 +33,7 @@ Designed with user-friendliness in mind, the Timeline Block Plugin empowers you 
 
 = Pro Features =
 - **Add Shortcode API**: You can access a very powerful shortcode plugin which have some incredible features and you can use anywhere this plugin by using this features.
-- **Six Extra Themes**: Access six more professionally designed themes, some themes supporting both horizontal and vertical layouts.
+- **Seven Extra Themes**: Access seven more professionally designed themes, some themes supporting both horizontal and vertical layouts.
 - **Classic Editor for Descriptions**: Edit timeline descriptions beautifully with the integrated classic editor, providing advanced formatting options.
 - **Customizable Icons**: Add unique icons to your timeline items and style them to create a polished, professional look.
 - **Enhanced Customization Options**: Fine-tune every aspect of your timeline for ultimate design control.
@@ -130,6 +132,9 @@ Please report security bugs found in the source code of the Timeline Block plugi
 
 
 == Changelog ==
+
+= 1.3.4 - 24 January 2026 = 
+* Fixed vulnerability issue
 
 = 1.3.3 - 18 November 2025 = 
 * fixed issues

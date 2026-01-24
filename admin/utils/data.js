@@ -35,6 +35,10 @@ export const dashboardInfo = (info) => {
 
 export const changelogs = [
   {
+    version: "1.3.4 - 24 January 2026",
+    list: ["Fixed vulnerability issue"],
+  },
+  {
     version: "1.3.3 - 19 November 2025",
     list: ["Fixed issues"],
   },

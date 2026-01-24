@@ -34,14 +34,14 @@ if(!class_exists('tlgbCPT')) {
             
         }
     
-        function tlgb_timelineBlockManageColumns($defaults){
+        public function tlgb_timelineBlockManageColumns($defaults){
             unset($defaults['date']);
             $defaults['shortcode'] = 'ShortCode';
             $defaults['date'] = 'Date';
             return $defaults;
         }
     
-        function tlgb_timelineBlockManageCustomColumns($column_name, $post_ID){
+        public function tlgb_timelineBlockManageCustomColumns($column_name, $post_ID){
             if ($column_name == 'shortcode') {
                 echo '<div class="bPlAdminShortcode" id="bPlAdminShortcode-' . esc_attr($post_ID) . '">
                         <input value="[timeline_block id=' . esc_attr($post_ID) . ']" onclick="copyBPlAdminShortcode(\'' . esc_attr($post_ID) . '\')" readonly>

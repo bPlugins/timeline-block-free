@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Timeline Block
  * Description: Display timeline content on your site. 
- * Version: 1.3.3
+ * Version: 1.3.4
  * Author: bPlugins
  * Author URI: https://bplugins.com
  * License: GPLv3
@@ -21,7 +21,7 @@ if (function_exists('tlgb_fs')) {
   tlgb_fs()->set_basename(false, __FILE__);
 } else {
   // Constant
-  define('TLGB_VERSION', isset($_SERVER['HTTP_HOST']) && 'localhost' === $_SERVER['HTTP_HOST'] ? time() : '1.3.3');
+  define('TLGB_VERSION', isset($_SERVER['HTTP_HOST']) && 'localhost' === $_SERVER['HTTP_HOST'] ? time() : '1.3.4');
   define('TLGB_DIR_URL', plugin_dir_url(__FILE__));
   define('TLGB_DIR_PATH', plugin_dir_path(__FILE__));
   define('TLGB_HAS_FREE', 'timeline-block-block/plugin.php' === plugin_basename(__FILE__));
@@ -75,24 +75,7 @@ if (function_exists('tlgb_fs')) {
   }
 
   // Initialized The Plugin
-  require_once TLGB_DIR_PATH. 'includes/class-tlgbTimeline.php';
+  require_once TLGB_DIR_PATH. 'includes/class-tlgb-main.php';
   new TLGBTimeline();
-
-  // Deactivate B-Timeline if Timeline Block Pro is active and Premium Code is available
-  if (tlgb_fs()->can_use_premium_code() && TLGB_HAS_PRO) {
-      if (function_exists('deactivate_plugins')) {
-        $plugin_to_deactivate = 'b-timeline/b-titmeline.php';
-        if (is_plugin_active($plugin_to_deactivate)) {
-              deactivate_plugins($plugin_to_deactivate);
-              add_action('admin_notices', function() use ($plugin_to_deactivate) {
-                  ?>
-                  <div class="notice notice-warning is-dismissible">
-                    <p><strong>Timeline Block Pro</strong> has deactivated <code><?php echo esc_html($plugin_to_deactivate); ?></code> to prevent conflicts. The old B-Timeline plugin is now recognized as <strong>B-Timeline (Legacy)</strong>.</p>
-                  </div>
-                  <?php
-              });
-          }
-      }
-  }
 
 }

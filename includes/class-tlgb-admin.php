@@ -2,12 +2,13 @@
 
 if (!class_exists('TLGBAdminMenu')) {
   class TLGBAdminMenu {
+
     function __construct() {
       add_action('admin_menu', [$this, 'adminMenu']);
       add_action('admin_enqueue_scripts', [$this, 'adminEnqueueScripts']);
     }
 
-    function adminMenu() {
+    public function adminMenu() {
       add_submenu_page(
         'edit.php?post_type=timeline_block',
         'Demo & Help',
@@ -19,7 +20,7 @@ if (!class_exists('TLGBAdminMenu')) {
       );
     }
 
-    function renderPage() {
+    public function renderPage() {
       ?>
        <div id="tlgbAdminDashboardWrapper"
             data-info='<?php echo esc_attr( wp_json_encode( [
@@ -31,7 +32,7 @@ if (!class_exists('TLGBAdminMenu')) {
       <?php
     }
     
-    function adminEnqueueScripts($hook) {
+    public function adminEnqueueScripts($hook) {
       global $post_type;
       if($post_type === 'timeline_block' || $post_type === 'btimeline') {
         wp_enqueue_style('tlgb-shortcode-column', TLGB_DIR_URL. 'build/column.css', [], TLGB_VERSION);
@@ -43,6 +44,7 @@ if (!class_exists('TLGBAdminMenu')) {
         wp_set_script_translations('tlgb-admin-help', 'timeline-block', TLGB_DIR_PATH . 'languages');
       }
     }
+    
   }
   new TLGBAdminMenu();
 }

@@ -2,7 +2,7 @@
   "apiVersion": "1",
   "name": "tlgb/b-timeline-block",
   "title": "B Timeline Block",
-  "version": "1.3.1",
+  "version": "1.3.4",
   "description": "Show your story or Memories on the web.",
   "category": "widgets",
   "keywords": ["b-timeline", "timeline", "timeline-block"],

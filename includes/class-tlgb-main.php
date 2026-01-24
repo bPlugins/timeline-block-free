@@ -7,10 +7,10 @@ if(!class_exists('TLGBTimeline')){
     }
   
     public static function load_dependencies() {
-      require_once TLGB_DIR_PATH. 'class-tlgbBlock.php';
+      require_once TLGB_DIR_PATH. 'class-tlgb-block.php';
       require_once TLGB_DIR_PATH . 'includes/functions.php';
-      require_once TLGB_DIR_PATH . 'includes/class-tlgbCPT.php';
-      include_once TLGB_DIR_PATH . 'includes/AdminMenu.php';
+      require_once TLGB_DIR_PATH . 'includes/class-tlgb-cpt.php';
+      include_once TLGB_DIR_PATH . 'includes/class-tlgb-admin.php';
       $b_timeline = TLGB_DIR_PATH . 'b-timeline/b-timeline.php';
       if (tlgbIsPremium() && file_exists($b_timeline)) {
         include_once $b_timeline;

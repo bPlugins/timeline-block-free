@@ -1,14 +1,12 @@
 <?php
 if (!class_exists('TLGBPlugin')) {
     class TLGBPlugin {
+
       public function __construct() {
         add_action('init', [$this, 'init']); 
         add_action('enqueue_block_assets', [$this, 'tlgb_enqueue_scripts']); 
         add_action('enqueue_block_editor_assets', [$this, 'tlgb_enqueue_editor_scripts']);
       }
-
-     
-
 
       // Function to enqueue block assets for backend and frontend
       public function tlgb_enqueue_scripts() {
@@ -42,9 +40,8 @@ if (!class_exists('TLGBPlugin')) {
           'before'
         );
       }
-
-
-      function init() {
+      
+      public function init() {
         register_block_type(__DIR__ . '/build');
         wp_set_script_translations('tlgb-editor', 'timeline-block', plugin_dir_path(__FILE__) . 'languages');
       }
