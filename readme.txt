@@ -41,7 +41,7 @@ Designed with user-friendliness in mind, the Timeline Block Plugin empowers you 
  
 = How to use =
 - First, install the *Timeline Block* plugin
-- Add the *B Timeline Block* block from the block category called "Widgets" in the Gutenberg editor.
+- Add the *Timeline Block* block from the block category called "Widgets" in the Gutenberg editor.
 - You can change block settings from the right-side settings sidebar.
 - Enjoy!
 

@@ -30,7 +30,7 @@ if(!class_exists('TLGBBTimelineAdmin')){
             );
             $args = array(
                 'labels' => $labels,
-                'description' => __('B Timeline Options.', 'timeline-block'),
+                'description' => __('Timeline Options.', 'timeline-block'),
                 'public' => false,
                 'show_ui' => true,
                 "show_in_rest" => true,
