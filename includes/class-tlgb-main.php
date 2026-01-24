@@ -18,21 +18,39 @@ if(!class_exists('TLGBTimeline')){
     }
   
     public static function tlgb_shortcode($atts) {
-      if (isset($atts['id'])) {
-        $post = get_post($atts['id']);
-    
-        if ($post) {
-            $blocks = parse_blocks($post->post_content);
-    
-            foreach ($blocks as $block) {
-                if ($block['blockName'] === 'tlgb/b-timeline-block') {
-                    return render_block($block);
-                }
-            }
-        } else {
-            return 'Post not found or invalid post type.';
-        }
-      }
+      $atts = shortcode_atts([
+					'id' => 0,
+				],$atts, 'timeline_block');
+
+			$post_id = absint( $atts['id'] );
+
+			if ( ! $post_id ) {
+				return '<p>Invalid timeline ID.</p>';
+			}
+
+			$post = get_post( $post_id );
+
+			if ( ! $post || $post->post_type !== 'timeline_block' ) {
+				return '<p>Timeline not found.</p>';
+			}
+
+			if ( ! current_user_can( 'read_post', $post_id ) ) {
+				return '<p>You are not allowed to view this timeline.</p>';
+			}
+
+			$blocks = parse_blocks( $post->post_content );
+
+			if ( empty( $blocks ) ) {
+				return '<p>No timeline content found.</p>';
+			}
+
+			foreach ( $blocks as $block ) {
+				if ( isset( $block['blockName'] ) && $block['blockName'] === 'tlgb/b-timeline-block' ) {
+					return render_block( $block );
+				}
+			}
+
+			return '<p>Timeline block not found in this post.</p>';
     } 
   }
 }
