@@ -11,9 +11,10 @@ if(!class_exists('TLGBTimeline')){
       require_once TLGB_DIR_PATH . 'includes/functions.php';
       require_once TLGB_DIR_PATH . 'includes/class-tlgb-cpt.php';
       include_once TLGB_DIR_PATH . 'includes/class-tlgb-admin.php';
-      $b_timeline = TLGB_DIR_PATH . 'b-timeline/b-timeline.php';
-      if (tlgbIsPremium() && file_exists($b_timeline)) {
-        include_once $b_timeline;
+      // $b_timeline = TLGB_DIR_PATH . 'b-timeline/b-timeline.php';
+      $timeline = TLGB_DIR_PATH . 'b-timeline/class-bptl-main.php';
+      if (tlgbIsPremium() && file_exists($timeline)) {
+        include_once $timeline;
       }
     }
   

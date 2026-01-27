@@ -21,8 +21,7 @@ const Layout = (props) => {
           {navigation
             ?.filter(
               (item) =>
-                !isPremium ||
-                !["/purchase", "/pricing", "/demos"].includes(item.href)
+                !isPremium || !["/purchase", "/pricing"].includes(item.href)
             ) // Hide link for premium users
             ?.map((item, index) => (
               <Link

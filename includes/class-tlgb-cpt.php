@@ -18,7 +18,7 @@ if(!class_exists('tlgbCPT')) {
                     'not_found' => 'There was no tour please add one',
                     'search_items' => 'Search Timeline',
                     'view_item' => 'View Timeline',
-                    'menu_name' => 'B-Timeline',
+                    'menu_name' => 'Timeline',
                     'all_items' => 'Timeline Block ShortCodes',
                     'not_found_in_trash' => 'No Timeline found in trash',
                     'item_updated' => 'Timeline updated',

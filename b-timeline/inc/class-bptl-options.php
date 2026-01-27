@@ -12,7 +12,7 @@ $prefix = '_bptimeline_';
 // Create a metabox
 //
 CSF::createMetabox($prefix, array(
-  'title' => __('B-Timeline Options', 'timeline-block'),
+  'title' => __('Timeline Options', 'timeline-block'),
   'post_type' => 'btimeline',
   'show_restore' => true,
 ));

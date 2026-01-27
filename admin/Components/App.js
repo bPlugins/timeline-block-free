@@ -20,25 +20,23 @@ const App = (props) => {
 
           <Route path="welcome" element={<Welcome {...props} />} />
 
-          {!isPremium && (
-            <Route
-              path="demos"
-              element={
-                <ListDemos demoInfo={demoInfo} {...props}>
-                  {!isPremium && (
-                    <Button
-                      href={`${adminUrl}edit.php?post_type=timeline_block&page=tlgb-dashboard#/pricing`}
-                      // target="_blank"
-                      // rel="noreferrer"
-                      variant="secondary"
-                    >
-                      Buy Now
-                    </Button>
-                  )}
-                </ListDemos>
-              }
-            />
-          )}
+          <Route
+            path="demos"
+            element={
+              <ListDemos demoInfo={demoInfo} {...props}>
+                {!isPremium && (
+                  <Button
+                    href={`${adminUrl}edit.php?post_type=timeline_block&page=tlgb-dashboard#/pricing`}
+                    // target="_blank"
+                    // rel="noreferrer"
+                    variant="secondary"
+                  >
+                    Buy Now
+                  </Button>
+                )}
+              </ListDemos>
+            }
+          />
 
           {/* {!isPremium && (
             <Route

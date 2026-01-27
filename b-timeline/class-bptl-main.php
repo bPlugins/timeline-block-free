@@ -3,18 +3,16 @@ if(!class_exists('TLGBBTimeline')){
     class TLGBBTimeline {
         public function __construct() {
             add_action('init', [__CLASS__, 'init'], 0);
-            add_action('admin_enqueue_scripts', [__CLASS__, 'admin_style']);
             add_action('wp_enqueue_scripts', [__CLASS__, 'timeline_scripts']);
             add_shortcode('btimeline', [__CLASS__, 'bptl_shortcode']);
-            add_filter('admin_footer_text', [__CLASS__, 'admin_footer']);
         }
     
         public static function init() {
             if (!class_exists('CSF')) {
                 require_once 'inc/codestar/csf-config.php';
             }
-            require_once 'inc/btimeline-options.php';
-            require_once TLGB_DIR_PATH . 'b-timeline/TLGBBTimelineAdmin.php';
+            require_once 'inc/class-bptl-options.php';
+            require_once TLGB_DIR_PATH . 'b-timeline/class-bptl-admin.php';
         }   
         
         public static function timeline_scripts() {
@@ -25,18 +23,7 @@ if(!class_exists('TLGBBTimeline')){
             
         }
     
-        public static function admin_style($hook) {
-            wp_register_style('bptl-admin-style', TLGB_DIR_URL . 'b-timeline/public/assets/css/admin-style.css');
-            wp_enqueue_style('bptl-admin-style');
-        }
-    
-        public static function admin_footer($text) {
-            if ('btimeline' === get_post_type()) {
-                $url = 'https://wordpress.org/plugins/b-timeline/reviews/?filter=5#new-post';
-                $text = sprintf(__('If you like <strong> B-Timeline </strong> please leave us a <a href="%s" target="_blank">&#9733;&#9733;&#9733;&#9733;&#9733;</a> rating. Your Review is very important to us as it helps us to grow more. ', 'timeline-block'), $url);
-            }
-            return $text;
-        }
+        
     
         public static function bptl_shortcode($atts) {
             extract(shortcode_atts(array(

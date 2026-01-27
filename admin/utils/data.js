@@ -35,6 +35,13 @@ export const dashboardInfo = (info) => {
 
 export const changelogs = [
   {
+    version: "1.3.5 - 27 January 2026",
+    list: [
+      "Fixed horizontal timeline issue",
+      "Optimized plugin files & increase code readability",
+    ],
+  },
+  {
     version: "1.3.4 - 24 January 2026",
     list: ["Fixed vulnerability issue"],
   },
@@ -69,66 +76,6 @@ export const changelogs = [
   {
     version: "1.2.1, 15 May 2025",
     list: ["Fixed text domain issue and SEO problem"],
-  },
-  {
-    version: "1.2.0, 6 May 2025",
-    list: ["Fixed text domain issue and SEO problem"],
-  },
-  {
-    version: "1.1.5, 16 March 2025",
-    list: ["Fixed issues"],
-  },
-  {
-    version: "1.1.4, 9 March 2025",
-    list: ["Fixed issues", "Updated Readme"],
-  },
-  {
-    version: "1.1.3, 8 Feb 2025",
-    list: ["Fixed issues"],
-  },
-  {
-    version: "1.1.2",
-    list: ["Fixed issues"],
-  },
-  {
-    version: "1.1.1, 27 Jan 2025",
-    list: ["Updated SDK version"],
-  },
-  {
-    version: "1.1.0, 16 Jan 2025",
-    list: ["Uploaded v1.1.0 – premium version with incredible features"],
-  },
-  {
-    version: "1.0.7, 14 Feb 2024",
-    list: ["Fixed issue"],
-  },
-  {
-    version: "1.0.6",
-    list: ["Fixed issue"],
-  },
-  {
-    version: "1.0.5",
-    list: ["Added text area to write HTML"],
-  },
-  {
-    version: "1.0.4",
-    list: ["Fixed Start Index and Visible Items"],
-  },
-  {
-    version: "1.0.3",
-    list: ["Fixed mobile not showing"],
-  },
-  {
-    version: "1.0.2",
-    list: [
-      "Removed jQuery dependency",
-      "Added ability to remove, duplicate and add a timeline from the toolbar",
-      "Added translation support",
-    ],
-  },
-  {
-    version: "1.0.0",
-    list: ["Initial Release"],
   },
 ];
 
@@ -352,7 +299,7 @@ export const pricingInfo = {
   ],
   features: [
     "ShortCode supported",
-    "A lagacy version of B Timeline plugin.",
+    "A lagacy version of Timeline plugin.",
     "Add Classic Editor for Timeline Description",
     "7 Brand New Unique Timeline Templates",
     "Responsive Design",
