@@ -35,6 +35,10 @@ export const dashboardInfo = (info) => {
 
 export const changelogs = [
   {
+    version: "1.3.6 - 15 February 2026",
+    list: ["Fixed: Removed unnecessary login restriction for shortcode display."],
+  },
+  {
     version: "1.3.5 - 27 January 2026",
     list: [
       "Fixed horizontal timeline issue",
