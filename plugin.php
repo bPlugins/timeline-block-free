@@ -2,13 +2,13 @@
 /**
  * Plugin Name: Timeline Block
  * Description: Display timeline content on your site. 
- * Version: 1.3.6
+ * Version: 1.3.7
  * Author: bPlugins
  * Author URI: https://bplugins.com
  * License: GPLv3
  * License URI: https://www.gnu.org/licenses/gpl-3.0.txt
  * Text Domain: timeline-block
- * @fs_premium_only /vendor/freemius, /b-timeline
+ * @fs_premium_only /vendor/freemius, /b-timeline, /includes/class-tlgb-license-activation.php
  * @fs_free_only /vendor/freemius-lite
  */
 
@@ -21,7 +21,7 @@ if (function_exists('tlgb_fs')) {
   tlgb_fs()->set_basename(false, __FILE__);
 } else {
   // Constant
-  define('TLGB_VERSION', isset($_SERVER['HTTP_HOST']) && 'localhost' === $_SERVER['HTTP_HOST'] ? time() : '1.3.6');
+  define('TLGB_VERSION', isset($_SERVER['HTTP_HOST']) && 'localhost' === $_SERVER['HTTP_HOST'] ? time() : '1.3.7');
   define('TLGB_DIR_URL', plugin_dir_url(__FILE__));
   define('TLGB_DIR_PATH', plugin_dir_path(__FILE__));
   define('TLGB_HAS_FREE', 'timeline-block-block/plugin.php' === plugin_basename(__FILE__));
