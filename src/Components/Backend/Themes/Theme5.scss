@@ -1,3 +1,52 @@
+/* ──────────────────────────────────────────────
+   Keyframe Animations for Theme 5
+────────────────────────────────────────────── */
+@keyframes t5-slide-up {
+  from { opacity: 0; transform: translateY(50px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes t5-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes t5-zoom-in {
+  from { opacity: 0; transform: scale(0.8); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes t5-slide-left {
+  from { opacity: 0; transform: translateX(-60px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes t5-slide-right {
+  from { opacity: 0; transform: translateX(60px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* ──────────────────────────────────────────────
+   Animation base - cards start hidden
+────────────────────────────────────────────── */
+.t5-anim {
+  opacity: 0;
+  will-change: opacity, transform;
+
+  &.t5-anim-visible {
+    animation-duration: var(--t5-anim-duration, 600ms);
+    animation-delay: var(--t5-anim-delay, 0ms);
+    animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+    animation-fill-mode: both;
+  }
+
+  &.t5-anim--slide-up.t5-anim-visible    { animation-name: t5-slide-up; }
+  &.t5-anim--fade-in.t5-anim-visible     { animation-name: t5-fade-in; }
+  &.t5-anim--zoom-in.t5-anim-visible     { animation-name: t5-zoom-in; }
+  &.t5-anim--slide-left.t5-anim-visible  { animation-name: t5-slide-left; }
+  &.t5-anim--slide-right.t5-anim-visible { animation-name: t5-slide-right; }
+}
+
 .theme5-timeline {
   .timeline-container {
     .timeline-items {

@@ -13,6 +13,7 @@ import Theme6 from "./Themes/Theme6";
 import ThemeStyles from "../Common/ThemeStyles";
 import { updateData } from "../../../../bpl-tools/utils/functions";
 import Theme7 from "./Themes/Theme7";
+import Theme8 from "./Themes/Theme8";
 import ClipBoard from "./ShortCodeClip";
 
 const Edit = (props) => {
@@ -292,6 +293,16 @@ const Edit = (props) => {
 
         {theme === "theme-7" && (
           <Theme7
+            attributes={attributes}
+            activeIndex={activeIndex}
+            setActiveIndex={setActiveIndex}
+            labelEl={labelEl}
+            descriptionEl={descriptionEl}
+          />
+        )}
+
+        {theme === "theme-8" && (
+          <Theme8
             attributes={attributes}
             activeIndex={activeIndex}
             setActiveIndex={setActiveIndex}

@@ -13,6 +13,7 @@ import { __ } from "@wordpress/i18n";
 import React from "react";
 import {
   BtnGroup,
+  ColorControl,
   IconLibrary,
   Label,
 } from "../../../../../../bpl-tools/Components";
@@ -82,6 +83,7 @@ const General = ({
             "theme-5",
             "theme-6",
             "theme-7",
+            "theme-8",
           ]}
         />
 
@@ -120,6 +122,33 @@ const General = ({
                     value={icon}
                     onChange={(val) => updateTimeline(activeIndex, "icon", val)}
                   />
+                )}
+
+                {/* Per-card Issue badge text & background color for Theme 8 */}
+                {theme === "theme-8" && (
+                  <>
+                    <PanelRow>
+                      <Label className="">
+                        {__("Issue Badge Text:", "timeline-block")}
+                      </Label>
+                      <TextControl
+                        placeholder={`Issue #${activeIndex + 1}`}
+                        value={timelines[activeIndex]?.issueText || ""}
+                        onChange={(val) =>
+                          updateTimeline(activeIndex, "issueText", val)
+                        }
+                      />
+                    </PanelRow>
+
+                    <ColorControl
+                      label={__("Card Background Color:", "timeline-block")}
+                      value={timelines[activeIndex]?.cardBg || ""}
+                      onChange={(val) =>
+                        updateTimeline(activeIndex, "cardBg", val)
+                      }
+                      defaultColor=""
+                    />
+                  </>
                 )}
               </>
             )}
@@ -194,7 +223,7 @@ const General = ({
         </div>
       </PanelBody>
 
-      {theme !== "theme-7" && (
+      {theme !== "theme-7" && theme !== "theme-8" && (
         <PanelBody
           className="bPlPanelBody"
           title={__("Timeline Settings", "timeline-block")}

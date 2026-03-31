@@ -1,0 +1,155 @@
+/* ──────────────────────────────────────────────
+   Keyframe Animations
+────────────────────────────────────────────── */
+@keyframes t8-slide-up {
+  from { opacity: 0; transform: translateY(50px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes t8-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes t8-zoom-in {
+  from { opacity: 0; transform: scale(0.8); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes t8-slide-left {
+  from { opacity: 0; transform: translateX(-60px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes t8-slide-right {
+  from { opacity: 0; transform: translateX(60px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* ──────────────────────────────────────────────
+   Animation base — cards start hidden
+────────────────────────────────────────────── */
+.t8-anim {
+  // opacity: 0;
+  will-change: opacity, transform;
+
+  /* Trigger animation when observer adds .t8-anim-visible */
+  &.t8-anim-visible {
+    animation-duration: var(--t8-anim-duration, 600ms);
+    animation-delay: var(--t8-anim-delay, 0ms);
+    animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+    animation-fill-mode: both;
+  }
+
+  &.t8-anim--slide-up.t8-anim-visible    { animation-name: t8-slide-up; }
+  &.t8-anim--fade-in.t8-anim-visible     { animation-name: t8-fade-in; }
+  &.t8-anim--zoom-in.t8-anim-visible     { animation-name: t8-zoom-in; }
+  &.t8-anim--slide-left.t8-anim-visible  { animation-name: t8-slide-left; }
+  &.t8-anim--slide-right.t8-anim-visible { animation-name: t8-slide-right; }
+}
+
+/* ──────────────────────────────────────────────
+   Layout
+────────────────────────────────────────────── */
+.theme8-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-family: "Arial Black", "Arial Bold", Arial, sans-serif;
+}
+
+/* ── Row layouts ── */
+.theme8-row {
+  display: flex;
+  gap: 20px;
+}
+
+.theme8-row--full {
+  .theme8-card {
+    width: 100%;
+  }
+}
+
+.theme8-row--pair {
+  .theme8-card {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+}
+
+/* ── Card ── */
+.theme8-card {
+  background-color: var(--card-bg, #f7c948);
+  border-radius: 8px;
+  padding: 22px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  cursor: pointer;
+
+  &:hover {
+    transform: translate(-2px, -2px);
+  }
+
+  &.theme8-card--active {
+    outline: 3px solid rgba(255, 255, 255, 0.6);
+    outline-offset: -6px;
+    transform: translate(-2px, -2px);
+  }
+}
+
+/* ── Badge ── */
+.theme8-badge {
+  display: inline-block;
+  background: #111;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 3px 10px;
+  border-radius: 4px;
+  align-self: flex-start;
+  text-transform: uppercase;
+  font-family: Arial, sans-serif;
+}
+
+/* ── Title ── */
+.theme8-card__title {
+  .timeline-label {
+    display: block;
+    font-size: 26px;
+    font-weight: 900;
+    color: #111;
+    text-transform: uppercase;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    font-family: "Arial Black", "Arial Bold", Arial, sans-serif;
+    margin: 0;
+  }
+}
+
+/* ── Description ── */
+.theme8-card__desc {
+  .timeline-description {
+    font-size: 14px;
+    font-weight: 400;
+    color: #1a1a1a;
+    line-height: 1.5;
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+}
+
+/* ── Responsive ── */
+@media screen and (max-width: 640px) {
+  .theme8-row--pair {
+    flex-direction: column;
+  }
+
+  .theme8-card__title {
+    .timeline-label {
+      font-size: 20px;
+    }
+  }
+}

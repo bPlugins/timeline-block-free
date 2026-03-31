@@ -31,6 +31,7 @@ export const themeOptions = [
   { label: "Theme 6", value: "theme-6" },
   { label: "Theme 5", value: "theme-5" },
   { label: "Theme 7", value: "theme-7" },
+  { label: "Theme 8", value: "theme-8" },
 ];
 export const itemPositionOptions = [
   { label: "Both Side", value: "both-side" },

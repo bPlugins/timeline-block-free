@@ -2,7 +2,9 @@ import {
   PanelBody,
   PanelRow,
   RangeControl,
+  SelectControl,
   TabPanel,
+  ToggleControl,
   __experimentalUnitControl as UnitControl,
   __experimentalBorderBoxControl as BorderBoxControl,
 } from "@wordpress/components";
@@ -34,6 +36,12 @@ const Styles = ({ attributes, setAttributes }) => {
     theme,
     contentBorder,
     timelineBar,
+    theme8CardBorder,
+    theme8CardShadow,
+    theme8Animation,
+    theme3Animation,
+    theme5Animation,
+    theme4Animation,
   } = attributes;
 
   const colors = [
@@ -44,6 +52,7 @@ const Styles = ({ attributes, setAttributes }) => {
 
   return (
     <>
+      {theme !== "theme-8" && (
       <PanelBody className="bPlPanelBody" title={__("Bar", "timeline-block")}>
         {theme !== "theme-3" && (
           <ColorControl
@@ -76,6 +85,7 @@ const Styles = ({ attributes, setAttributes }) => {
           />
         )}
       </PanelBody>
+      )}
 
       {theme === "theme-2" && (
         <PanelBody
@@ -270,12 +280,14 @@ const Styles = ({ attributes, setAttributes }) => {
           defaultColor="#333333"
         />
 
-        <ColorControl
-          label={__("Background:", "timeline-block")}
-          value={itemBg}
-          onChange={(val) => setAttributes({ itemBg: val })}
-          defaultColor="#ffffff"
-        />
+        {theme !== "theme-8" && (
+          <ColorControl
+            label={__("Background:", "timeline-block")}
+            value={itemBg}
+            onChange={(val) => setAttributes({ itemBg: val })}
+            defaultColor="#ffffff"
+          />
+        )}
 
         <Typography
           className="mt20"
@@ -353,7 +365,8 @@ const Styles = ({ attributes, setAttributes }) => {
 
         {theme !== "default" &&
           theme !== "timeline-with-accordion" &&
-          theme !== "theme-7" && (
+          theme !== "theme-7" &&
+          theme !== "theme-8" && (
             <BorderBoxControl
               colors={colors}
               label={__("Border")}
@@ -362,6 +375,283 @@ const Styles = ({ attributes, setAttributes }) => {
             />
           )}
       </PanelBody>
+
+      {/* ── Theme 8 Card Style ── */}
+      {theme === "theme-8" && (
+        <PanelBody
+          className="bPlPanelBody"
+          title={__("Card Style", "timeline-block")}
+          initialOpen={true}
+        >
+          <BorderBoxControl
+            colors={colors}
+            label={__("Card Border")}
+            onChange={(val) => setAttributes({ theme8CardBorder: val })}
+            value={theme8CardBorder}
+          />
+
+          <Label className="mt20 mb5">{__("Shadow Offset X (px):", "timeline-block")}</Label>
+          <RangeControl
+            value={theme8CardShadow?.offsetX ?? 5}
+            onChange={(val) =>
+              setAttributes({ theme8CardShadow: { ...theme8CardShadow, offsetX: val } })
+            }
+            min={0}
+            max={30}
+          />
+
+          <Label className="mb5">{__("Shadow Offset Y (px):", "timeline-block")}</Label>
+          <RangeControl
+            value={theme8CardShadow?.offsetY ?? 5}
+            onChange={(val) =>
+              setAttributes({ theme8CardShadow: { ...theme8CardShadow, offsetY: val } })
+            }
+            min={0}
+            max={30}
+          />
+
+          <ColorControl
+            label={__("Shadow Color:", "timeline-block")}
+            value={theme8CardShadow?.color ?? "#111111"}
+            onChange={(val) =>
+              setAttributes({ theme8CardShadow: { ...theme8CardShadow, color: val } })
+            }
+            defaultColor="#111111"
+          />
+        </PanelBody>
+      )}
+
+      {/* ── Theme 8 Card Animation ── */}
+      {theme === "theme-8" && (
+        <PanelBody
+          className="bPlPanelBody"
+          title={__("Card Animation", "timeline-block")}
+          initialOpen={false}
+        >
+          <ToggleControl
+            label={__("Enable Animation", "timeline-block")}
+            checked={theme8Animation?.enabled !== false}
+            onChange={(val) =>
+              setAttributes({ theme8Animation: { ...theme8Animation, enabled: val } })
+            }
+          />
+
+          {theme8Animation?.enabled !== false && (
+            <>
+              <SelectControl
+                label={__("Animation Type", "timeline-block")}
+                value={theme8Animation?.type || "slide-up"}
+                options={[
+                  { label: "Slide Up ↑",    value: "slide-up" },
+                  { label: "Fade In",        value: "fade-in" },
+                  { label: "Zoom In",        value: "zoom-in" },
+                  { label: "Slide Left ←",   value: "slide-left" },
+                  { label: "Slide Right →",  value: "slide-right" },
+                ]}
+                onChange={(val) =>
+                  setAttributes({ theme8Animation: { ...theme8Animation, type: val } })
+                }
+              />
+
+              <Label className="mt20 mb5">{__("Duration (ms):", "timeline-block")}</Label>
+              <RangeControl
+                value={theme8Animation?.duration ?? 600}
+                onChange={(val) =>
+                  setAttributes({ theme8Animation: { ...theme8Animation, duration: val } })
+                }
+                min={100}
+                max={2000}
+                step={50}
+              />
+
+              <Label className="mb5">{__("Stagger Delay per Card (ms):", "timeline-block")}</Label>
+              <RangeControl
+                value={theme8Animation?.delay ?? 120}
+                onChange={(val) =>
+                  setAttributes({ theme8Animation: { ...theme8Animation, delay: val } })
+                }
+                min={0}
+                max={500}
+                step={10}
+              />
+            </>
+          )}
+        </PanelBody>
+      )}
+
+      {/* ── Theme 3 Card Animation ── */}
+      {theme === "theme-3" && (
+        <PanelBody
+          className="bPlPanelBody"
+          title={__("Card Animation", "timeline-block")}
+          initialOpen={false}
+        >
+          <ToggleControl
+            label={__("Enable Animation", "timeline-block")}
+            checked={theme3Animation?.enabled !== false}
+            onChange={(val) =>
+              setAttributes({ theme3Animation: { ...theme3Animation, enabled: val } })
+            }
+          />
+
+          {theme3Animation?.enabled !== false && (
+            <>
+              <SelectControl
+                label={__("Animation Type", "timeline-block")}
+                value={theme3Animation?.type || "slide-up"}
+                options={[
+                  { label: "Slide Up ↑",    value: "slide-up" },
+                  { label: "Fade In",        value: "fade-in" },
+                  { label: "Zoom In",        value: "zoom-in" },
+                  { label: "Slide Left ←",   value: "slide-left" },
+                  { label: "Slide Right →",  value: "slide-right" },
+                ]}
+                onChange={(val) =>
+                  setAttributes({ theme3Animation: { ...theme3Animation, type: val } })
+                }
+              />
+
+              <Label className="mt20 mb5">{__("Duration (ms):", "timeline-block")}</Label>
+              <RangeControl
+                value={theme3Animation?.duration ?? 600}
+                onChange={(val) =>
+                  setAttributes({ theme3Animation: { ...theme3Animation, duration: val } })
+                }
+                min={100}
+                max={2000}
+                step={50}
+              />
+
+              <Label className="mb5">{__("Stagger Delay per Card (ms):", "timeline-block")}</Label>
+              <RangeControl
+                value={theme3Animation?.delay ?? 120}
+                onChange={(val) =>
+                  setAttributes({ theme3Animation: { ...theme3Animation, delay: val } })
+                }
+                min={0}
+                max={500}
+                step={10}
+              />
+            </>
+          )}
+        </PanelBody>
+      )}
+
+      {/* ── Theme 5 Card Animation ── */}
+      {theme === "theme-5" && (
+        <PanelBody
+          className="bPlPanelBody"
+          title={__("Card Animation", "timeline-block")}
+          initialOpen={false}
+        >
+          <ToggleControl
+            label={__("Enable Animation", "timeline-block")}
+            checked={theme5Animation?.enabled !== false}
+            onChange={(val) =>
+              setAttributes({ theme5Animation: { ...theme5Animation, enabled: val } })
+            }
+          />
+
+          {theme5Animation?.enabled !== false && (
+            <>
+              <SelectControl
+                label={__("Animation Type", "timeline-block")}
+                value={theme5Animation?.type || "slide-up"}
+                options={[
+                  { label: "Slide Up ↑",    value: "slide-up" },
+                  { label: "Fade In",        value: "fade-in" },
+                  { label: "Zoom In",        value: "zoom-in" },
+                  { label: "Slide Left ←",   value: "slide-left" },
+                  { label: "Slide Right →",  value: "slide-right" },
+                ]}
+                onChange={(val) =>
+                  setAttributes({ theme5Animation: { ...theme5Animation, type: val } })
+                }
+              />
+
+              <Label className="mt20 mb5">{__("Duration (ms):", "timeline-block")}</Label>
+              <RangeControl
+                value={theme5Animation?.duration ?? 600}
+                onChange={(val) =>
+                  setAttributes({ theme5Animation: { ...theme5Animation, duration: val } })
+                }
+                min={100}
+                max={2000}
+                step={50}
+              />
+
+              <Label className="mb5">{__("Stagger Delay per Card (ms):", "timeline-block")}</Label>
+              <RangeControl
+                value={theme5Animation?.delay ?? 120}
+                onChange={(val) =>
+                  setAttributes({ theme5Animation: { ...theme5Animation, delay: val } })
+                }
+                min={0}
+                max={500}
+                step={10}
+              />
+            </>
+          )}
+        </PanelBody>
+      )}
+
+      {/* ── Theme 4 Card Animation ── */}
+      {theme === "theme-4" && (
+        <PanelBody
+          className="bPlPanelBody"
+          title={__("Card Animation", "timeline-block")}
+          initialOpen={false}
+        >
+          <ToggleControl
+            label={__("Enable Animation", "timeline-block")}
+            checked={theme4Animation?.enabled !== false}
+            onChange={(val) =>
+              setAttributes({ theme4Animation: { ...theme4Animation, enabled: val } })
+            }
+          />
+
+          {theme4Animation?.enabled !== false && (
+            <>
+              <SelectControl
+                label={__("Animation Type", "timeline-block")}
+                value={theme4Animation?.type || "slide-up"}
+                options={[
+                  { label: "Slide Up ↑",    value: "slide-up" },
+                  { label: "Fade In",        value: "fade-in" },
+                  { label: "Zoom In",        value: "zoom-in" },
+                  { label: "Slide Left ←",   value: "slide-left" },
+                  { label: "Slide Right →",  value: "slide-right" },
+                ]}
+                onChange={(val) =>
+                  setAttributes({ theme4Animation: { ...theme4Animation, type: val } })
+                }
+              />
+
+              <Label className="mt20 mb5">{__("Duration (ms):", "timeline-block")}</Label>
+              <RangeControl
+                value={theme4Animation?.duration ?? 600}
+                onChange={(val) =>
+                  setAttributes({ theme4Animation: { ...theme4Animation, duration: val } })
+                }
+                min={100}
+                max={2000}
+                step={50}
+              />
+
+              <Label className="mb5">{__("Stagger Delay per Card (ms):", "timeline-block")}</Label>
+              <RangeControl
+                value={theme4Animation?.delay ?? 120}
+                onChange={(val) =>
+                  setAttributes({ theme4Animation: { ...theme4Animation, delay: val } })
+                }
+                min={0}
+                max={500}
+                step={10}
+              />
+            </>
+          )}
+        </PanelBody>
+      )}
     </>
   );
 };

@@ -186,6 +186,67 @@
         },
         "iconBorderHover": "1px solid #efefef"
       }
+    },
+    "theme8CardBorder": {
+      "type": "object",
+      "default": {
+        "width": "3px",
+        "style": "solid",
+        "color": "#111111"
+      }
+    },
+    "theme8CardShadow": {
+      "type": "object",
+      "default": {
+        "offsetX": 5,
+        "offsetY": 5,
+        "color": "#111111"
+      }
+    },
+    "theme8Animation": {
+      "type": "object",
+      "default": {
+        "enabled": true,
+        "type": "slide-up",
+        "duration": 600,
+        "delay": 120
+      }
+    },
+    "theme3Animation": {
+      "type": "object",
+      "default": {
+        "enabled": true,
+        "type": "slide-up",
+        "duration": 600,
+        "delay": 120
+      }
+    },
+    "theme5Animation": {
+      "type": "object",
+      "default": {
+        "enabled": true,
+        "type": "slide-up",
+        "duration": 600,
+        "delay": 120
+      }
+    },
+    "theme4Animation": {
+      "type": "object",
+      "default": {
+        "enabled": true,
+        "type": "slide-up",
+        "duration": 600,
+        "delay": 120
+      }
+    },
+    "accordionAnimation": {
+      "type": "object",
+      "default": {
+        "enabled": true,
+        "type": "slide-up",
+        "duration": 600,
+        "delay": 120
+      }
     }
   },
   "supports": {

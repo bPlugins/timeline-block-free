@@ -20,6 +20,8 @@ const ThemeStyles = ({ attributes, id }) => {
     itemBg,
     barDotColor,
     timelineBar: barStyles,
+    theme8CardBorder ={},
+    theme8CardShadow = {},
   } = attributes;
   const {
     iconColor,
@@ -51,9 +53,11 @@ const ThemeStyles = ({ attributes, id }) => {
       {`
         ${getTypoCSS("", labelTypo)?.googleFontLink}
         ${getTypoCSS(`${timelineLabel}`, labelTypo).styles}
+        ${theme === "theme-8" ? getTypoCSS(`#${id} .theme8-timeline .theme8-card .timeline-label`, labelTypo).styles : ""}
 
         ${getTypoCSS("", itemTypo)?.googleFontLink}
         ${getTypoCSS(`${timelineDescription}`, itemTypo).styles}
+        ${theme === "theme-8" ? getTypoCSS(`#${id} .theme8-timeline .theme8-card .timeline-description`, itemTypo).styles : ""}
 
         ${getTypoCSS("", dateStyles.dateTypo)?.googleFontLink}
 	    	${getTypoCSS(`${timelineDate}`, dateStyles.dateTypo).styles}
@@ -175,6 +179,26 @@ const ThemeStyles = ({ attributes, id }) => {
           ${getBackgroundCSS(barStyles?.progressBarbgColor)}
         }
 
+        /* ── Theme 8 shared style overrides ── */
+        ${theme === "theme-8" ? `
+          #${id} .theme8-timeline .theme8-card .timeline-label {
+            color: ${labelColor};
+          }
+          #${id} .theme8-timeline .theme8-card .timeline-description {
+            color: ${itemColor};
+          }
+          #${id} .theme8-timeline .theme8-card {
+            border: ${theme8CardBorder?.width || "3px"} ${theme8CardBorder?.style || "solid"} ${theme8CardBorder?.color || "#111111"};
+            border-top: ${theme8CardBorder?.top?.width || theme8CardBorder?.width || "3px"} ${theme8CardBorder?.top?.style || theme8CardBorder?.style || "solid"} ${theme8CardBorder?.top?.color || theme8CardBorder?.color || "#111111"};
+            border-right: ${theme8CardBorder?.right?.width || theme8CardBorder?.width || "3px"} ${theme8CardBorder?.right?.style || theme8CardBorder?.style || "solid"} ${theme8CardBorder?.right?.color || theme8CardBorder?.color || "#111111"};
+            border-bottom: ${theme8CardBorder?.bottom?.width || theme8CardBorder?.width || "3px"} ${theme8CardBorder?.bottom?.style || theme8CardBorder?.style || "solid"} ${theme8CardBorder?.bottom?.color || theme8CardBorder?.color || "#111111"};
+            border-left: ${theme8CardBorder?.left?.width || theme8CardBorder?.width || "3px"} ${theme8CardBorder?.left?.style || theme8CardBorder?.style || "solid"} ${theme8CardBorder?.left?.color || theme8CardBorder?.color || "#111111"};
+            box-shadow: ${theme8CardShadow?.offsetX ?? 5}px ${theme8CardShadow?.offsetY ?? 5}px 0 ${theme8CardShadow?.color || "#111111"};
+          }
+          #${id} .theme8-timeline .theme8-card:hover {
+            box-shadow: ${(theme8CardShadow?.offsetX ?? 5) + 2}px ${(theme8CardShadow?.offsetY ?? 5) + 2}px 0 ${theme8CardShadow?.color || "#111111"};
+          }
+        ` : ""}
 
       `}
     </style>

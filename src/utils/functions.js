@@ -142,6 +142,22 @@ export const themeSwitch = (theme = "default", attributes) =>
         draft["labelTypo"]["fontVariant"] = "400";
         draft["labelTypo"]["fontWeight"] = 400;
         break;
+      case "theme-8":
+        draft["labelColor"] = "#111111";
+        draft["itemColor"] = "#1a1a1a";
+        draft["itemBg"] = "#f7c948";
+        draft["barBackground"] = "#111111";
+        draft["barDotColor"] = "#111111";
+        draft["labelTypo"]["fontSize"]["desktop"] = 26;
+        draft["labelTypo"]["fontVariant"] = "900";
+        draft["labelTypo"]["fontWeight"] = 900;
+        draft["itemTypo"]["fontSize"]["desktop"] = 14;
+        draft["contentBorder"] = {
+          width: "3px",
+          style: "solid",
+          color: "#111111",
+        };
+        break;
     }
   });
 
@@ -205,6 +221,14 @@ export const toolTipPresets = [
   {
     label: "Theme-7",
     value: "theme-7",
+    img: "https://templates.bplugins.com/wp-content/uploads/2025/11/theme-7.png",
+    height: "auto",
+    width: "160px",
+    isPro: true,
+  },
+  {
+    label: "Theme-8",
+    value: "theme-8",
     img: "https://templates.bplugins.com/wp-content/uploads/2025/11/theme-7.png",
     height: "auto",
     width: "160px",
