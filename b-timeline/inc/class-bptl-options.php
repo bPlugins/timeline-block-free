@@ -12,78 +12,78 @@ $prefix = '_bptimeline_';
 // Create a metabox
 //
 CSF::createMetabox($prefix, array(
-  'title' => __('Timeline Options', 'timeline-block'),
+  'title' => 'Timeline Configuration',
   'post_type' => 'btimeline',
   'show_restore' => true,
+  'theme' => 'light'
 ));
 
 //
 // Create a section
 //
 CSF::createSection($prefix, array(
-  'title' => __('Timeline Settings', 'timeline-block'),
+  'title' => 'Timeline Settings',
   'icon' => 'fas fa-cog',
   'fields' => array(
-
     // Fields
     array(
       'id' => 'timeline_type',
-      'title' => __('Timeline Type', 'timeline-block'),
+      'title' => 'Timeline Type',
       'type' => 'button_set',
-      'subtitle' => __('Determines the structure of the Timeline.', 'timeline-block'),
-      'desc' => __('Choose the Style of the Timeline.', 'timeline-block'),
+      'subtitle' => 'Determines the structure of the Timeline.',
+      'desc' => 'Choose the Style of the Timeline.',
       'options' => array(
-        'vertical' => __('Vertical', 'timeline-block'),
-        'horizontal' => __('Horizontal', 'timeline-block'),
+        'vertical' => 'Vertical',
+        'horizontal' => 'Horizontal',
       ),
       'default' => 'vertical'
     ),
     array(
       'id' => 'content_position',
-      'title' => __('Content Position', 'timeline-block'),
+      'title' => 'Content Position',
       'type' => 'button_set',
       // 'subtitle' => 'Determines the structure of the Timeline.',
-      'desc' => __("Choose 'Start' to display the timeline at the top (horizontal) or left (vertical), and choose 'End' to display the timeline at the bottom (horizontal) or right (vertical).", 'timeline-block'),
+      'desc' => "Choose 'Start' to display the timeline at the top (horizontal) or left (vertical), and choose 'End' to display the timeline at the bottom (horizontal) or right (vertical).",
       'options' => array(
-        'default' => __('Default', 'timeline-block'),
-        'start' => __('Start', 'timeline-block'),
-        'end' => __('End', 'timeline-block')
+        'default' => 'Default',
+        'start' => 'Start',
+        'end' => 'End',
       ),
       'default' => 'start'
     ),
     array(
       'id' => 'date_location',
-      'title' => __('Label / Date Location', 'timeline-block'),
+      'title' => 'Label / Date Location',
       'type' => 'button_set',
-      'subtitle' => __('Sets the location of the timeline dates. Top and bottom are only used in horizontal position. Also left and right are only used vertical position', 'timeline-block'),
-      'desc' => __('Choose location of the timeline dates / Labels.', 'timeline-block'),
+      'subtitle' => 'Sets the location of the timeline dates. Top and bottom are only used in horizontal position. Also left and right are only used vertical position',
+      'desc' => 'Choose location of the timeline dates / Labels.',
       'options' => array(
-        'bottom' => __('Bottom', 'timeline-block'),
-        'top' => __('Top', 'timeline-block'),
-        'left' => __('Left', 'timeline-block'),
-        'right' => __('Right', 'timeline-block')
+        'bottom' => 'Bottom',
+        'top' => 'Top',
+        'left' => 'Left',
+        'right' => 'Right'
       ),
       'default' => 'right',
     ),
     array(
       'id' => 'item_datas',
       'type' => 'group',
-      'title' => __('Timeline Data ', 'timeline-block'),
-      'subtitle' => __('Input Your Timeline Data', 'timeline-block'),
-      'button_title' => __('Add New Data', 'timeline-block'),
+      'title' =>  'Timeline Data ', 
+      'subtitle' => 'Input Your Timeline Data', 
+      'button_title' => 'Add New Data',
       'fields' => array(
         array(
           'id' => 'date_label',
-          'title' => __('Label', 'timeline-block'),
+          'title' => 'Label',
           'type' => 'text',
           'desc' => 'Use Year, Month, Day etc Name As Label. Ex:- ( \'2020\', \'Jan\', \'sun\' )',
           'default' => 'Jan'
         ),
         array(
           'id' => 'item_details',
-          'title' => __('Details', 'timeline-block'),
+          'title' => 'Details',
           'type' => 'wp_editor',
-          'desc' => __('Write / Input Details About Story Here', 'timeline-block'),
+          'desc' => 'Write / Input Details About Story Here',
           'tinymce' => true,
           'quicktags' => true,
           'media_buttons' => true,
@@ -93,10 +93,10 @@ CSF::createSection($prefix, array(
     ), // End of Timeline Data
     array(
       'id' => 'start_item',
-      'title' => __('Startup Index', 'timeline-block'),
+      'title' => 'Startup Index',
       'type' => 'spinner',
-      'subtitle' => __('When using the timeline in horizontal mode, define which item the timeline should start at.', 'timeline-block'),
-      'desc' => __('Choose Startup Item of the Timeline. Input Number ', 'timeline-block'),
+      'subtitle' => 'When using the timeline in horizontal mode, define which item the timeline should start at.',
+      'desc' => 'Choose Startup Item of the Timeline. Input Number ',
       'default' => '0',
       'dependency' => array(
         array('timeline_type', '==', 'horizontal'),
@@ -104,10 +104,10 @@ CSF::createSection($prefix, array(
     ),
     array(
       'id' => 'move_item',
-      'title' => __('Move Item', 'timeline-block'),
+      'title' => 'Move Item',
       'type' => 'spinner',
-      'subtitle' => __('When using the timeline in horizontal mode, define how many items to move when clicking a navigation button.', 'timeline-block'),
-      'desc' => __('Choose Move Item of the Timeline.', 'timeline-block'),
+      'subtitle' => 'When using the timeline in horizontal mode, define how many items to move when clicking a navigation button.',
+      'desc' => 'Choose Move Item of the Timeline.',
       'default' => '1',
       'dependency' => array(
         array('timeline_type', '==', 'horizontal'),
@@ -116,9 +116,9 @@ CSF::createSection($prefix, array(
     array(
       'id' => 'visible_items',
       'type' => 'spinner',
-      'title' => __('Visible Items', 'timeline-block'),
-      'subtitle' => __('If using the timeline in horizontal mode, define how many items are visible in the viewport', 'timeline-block'),
-      'desc' => __('Choose Display items to show', 'timeline-block'),
+      'title' => 'Visible Items',
+      'subtitle' => 'If using the timeline in horizontal mode, define how many items are visible in the viewport',
+      'desc' => 'Choose Display items to show',
       'default' => '3',
       'dependency' => array(
         array('timeline_type', '==', 'horizontal'),
@@ -127,9 +127,9 @@ CSF::createSection($prefix, array(
     array(
       'id' => 'vertica_trigger',
       'type' => 'spinner',
-      'title' => __('Vertical Trigger', 'timeline-block'),
-      'subtitle' => __('When using the timeline in vertical mode, define the distance from the bottom of the screen, in percent or pixels, that the items slide into view', 'timeline-block'),
-      'desc' => __('Choose distance from the bottom of the screen,', 'timeline-block'),
+      'title' => 'Vertical Trigger',
+      'subtitle' => 'When using the timeline in vertical mode, define the distance from the bottom of the screen, in percent or pixels, that the items slide into view',
+      'desc' => 'Choose distance from the bottom of the screen,',
       'unit' => '%',
       'default' => '15',
       'dependency' => array(
@@ -140,148 +140,152 @@ CSF::createSection($prefix, array(
     array(
       'id' => 'rtl_mode',
       'type' => 'switcher',
-      'title' => __('RTL Mode', 'timeline-block'),
-      'subtitle' => __('When using the timeline in horizontal mode, RTL defines whether the timeline should start from the right. This overrides the startIndex setting.', 'timeline-block'),
-      'desc' => __('Do you want activate it ?', 'timeline-block'),
+      'title' => 'RTL Mode',
+      'subtitle' => 'When using the timeline in horizontal mode, RTL defines whether the timeline should start from the right. This overrides the startIndex setting.',
+      'desc' => 'Do you want activate it ?',
       'text_on' => 'Yes',
       'text_off' => 'No',
       'default' => false,
       'dependency' => array(
         array('timeline_type', '==', 'horizontal'),
       ),
-    ),
+    )
+  )
 
-    // Typography and Style
+));
+CSF::createSection($prefix, array(
+  'title' => 'Styles & Typography',
+  'icon' => 'fas fa-palette',
+  'fields' => array(
     array(
       'type' => 'notice',
       'style' => 'success',
-      'content' => __('Style & Typography Options : ', 'timeline-block'),
+      'content' => 'Style & Typography Options : ',
       'class' => 'tm_option_title',
     ),
     array(
       'id' => 'bar_bg_color',
       'type' => 'color',
-      'title' => __('Bar Background', 'timeline-block'),
-      'subtitle' => __('Set Timeline Bar Background Color', 'timeline-block'),
-      'desc' => __('Choose Bar Background Color', 'timeline-block'),
+      'title' => 'Bar Background',
+      'subtitle' => 'Set Timeline Bar Background Color',
+      'desc' => 'Choose Bar Background Color',
       'default' => '#dddddd',
     ),
     array(
       'id' => 'bar_dot_color',
       'type' => 'color',
-      'title' => __('Bar Dot Color', 'timeline-block'),
-      'subtitle' => __('Set Timeline Bar Dot Color', 'timeline-block'),
-      'desc' => __('Choose Dot Color', 'timeline-block'),
+      'title' => 'Bar Dot Color',
+      'subtitle' => 'Set Timeline Bar Dot Color',
+      'desc' => 'Choose Dot Color',
       'default' => '#ddd',
     ),
     array(
       'id' => 'item_bg',
       'type' => 'color',
-      'title' => __('Item Background', 'timeline-block'),
-      'subtitle' => __('Set Timeline Item Background Color', 'timeline-block'),
-      'desc' => __('Choose Background Color', 'timeline-block'),
+      'title' => 'Item Background',
+      'subtitle' => 'Set Timeline Item Background Color',
+      'desc' => 'Choose Background Color',
       'default' => '#ffffff'
     ),
     array(
       'id' => 'item_color',
       'type' => 'color',
-      'title' => __('Item Color', 'timeline-block'),
-      'subtitle' => __('Set Timeline Item Content / Text Color', 'timeline-block'),
-      'desc' => __('Choose Font Color', 'timeline-block'),
+      'title' => 'Item Color',
+      'subtitle' => 'Set Timeline Item Content / Text Color',
+      'desc' => 'Choose Font Color',
       'default' => '#333333'
     ),
     array(
       'id' => 'item_fontWeight',
       'type' => 'button_set',
-      'title' => __('Font Weight', 'timeline-block'),
-      'subtitle' => __('Set Item Font Weight', 'timeline-block'),
-      'desc' => __('Choose Font Weight', 'timeline-block'),
+      'title' => 'Font Weight',
+      'subtitle' => 'Set Item Font Weight',
+      'desc' => 'Choose Font Weight',
       'options' => array(
-        'normal' => __('Normal', 'timeline-block'),
-        'bold' => __('Bold', 'timeline-block'),
+        'normal' => 'Normal',
+        'bold' => 'Bold',
       ),
       'default' => 'normal',
     ),
     array(
       'id' => 'item_fontStyle',
       'type' => 'button_set',
-      'title' => __('Font Style', 'timeline-block'),
-      'subtitle' => __('Set Content Font Style', 'timeline-block'),
-      'desc' => __('Choose Font Style', 'timeline-block'),
+      'title' => 'Font Style',
+      'subtitle' => 'Set Content Font Style',
+      'desc' => 'Choose Font Style',
       'options' => array(
-        'normal' => __('Normal', 'timeline-block'),
-        'italic' => __('Italic', 'timeline-block'),
+        'normal' => 'Normal',
+        'italic' => 'Italic',
       ),
       'default' => 'normal',
     ),
     array(
       'id' => 'item_fontSize',
       'type' => 'spinner',
-      'title' => __('Font-Size', 'timeline-block'),
-      'subtitle' => __('Set Content Font-Size', 'timeline-block'),
-      'desc' => __('Choose Font Size', 'timeline-block'),
+      'title' => 'Font-Size',
+      'subtitle' => 'Set Content Font-Size',
+      'desc' => 'Choose Font Size',
       'unit' => 'PX',
       'default' => '14'
     ),
     array(
       'id' => 'item_border_size',
       'type' => 'spinner',
-      'title' => __('Item Border', 'timeline-block'),
-      'subtitle' => __('Set Timeline Item Border Size', 'timeline-block'),
-      'desc' => __('Choose Border Size', 'timeline-block'),
+      'title' => 'Item Border',
+      'subtitle' => 'Set Timeline Item Border Size',
+      'desc' => 'Choose Border Size',
       'unit' => 'PX',
       'default' => '1',
     ),
     array(
       'id' => 'item_border_color',
       'type' => 'color',
-      'title' => __('Item Border Color', 'timeline-block'),
-      'subtitle' => __('Set Timeline Item Border Color', 'timeline-block'),
-      'desc' => __('Choose Border Color', 'timeline-block'),
+      'title' => 'Item Border Color',
+      'subtitle' => 'Set Timeline Item Border Color',
+      'desc' => 'Choose Border Color',
       'default' => '#cccccc',
     ),
     array(
       'id' => 'label_fontSize',
       'type' => 'spinner',
-      'title' => __('label / Title Font-Size', 'timeline-block'),
-      'subtitle' => __('Set Label Font-Size', 'timeline-block'),
-      'desc' => __('Choose Label Font Size', 'timeline-block'),
+      'title' => 'label / Title Font-Size',
+      'subtitle' => 'Set Label Font-Size',
+      'desc' => 'Choose Label Font Size',
       'unit' => 'PX',
       'default' => '16'
     ),
     array(
       'id' => 'lebel_fontWeight',
       'type' => 'button_set',
-      'title' => __('Font Weight', 'timeline-block'),
-      'subtitle' => __('Set label / Title Font Weight', 'timeline-block'),
-      'desc' => __('Choose Font Weight', 'timeline-block'),
+      'title' => 'Font Weight',
+      'subtitle' => 'Set label / Title Font Weight',
+      'desc' => 'Choose Font Weight',
       'options' => array(
-        'normal' => __('Normal', 'timeline-block'),
-        'bold' => __('Bold', 'timeline-block'),
+        'normal' => 'Normal',
+        'bold' => 'Bold',
       ),
       'default' => 'normal',
     ),
     array(
       'id' => 'label_fontStyle',
       'type' => 'button_set',
-      'title' => __('Font Style', 'timeline-block'),
-      'subtitle' => __('Set label / Title Font Style', 'timeline-block'),
-      'desc' => __('Choose Font Style', 'timeline-block'),
+      'title' => 'Font Style',
+      'subtitle' => 'Set label / Title Font Style',
+      'desc' => 'Choose Font Style',
       'options' => array(
-        'normal' => __('Normal', 'timeline-block'),
-        'italic' => __('Italic', 'timeline-block'),
+        'normal' => 'Normal',
+        'italic' => 'Italic',
       ),
       'default' => 'normal',
     ),
     array(
       'id' => 'label_color',
       'type' => 'color',
-      'title' => __('label / Title Color', 'timeline-block'),
-      'subtitle' => __('Set Label Font Color', 'timeline-block'),
-      'desc' => __('Choose Label Font Color', 'timeline-block'),
+      'title' => 'label / Title Color',
+      'subtitle' => 'Set Label Font Color',
+      'desc' => 'Choose Label Font Color',
       'default' => '#222222'
     ),
   )
-
 ));
 

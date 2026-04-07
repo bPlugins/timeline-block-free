@@ -1493,6 +1493,126 @@ const Theme8 = ({
 
 /***/ }),
 
+/***/ "./src/Components/Backend/Themes/Theme9.js":
+/*!*************************************************!*\
+  !*** ./src/Components/Backend/Themes/Theme9.js ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Theme9_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Theme9.scss */ "./src/Components/Backend/Themes/Theme9.scss");
+
+
+
+const Theme9 = ({
+  attributes,
+  activeIndex,
+  setActiveIndex,
+  labelEl,
+  descriptionEl
+}) => {
+  var _theme9Animation$dura, _theme9Animation$dela;
+  const {
+    timelines,
+    theme9Animation
+  } = attributes;
+  const [visibleDescriptions, setVisibleDescriptions] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({});
+  const containerRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+  const animEnabled = theme9Animation?.enabled !== false;
+  const animType = theme9Animation?.type || "slide-up";
+  const animDuration = (_theme9Animation$dura = theme9Animation?.duration) !== null && _theme9Animation$dura !== void 0 ? _theme9Animation$dura : 600;
+  const animDelay = (_theme9Animation$dela = theme9Animation?.delay) !== null && _theme9Animation$dela !== void 0 ? _theme9Animation$dela : 120;
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    if (!animEnabled || !containerRef.current) return;
+    const cards = containerRef.current.querySelectorAll(".theme9-card-wrapper");
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("t9-anim-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.15
+    });
+    cards.forEach(card => observer.observe(card));
+    return () => observer.disconnect();
+  }, [timelines?.length, animEnabled, animType, animDuration, animDelay]);
+  if (!timelines || timelines.length === 0) return null;
+
+  // Toggle description visibility
+  const toggleDescription = index => {
+    setVisibleDescriptions(prevState => ({
+      ...prevState,
+      [index]: !prevState[index]
+    }));
+  };
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "theme9-container",
+    ref: containerRef
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "theme9-timeline"
+  }, timelines.map((timeline, index) => {
+    const isVisible = visibleDescriptions[index];
+    const hasCentury = timeline.centuryText && timeline.centuryText.trim() !== "";
+    const bgColor = timeline.cardBg || attributes.itemBg || "#8b5e4a";
+    const isActive = activeIndex === index;
+
+    // Alternate left and right
+    const positionClass = index % 2 === 0 ? "theme9-card--left" : "theme9-card--right";
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      key: index,
+      className: "theme9-item-wrapper"
+    }, hasCentury && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "theme9-century-wrapper"
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "theme9-century-badge"
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, timeline.centuryText))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: `theme9-card-wrapper ${positionClass} ${isActive ? "tlgbNowEditing" : ""} ${animEnabled ? `t9-anim t9-anim--${animType}` : ""}`,
+      style: {
+        "--t9-anim-duration": `${animDuration}ms`,
+        "--t9-anim-delay": `${index * animDelay}ms`
+      },
+      onClick: () => setActiveIndex && setActiveIndex(index)
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "theme9-card",
+      style: {
+        backgroundColor: bgColor
+      }
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "theme9-card-header",
+      onClick: e => {
+        e.stopPropagation();
+        toggleDescription(index);
+        if (setActiveIndex) setActiveIndex(index);
+      }
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "theme9-date"
+    }, timeline.date), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "theme9-title-row"
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "theme9-title"
+    }, labelEl(timeline)))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "theme9-card-body",
+      style: {
+        maxHeight: isVisible ? "1000px" : "0",
+        opacity: isVisible ? 1 : 0,
+        overflow: "hidden",
+        transition: "max-height 0.4s ease, opacity 0.4s ease",
+        marginTop: isVisible ? "15px" : "0"
+      }
+    }, descriptionEl(timeline)))));
+  })));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Theme9);
+
+/***/ }),
+
 /***/ "./src/Components/Common/Styles.js":
 /*!*****************************************!*\
   !*** ./src/Components/Common/Styles.js ***!
@@ -1659,7 +1779,7 @@ const ThemeStyles = ({
   attributes,
   id
 }) => {
-  var _theme8CardShadow$off, _theme8CardShadow$off2, _theme8CardShadow$off3, _theme8CardShadow$off4;
+  var _theme8CardShadow$off, _theme8CardShadow$off2, _theme8CardShadow$off3, _theme8CardShadow$off4, _theme9CenturyStyles$, _theme9CenturyStyles$2;
   const {
     barBackground,
     iconStyles,
@@ -1675,7 +1795,8 @@ const ThemeStyles = ({
     barDotColor,
     timelineBar: barStyles,
     theme8CardBorder = {},
-    theme8CardShadow = {}
+    theme8CardShadow = {},
+    theme9CenturyStyles
   } = attributes;
   const {
     iconColor,
@@ -1705,13 +1826,19 @@ const ThemeStyles = ({
         ${(0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_1__.getTypoCSS)("", labelTypo)?.googleFontLink}
         ${(0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_1__.getTypoCSS)(`${timelineLabel}`, labelTypo).styles}
         ${theme === "theme-8" ? (0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_1__.getTypoCSS)(`#${id} .theme8-timeline .theme8-card .timeline-label`, labelTypo).styles : ""}
+        ${theme === "theme-9" ? (0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_1__.getTypoCSS)(`#${id} .theme9-timeline .theme9-card .timeline-label`, labelTypo).styles : ""}
 
         ${(0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_1__.getTypoCSS)("", itemTypo)?.googleFontLink}
         ${(0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_1__.getTypoCSS)(`${timelineDescription}`, itemTypo).styles}
         ${theme === "theme-8" ? (0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_1__.getTypoCSS)(`#${id} .theme8-timeline .theme8-card .timeline-description`, itemTypo).styles : ""}
+        ${theme === "theme-9" ? (0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_1__.getTypoCSS)(`#${id} .theme9-timeline .theme9-card .timeline-description`, itemTypo).styles : ""}
 
         ${(0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_1__.getTypoCSS)("", dateStyles.dateTypo)?.googleFontLink}
 	    	${(0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_1__.getTypoCSS)(`${timelineDate}`, dateStyles.dateTypo).styles}
+        ${theme === "theme-9" ? (0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_1__.getTypoCSS)(`#${id} .theme9-timeline .theme9-card .theme9-date`, dateStyles.dateTypo).styles : ""}
+
+        ${theme === "theme-9" ? (0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_1__.getTypoCSS)("", theme9CenturyStyles?.centuryTypo)?.googleFontLink : ""}
+        ${theme === "theme-9" ? (0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_1__.getTypoCSS)(`#${id} .theme9-century-badge span`, theme9CenturyStyles?.centuryTypo).styles : ""}
 
 
         ${timelineContainer}.horizontal {
@@ -1801,6 +1928,58 @@ const ThemeStyles = ({
           }
         ` : ""}
 
+        /* ── Theme 9 specific overrides ── */
+        ${theme === "theme-9" ? `
+          #${id} .theme9-timeline::before {
+            background-color: ${barBackground || '#8b5e4a'} !important;
+          }
+          #${id} .theme9-card-wrapper.theme9-card--left::before,
+          #${id} .theme9-card-wrapper.theme9-card--right::before {
+            background-color: ${barBackground || '#8b5e4a'} !important;
+          }
+          #${id} .theme9-card {
+            border: ${contentBorder?.width} ${contentBorder?.style} ${contentBorder?.color} !important;
+            border-top: ${contentBorder?.top?.width} ${contentBorder?.top?.style} ${contentBorder?.top?.color} !important;
+            border-right: ${contentBorder?.right?.width} ${contentBorder?.right?.style} ${contentBorder?.right?.color} !important;
+            border-bottom: ${contentBorder?.bottom?.width} ${contentBorder?.bottom?.style} ${contentBorder?.bottom?.color} !important;
+            border-left: ${contentBorder?.left?.width} ${contentBorder?.left?.style} ${contentBorder?.left?.color} !important;
+          }
+          #${id} .theme9-card .timeline-label {
+            color: ${labelColor} !important;
+          }
+          #${id} .theme9-card .timeline-description {
+            color: ${itemColor} !important;
+          }
+          #${id} .theme9-timeline .timeline-icon {
+            ${(0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_1__.getBorderCSS)(iconStyles?.borderControl)}
+            width: ${iconStyles?.iconContainerSize}px !important;
+            height: ${iconStyles?.iconContainerSize}px !important;
+            ${(0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_1__.getBackgroundCSS)(iconStyles?.background?.normal)}
+            background-color: ${iconStyles?.background?.normal?.color || barDotColor || '#8b5e4a'} !important;
+          }
+          #${id} .theme9-timeline .timeline-icon svg {
+            fill: ${iconStyles?.iconColor || '#fff'} !important;
+            width: ${iconStyles?.iconSize}px !important;
+            height: ${iconStyles?.iconSize}px !important;
+          }
+          #${id} .theme9-timeline .theme9-card-wrapper:hover .timeline-icon {
+            ${(0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_1__.getBackgroundCSS)(iconStyles?.background?.hover)}
+          }
+          #${id} .theme9-timeline .theme9-card-wrapper:hover .timeline-icon svg {
+            fill: ${iconStyles?.iconColorHover || '#fff'} !important;
+          }
+          #${id} .theme9-date {
+            color: ${dateStyles?.dateColor || '#fff'} !important;
+          }
+          #${id} .theme9-century-badge {
+            background-color: ${theme9CenturyStyles?.bg || '#1a1a1a'} !important;
+            color: ${theme9CenturyStyles?.color || '#fff'} !important;
+            border: ${(_theme9CenturyStyles$ = theme9CenturyStyles?.borderWidth) !== null && _theme9CenturyStyles$ !== void 0 ? _theme9CenturyStyles$ : 4}px solid ${theme9CenturyStyles?.borderColor || '#fff'} !important;
+            border-radius: ${(_theme9CenturyStyles$2 = theme9CenturyStyles?.borderRadius) !== null && _theme9CenturyStyles$2 !== void 0 ? _theme9CenturyStyles$2 : 50}% !important;
+          }
+        ` : ""}
+
+
       `);
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ThemeStyles);
@@ -1830,6 +2009,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Backend_Themes_Theme5__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../Backend/Themes/Theme5 */ "./src/Components/Backend/Themes/Theme5.js");
 /* harmony import */ var _Backend_Themes_Theme7__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../Backend/Themes/Theme7 */ "./src/Components/Backend/Themes/Theme7.js");
 /* harmony import */ var _Backend_Themes_Theme8__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../Backend/Themes/Theme8 */ "./src/Components/Backend/Themes/Theme8.js");
+/* harmony import */ var _Backend_Themes_Theme9__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../Backend/Themes/Theme9 */ "./src/Components/Backend/Themes/Theme9.js");
+
 
 
 
@@ -2045,6 +2226,12 @@ const Timeline = ({
     descriptionEl: descriptionEl
   }), theme === "theme-8" && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Backend_Themes_Theme8__WEBPACK_IMPORTED_MODULE_11__["default"], {
     attributes: attributes,
+    labelEl: labelEl,
+    descriptionEl: descriptionEl
+  }), theme === "theme-9" && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Backend_Themes_Theme9__WEBPACK_IMPORTED_MODULE_12__["default"], {
+    attributes: attributes,
+    activeIndex: activeIndex,
+    setActiveIndex: setActiveIndex,
     labelEl: labelEl,
     descriptionEl: descriptionEl
   }), theme !== "default" && !isPremium && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
@@ -2354,6 +2541,18 @@ __webpack_require__.r(__webpack_exports__);
 /***/ "./src/Components/Backend/Themes/Theme8.scss":
 /*!***************************************************!*\
   !*** ./src/Components/Backend/Themes/Theme8.scss ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./src/Components/Backend/Themes/Theme9.scss":
+/*!***************************************************!*\
+  !*** ./src/Components/Backend/Themes/Theme9.scss ***!
   \***************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 

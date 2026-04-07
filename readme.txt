@@ -4,7 +4,7 @@ Donate link: https://www.buymeacoffee.com/abuhayat
 Tags:  block, timeline, vertical timeline, horizontal timeline, timeline builder
 Requires at least: 6.5+
 Tested up to: 6.9
-Stable tag: 1.3.7
+Stable tag: 1.4.0
 Requires PHP: 7.1
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -33,11 +33,11 @@ Designed with user-friendliness in mind, the Timeline Block Plugin empowers you 
 
 = Pro Features =
 - **Add Shortcode API**: You can access a very powerful shortcode plugin which have some incredible features and you can use anywhere this plugin by using this features.
-- **Seven Extra Themes**: Access seven more professionally designed themes, some themes supporting both horizontal and vertical layouts.
+- **Nine Extra Themes**: Access Nine more professionally designed themes, some themes supporting both horizontal and vertical layouts.
 - **Classic Editor for Descriptions**: Edit timeline descriptions beautifully with the integrated classic editor, providing advanced formatting options.
 - **Customizable Icons**: Add unique icons to your timeline items and style them to create a polished, professional look.
 - **Enhanced Customization Options**: Fine-tune every aspect of your timeline for ultimate design control.
-
+- **Animation**: Add animation to your timeline items.
  
 = How to use =
 - First, install the *Timeline Block* plugin
@@ -132,6 +132,9 @@ Please report security bugs found in the source code of the Timeline Block plugi
 
 
 == Changelog ==
+
+= 1.4.0 - 06 April 2026 =
+* **Update:** Add animation options and two new theme.
 
 = 1.3.7 - 28 February 2026 =
 * **Update:** Redesigned the dashboard with a modern and improved user interface, replacing the previous outdated layout.

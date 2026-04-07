@@ -84,29 +84,36 @@ if(!class_exists('TLGBBTimelineAdmin')){
             return $translation;
         }
     
-        public static function shortcode_area() {
-            global $post;
-            if ($post->post_type == 'btimeline'): ?>
+         public static function shortcode_area() {
+            global $post; 
+            if ( $post->post_type === 'btimeline' ) : ?>
                 <div class="bptl_shortcode">
-                    <div class="shortcode-heading">
-                        <div class="icon"><span class="dashicons dashicons-shortcode"></span> <?php _e("Timeline", "timeline-block") ?>
-                        </div>
-                        <div class="text"> <a href="https://bplugins.com/support/" target="_blank"><?php _e("Supports", "pdfp") ?></a>
-                        </div>
-                    </div>
-                    <div class="shortcode-left">
-                        <h3><?php _e("Shortcode", "pdfp") ?></h3>
-                        <p><?php _e("Copy and paste this shortcode into your posts, pages and widget:", "timeline-block") ?></p>
-                        <div class="shortcode" selectable>[btimeline id="<?php echo esc_attr($post->ID); ?>"]</div>
-                    </div>
-                    <div class="shortcode-right">
-                        <h3><?php _e("Template Include", "pdfp") ?></h3>
-                        <p><?php _e("Copy and paste the PHP code into your template file:", "timeline-block"); ?></p>
-                        <div class="shortcode">&lt;?php echo do_shortcode('[btimeline id="<?php echo esc_html($post->ID); ?>"]');
-                            ?&gt;</div>
-                    </div>
+                    <code 
+                        class="shortcode_copy" 
+                        data-code="[btimeline id='<?php echo esc_attr( $post->ID ); ?>']">
+                        [btimeline id='<?php echo esc_attr( $post->ID ); ?>']
+                    </code>
+
+                    <p class="shortcode_desc">
+                        <?php echo esc_html__( "Copy this shortcode and paste it into your post, page, or text widget content.", "bptl" ); ?>
+                    </p>
                 </div>
-    
+
+                <script>
+                    document.addEventListener('click', function (e) {
+                        var el = e.target.closest('.shortcode_copy');
+                        if (!el) return;
+
+                        navigator.clipboard.writeText(el.dataset.code).then(function () {
+                            var original = el.textContent;
+                            el.textContent = 'Copied!';
+
+                            setTimeout(function () {
+                                el.textContent = original;
+                            }, 1000);
+                        });
+                    });
+                </script>
             <?php endif;
         }
     

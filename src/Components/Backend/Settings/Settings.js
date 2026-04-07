@@ -155,7 +155,7 @@ const Settings = ({
       >
         <li>
           &emsp;
-          <strong>{__("Added 7 Beautiful Themes: ", "custom-html")}</strong>
+          <strong>{__("Added 9 Beautiful Themes: ", "custom-html")}</strong>
           {__(
             "Extend your plugin with these 7 themes. By using this timeline you can create a lot of themes.",
             "timeline-block"
@@ -188,6 +188,13 @@ const Settings = ({
             {__("Add Icon to your every story: ", "timeline-block")}
           </strong>
           {__("Add and edit your story icon on your own.", "timeline-block")}
+        </li>
+        <li>
+          &emsp;
+          <strong>
+            {__("Added Animation : ", "timeline-block")}
+          </strong>
+          {__("Add animation to your timeline items.", "timeline-block")}
         </li>
         <li>
           &emsp;

@@ -36,6 +36,11 @@ export const dashboardInfo = (info) => {
     licenseActiveNonce,
     changelogs: [
       {
+        version: "1.4.0 - 6 April 2026",
+        type: "update",
+        list: ["Update - Add animation options and two new theme."],
+      },
+      {
         version: "1.3.6 - 15 February 2026",
         type: "update",
         list: ["Update - Redesigned the dashboard with a modern and improved user interface, replacing the previous outdated layout."],
@@ -101,10 +106,11 @@ export const dashboardInfo = (info) => {
     ],
     proFeatures: [
       "ShortCode to use Timeline Block anywhere.",
-      "Seven extra professional theme designs.",
+      "Nine extra professional theme designs.",
       "Classic Editor for advanced formatting.",
       "Customizable and styled timeline icons.",
-      "Advanced tools for ultimate design control."
+      "Advanced tools for ultimate design control.",
+      "Animation effects for timeline items."
     ],
     startButton: {
       label: 'Start Now',
@@ -170,7 +176,7 @@ export const demoInfo = {
       title: "Template 7",
       type: "iframe",
       url: "https://bblockswp.com/demo/timeline-block-theme-7-pro/",
-    },
+    }
   ],
 }
 

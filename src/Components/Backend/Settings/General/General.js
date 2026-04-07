@@ -84,6 +84,7 @@ const General = ({
             "theme-6",
             "theme-7",
             "theme-8",
+            "theme-9",
           ]}
         />
 
@@ -124,18 +125,20 @@ const General = ({
                   />
                 )}
 
-                {/* Per-card Issue badge text & background color for Theme 8 */}
-                {theme === "theme-8" && (
+                {/* Per-card Issue badge text & background color for Theme 8 & 9 */}
+                {(theme === "theme-8" || theme === "theme-9") && (
                   <>
                     <PanelRow>
                       <Label className="">
-                        {__("Issue Badge Text:", "timeline-block")}
+                        {theme === "theme-9" 
+                          ? __("Century Marker Text:", "timeline-block") 
+                          : __("Issue Badge Text:", "timeline-block")}
                       </Label>
                       <TextControl
-                        placeholder={`Issue #${activeIndex + 1}`}
-                        value={timelines[activeIndex]?.issueText || ""}
+                        placeholder={theme === "theme-9" ? "XVI" : `Issue #${activeIndex + 1}`}
+                        value={theme === "theme-9" ? (timelines[activeIndex]?.centuryText || "") : (timelines[activeIndex]?.issueText || "")}
                         onChange={(val) =>
-                          updateTimeline(activeIndex, "issueText", val)
+                          updateTimeline(activeIndex, theme === "theme-9" ? "centuryText" : "issueText", val)
                         }
                       />
                     </PanelRow>
@@ -223,7 +226,7 @@ const General = ({
         </div>
       </PanelBody>
 
-      {theme !== "theme-7" && theme !== "theme-8" && (
+      {theme !== "theme-7" && theme !== "theme-8" && theme !== "theme-9" && (
         <PanelBody
           className="bPlPanelBody"
           title={__("Timeline Settings", "timeline-block")}

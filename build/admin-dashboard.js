@@ -3433,6 +3433,10 @@ const dashboardInfo = info => {
     },
     licenseActiveNonce,
     changelogs: [{
+      version: "1.4.0 - 6 April 2026",
+      type: "update",
+      list: ["Update - Add animation options and two new theme."]
+    }, {
       version: "1.3.6 - 15 February 2026",
       type: "update",
       list: ["Update - Redesigned the dashboard with a modern and improved user interface, replacing the previous outdated layout."]
@@ -3481,7 +3485,7 @@ const dashboardInfo = info => {
       type: "fix",
       list: ["Fixed text domain issue and SEO problem"]
     }],
-    proFeatures: ["ShortCode to use Timeline Block anywhere.", "Seven extra professional theme designs.", "Classic Editor for advanced formatting.", "Customizable and styled timeline icons.", "Advanced tools for ultimate design control."],
+    proFeatures: ["ShortCode to use Timeline Block anywhere.", "Nine extra professional theme designs.", "Classic Editor for advanced formatting.", "Customizable and styled timeline icons.", "Advanced tools for ultimate design control.", "Animation effects for timeline items."],
     startButton: {
       label: 'Start Now',
       url: `wp-admin/post-new.php?post_type=timeline_block`

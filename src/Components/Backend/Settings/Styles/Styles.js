@@ -42,7 +42,12 @@ const Styles = ({ attributes, setAttributes }) => {
     theme3Animation,
     theme5Animation,
     theme4Animation,
+    theme9Animation,
+    theme9CenturyStyles,
+    timelines,
   } = attributes;
+
+  const hasCentury = timelines?.some(t => t.centuryText && t.centuryText.trim() !== "");
 
   const colors = [
     { name: "Blue", color: "#72aee6" },
@@ -650,6 +655,130 @@ const Styles = ({ attributes, setAttributes }) => {
               />
             </>
           )}
+        </PanelBody>
+      )}
+
+      {/* ── Theme 9 Card Animation ── */}
+      {theme === "theme-9" && (
+        <PanelBody
+          className="bPlPanelBody"
+          title={__("Card Animation", "timeline-block")}
+          initialOpen={false}
+        >
+          <ToggleControl
+            label={__("Enable Animation", "timeline-block")}
+            checked={theme9Animation?.enabled !== false}
+            onChange={(val) =>
+              setAttributes({ theme9Animation: { ...theme9Animation, enabled: val } })
+            }
+          />
+
+          {theme9Animation?.enabled !== false && (
+            <>
+              <SelectControl
+                label={__("Animation Type", "timeline-block")}
+                value={theme9Animation?.type || "slide-up"}
+                options={[
+                  { label: "Slide Up ↑",    value: "slide-up" },
+                  { label: "Fade In",        value: "fade-in" },
+                  { label: "Zoom In",        value: "zoom-in" },
+                  { label: "Slide Left ←",   value: "slide-left" },
+                  { label: "Slide Right →",  value: "slide-right" },
+                ]}
+                onChange={(val) =>
+                  setAttributes({ theme9Animation: { ...theme9Animation, type: val } })
+                }
+              />
+
+              <Label className="mt20 mb5">{__("Duration (ms):", "timeline-block")}</Label>
+              <RangeControl
+                value={theme9Animation?.duration ?? 600}
+                onChange={(val) =>
+                  setAttributes({ theme9Animation: { ...theme9Animation, duration: val } })
+                }
+                min={100}
+                max={2000}
+                step={50}
+              />
+
+              <Label className="mb5">{__("Stagger Delay per Card (ms):", "timeline-block")}</Label>
+              <RangeControl
+                value={theme9Animation?.delay ?? 120}
+                onChange={(val) =>
+                  setAttributes({ theme9Animation: { ...theme9Animation, delay: val } })
+                }
+                min={0}
+                max={500}
+                step={10}
+              />
+            </>
+          )}
+        </PanelBody>
+      )}
+
+      {/* ── Theme 9 Century Marker Styles ── */}
+      {theme === "theme-9" && hasCentury && (
+        <PanelBody
+          className="bPlPanelBody"
+          title={__("Century Marker", "timeline-block")}
+          initialOpen={false}
+        >
+          <ColorControl
+            label={__("Text Color:", "timeline-block")}
+            value={theme9CenturyStyles?.color ?? "#ffffff"}
+            onChange={(val) =>
+              setAttributes({ theme9CenturyStyles: { ...theme9CenturyStyles, color: val } })
+            }
+            defaultColor="#ffffff"
+          />
+
+          <ColorControl
+            label={__("Background Color:", "timeline-block")}
+            value={theme9CenturyStyles?.bg ?? "#1a1a1a"}
+            onChange={(val) =>
+              setAttributes({ theme9CenturyStyles: { ...theme9CenturyStyles, bg: val } })
+            }
+            defaultColor="#1a1a1a"
+          />
+
+          <ColorControl
+            label={__("Border Color:", "timeline-block")}
+            value={theme9CenturyStyles?.borderColor ?? "#ffffff"}
+            onChange={(val) =>
+              setAttributes({ theme9CenturyStyles: { ...theme9CenturyStyles, borderColor: val } })
+            }
+            defaultColor="#ffffff"
+          />
+
+          <Typography
+            className="mt20"
+            label={__("Marker Typography:", "timeline-block")}
+            value={theme9CenturyStyles?.centuryTypo}
+            onChange={(val) => 
+              setAttributes({ theme9CenturyStyles: { ...theme9CenturyStyles, centuryTypo: val } })
+            }
+            defaults={{ fontSize: { desktop: 24, tablet: 24, mobile: 20 } }}
+          />
+
+          <Label className="mt20 mb5">{__("Border Width (px):", "timeline-block")}</Label>
+          <RangeControl
+            value={theme9CenturyStyles?.borderWidth ?? 4}
+            onChange={(val) =>
+              setAttributes({ theme9CenturyStyles: { ...theme9CenturyStyles, borderWidth: val } })
+            }
+            min={0}
+            max={20}
+          />
+
+          <Label className="mb5">{__("Border Radius (%):", "timeline-block")}</Label>
+          <RangeControl
+            value={theme9CenturyStyles?.borderRadius ?? 50}
+            onChange={(val) =>
+              setAttributes({ theme9CenturyStyles: { ...theme9CenturyStyles, borderRadius: val } })
+            }
+            min={0}
+            max={50}
+          />
         </PanelBody>
       )}
     </>

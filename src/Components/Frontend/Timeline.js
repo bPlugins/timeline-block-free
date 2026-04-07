@@ -10,6 +10,7 @@ import Theme6 from "../Backend/Themes/Theme6";
 import Theme5 from "../Backend/Themes/Theme5";
 import Theme7 from "../Backend/Themes/Theme7";
 import Theme8 from "../Backend/Themes/Theme8";
+import Theme9 from "../Backend/Themes/Theme9";
 
 const Timeline = ({ attributes, id, isPremium }) => {
   const { timelines, theme, itemPosition, type } = attributes;
@@ -271,6 +272,16 @@ const Timeline = ({ attributes, id, isPremium }) => {
         {theme === "theme-8" && (
           <Theme8
             attributes={attributes}
+            labelEl={labelEl}
+            descriptionEl={descriptionEl}
+          />
+        )}
+
+        {theme === "theme-9" && (
+          <Theme9
+            attributes={attributes}
+            activeIndex={activeIndex}
+            setActiveIndex={setActiveIndex}
             labelEl={labelEl}
             descriptionEl={descriptionEl}
           />

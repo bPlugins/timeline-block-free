@@ -22,6 +22,7 @@ const ThemeStyles = ({ attributes, id }) => {
     timelineBar: barStyles,
     theme8CardBorder ={},
     theme8CardShadow = {},
+    theme9CenturyStyles,
   } = attributes;
   const {
     iconColor,
@@ -54,13 +55,19 @@ const ThemeStyles = ({ attributes, id }) => {
         ${getTypoCSS("", labelTypo)?.googleFontLink}
         ${getTypoCSS(`${timelineLabel}`, labelTypo).styles}
         ${theme === "theme-8" ? getTypoCSS(`#${id} .theme8-timeline .theme8-card .timeline-label`, labelTypo).styles : ""}
+        ${theme === "theme-9" ? getTypoCSS(`#${id} .theme9-timeline .theme9-card .timeline-label`, labelTypo).styles : ""}
 
         ${getTypoCSS("", itemTypo)?.googleFontLink}
         ${getTypoCSS(`${timelineDescription}`, itemTypo).styles}
         ${theme === "theme-8" ? getTypoCSS(`#${id} .theme8-timeline .theme8-card .timeline-description`, itemTypo).styles : ""}
+        ${theme === "theme-9" ? getTypoCSS(`#${id} .theme9-timeline .theme9-card .timeline-description`, itemTypo).styles : ""}
 
         ${getTypoCSS("", dateStyles.dateTypo)?.googleFontLink}
 	    	${getTypoCSS(`${timelineDate}`, dateStyles.dateTypo).styles}
+        ${theme === "theme-9" ? getTypoCSS(`#${id} .theme9-timeline .theme9-card .theme9-date`, dateStyles.dateTypo).styles : ""}
+
+        ${theme === "theme-9" ? getTypoCSS("", theme9CenturyStyles?.centuryTypo)?.googleFontLink : ""}
+        ${theme === "theme-9" ? getTypoCSS(`#${id} .theme9-century-badge span`, theme9CenturyStyles?.centuryTypo).styles : ""}
 
 
         ${timelineContainer}.horizontal {
@@ -199,6 +206,58 @@ const ThemeStyles = ({ attributes, id }) => {
             box-shadow: ${(theme8CardShadow?.offsetX ?? 5) + 2}px ${(theme8CardShadow?.offsetY ?? 5) + 2}px 0 ${theme8CardShadow?.color || "#111111"};
           }
         ` : ""}
+
+        /* ── Theme 9 specific overrides ── */
+        ${theme === "theme-9" ? `
+          #${id} .theme9-timeline::before {
+            background-color: ${barBackground || '#8b5e4a'} !important;
+          }
+          #${id} .theme9-card-wrapper.theme9-card--left::before,
+          #${id} .theme9-card-wrapper.theme9-card--right::before {
+            background-color: ${barBackground || '#8b5e4a'} !important;
+          }
+          #${id} .theme9-card {
+            border: ${contentBorder?.width} ${contentBorder?.style} ${contentBorder?.color} !important;
+            border-top: ${contentBorder?.top?.width} ${contentBorder?.top?.style} ${contentBorder?.top?.color} !important;
+            border-right: ${contentBorder?.right?.width} ${contentBorder?.right?.style} ${contentBorder?.right?.color} !important;
+            border-bottom: ${contentBorder?.bottom?.width} ${contentBorder?.bottom?.style} ${contentBorder?.bottom?.color} !important;
+            border-left: ${contentBorder?.left?.width} ${contentBorder?.left?.style} ${contentBorder?.left?.color} !important;
+          }
+          #${id} .theme9-card .timeline-label {
+            color: ${labelColor} !important;
+          }
+          #${id} .theme9-card .timeline-description {
+            color: ${itemColor} !important;
+          }
+          #${id} .theme9-timeline .timeline-icon {
+            ${getBorderCSS(iconStyles?.borderControl)}
+            width: ${iconStyles?.iconContainerSize}px !important;
+            height: ${iconStyles?.iconContainerSize}px !important;
+            ${getBackgroundCSS(iconStyles?.background?.normal)}
+            background-color: ${iconStyles?.background?.normal?.color || barDotColor || '#8b5e4a'} !important;
+          }
+          #${id} .theme9-timeline .timeline-icon svg {
+            fill: ${iconStyles?.iconColor || '#fff'} !important;
+            width: ${iconStyles?.iconSize}px !important;
+            height: ${iconStyles?.iconSize}px !important;
+          }
+          #${id} .theme9-timeline .theme9-card-wrapper:hover .timeline-icon {
+            ${getBackgroundCSS(iconStyles?.background?.hover)}
+          }
+          #${id} .theme9-timeline .theme9-card-wrapper:hover .timeline-icon svg {
+            fill: ${iconStyles?.iconColorHover || '#fff'} !important;
+          }
+          #${id} .theme9-date {
+            color: ${dateStyles?.dateColor || '#fff'} !important;
+          }
+          #${id} .theme9-century-badge {
+            background-color: ${theme9CenturyStyles?.bg || '#1a1a1a'} !important;
+            color: ${theme9CenturyStyles?.color || '#fff'} !important;
+            border: ${theme9CenturyStyles?.borderWidth ?? 4}px solid ${theme9CenturyStyles?.borderColor || '#fff'} !important;
+            border-radius: ${theme9CenturyStyles?.borderRadius ?? 50}% !important;
+          }
+        ` : ""}
+
 
       `}
     </style>

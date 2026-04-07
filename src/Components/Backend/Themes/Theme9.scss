@@ -1,0 +1,266 @@
+/* ──────────────────────────────────────────────
+   Keyframe Animations for Theme 9
+────────────────────────────────────────────── */
+@keyframes t9-slide-up {
+  from { opacity: 0; transform: translateY(50px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes t9-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes t9-zoom-in {
+  from { opacity: 0; transform: scale(0.8); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes t9-slide-left {
+  from { opacity: 0; transform: translateX(-60px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes t9-slide-right {
+  from { opacity: 0; transform: translateX(60px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* ──────────────────────────────────────────────
+   Animation base
+────────────────────────────────────────────── */
+.t9-anim {
+  opacity: 1;
+  will-change: opacity, transform;
+
+  /* Trigger animation when observer adds .t9-anim-visible */
+  &.t9-anim-visible {
+    animation-duration: var(--t9-anim-duration, 600ms);
+    animation-delay: var(--t9-anim-delay, 0ms);
+    animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+    animation-fill-mode: both;
+    opacity: 1;
+  }
+
+  &.t9-anim--slide-up.t9-anim-visible    { animation-name: t9-slide-up; }
+  &.t9-anim--fade-in.t9-anim-visible     { animation-name: t9-fade-in; }
+  &.t9-anim--zoom-in.t9-anim-visible     { animation-name: t9-zoom-in; }
+  &.t9-anim--slide-left.t9-anim-visible  { animation-name: t9-slide-left; }
+  &.t9-anim--slide-right.t9-anim-visible { animation-name: t9-slide-right; }
+}
+
+.theme9-container {
+  padding: 40px 0;
+  width: 100%;
+}
+
+.theme9-timeline {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    background-color: #8b5e4a; /* Brown connecting line */
+    transform: translateX(-50%);
+  }
+}
+
+.theme9-item-wrapper {
+  position: relative;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.theme9-century-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px 0;
+  position: relative;
+  z-index: 2;
+}
+
+.theme9-century-badge {
+  background-color: #1a1a1a;
+  color: #fff;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  border: 4px solid #fff;
+}
+
+.theme9-card-wrapper {
+  position: relative;
+  width: 50%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  z-index: 1;
+
+  .timeline-icon {
+    position: absolute;
+    top: 20px;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+  }
+
+  &.theme9-card--left {
+    left: 0px;
+    justify-content: flex-end;
+    padding-right: 40px;
+    
+    .timeline-icon {
+      right: 0;
+      transform: translateX(50%);
+    }
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 37px;
+      right: 0;
+      width: 40px;
+      height: 2px;
+      background-color: var(--t9-bar-color, #8b5e4a);
+    }
+  }
+
+  &.theme9-card--right {
+    left: 50%;
+    justify-content: flex-start;
+    padding-left: 40px;
+    
+    .timeline-icon {
+      left: 0;
+      transform: translateX(-50%);
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 37px;
+      left: 0;
+      width: 40px;
+      height: 2px;
+      background-color: var(--t9-bar-color, #8b5e4a);
+    }
+  }
+}
+
+.theme9-card {
+  width: 100%;
+  max-width: 400px;
+  padding: 24px;
+  border-radius: 10px;
+  color: #fff;
+  transition: transform 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-4px);
+  }
+
+  .theme9-card-header {
+    cursor: pointer;
+  }
+
+  .theme9-date {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    opacity: 0.9;
+    color: #fff;
+  }
+
+  .theme9-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .theme9-title {
+    font-size: 22px;
+    font-weight: bold;
+    label {
+      cursor: pointer;
+      color: #fff;
+      display: inline-block;
+      margin: 0;
+    }
+  }
+
+  .theme9-card-body {
+    font-size: 15px;
+    line-height: 1.6;
+    opacity: 0.95;
+    p {
+      margin: 0;
+      padding: 0;
+    }
+    br {
+      margin-bottom: 10px;
+    }
+  }
+}
+
+/* Mobile and Tablet Responsiveness */
+@media (max-width: 991px) {
+  .theme9-timeline {
+    &::before {
+      left: 40px;
+    }
+  }
+  
+  .theme9-century-wrapper {
+    justify-content: flex-start;
+    padding-left: 0px; 
+    margin: 30px 0;
+    
+    .theme9-century-badge {
+       width: 60px;
+       height: 60px;
+       font-size: 20px;
+       margin-left: 10px; /* centers approximately on the 40px line */
+       border: 3px solid #fff;
+    }
+  }
+
+  .theme9-card-wrapper {
+    width: 100%;
+    
+    &.theme9-card--left, &.theme9-card--right {
+      left: 0;
+      padding-left: 80px;
+      padding-right: 0px;
+      justify-content: flex-start;
+      
+      .timeline-icon {
+        left: 40px;
+        transform: translateX(-50%);
+      }
+
+      &::before {
+        left: 40px;
+        width: 40px;
+      }
+    }
+  }
+
+  .theme9-card {
+    max-width: 100%;
+  }
+}
