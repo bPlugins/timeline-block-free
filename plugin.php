@@ -17,6 +17,7 @@ if (!defined('ABSPATH')) {
   exit;
 }
 
+
 if (function_exists('tlgb_fs')) {
   tlgb_fs()->set_basename(false, __FILE__);
 } else {
@@ -36,7 +37,6 @@ if (function_exists('tlgb_fs')) {
       if (!isset($tlgb_fs)) {
         $fsStartPath = dirname(__FILE__) . '/vendor/freemius/start.php';
         $bSDKInitPath = dirname(__FILE__) . '/vendor/freemius-lite/start.php';
-
 
         if (TLGB_HAS_PRO && file_exists($fsStartPath)) {
           require_once $fsStartPath;

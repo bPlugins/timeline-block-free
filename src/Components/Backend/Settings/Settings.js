@@ -7,12 +7,12 @@ import { useState } from "react";
 import { tabController } from "../../../../../bpl-tools/utils/functions";
 
 import { BBlocksAds } from "../../../../../bpl-tools/Components";
-import { AboutProModal } from "../../../../../bpl-tools/ProControls";
+import { ProModal } from "../../../../../bpl-tools/ProControls";
 import { generalStyleTabs } from "../../../utils/options";
 import General from "./General/General";
 import Styles from "./Styles/Styles";
-import BlockPreview from "./Panel/BlockPreview";
 import { themeSwitch, toolTipPresets } from "../../../utils/functions";
+import ThemeSwitcher from "../../../utils/panel/ThemeSwitcher";
 
 const Settings = ({
   attributes,
@@ -108,6 +108,17 @@ const Settings = ({
       </InspectorControls>
 
       <BlockControls>
+        <BlockControls>
+          <ThemeSwitcher
+            themes={toolTipPresets}
+            isPremium={isPremium}
+            value={theme}
+            isTooltip={false}
+            visibleCount={7}
+            buttonLabel="More Themes"
+            onChange={(val) => setAttributes(themeSwitch(val, attributes))}
+          />
+        </BlockControls>
         <ToolbarGroup className="bPlToolbar">
           <ToolbarButton
             icon="trash"
@@ -139,94 +150,28 @@ const Settings = ({
             onClick={addTimeline}
           />
         </ToolbarGroup>
-
-        <BlockPreview
-          options={toolTipPresets}
-          isPremium={isPremium}
-          value={theme}
-          onChange={(val) => setAttributes(themeSwitch(val, attributes))}
-        ></BlockPreview>
       </BlockControls>
 
-      <AboutProModal
+
+      {/* modal popup */}
+      <ProModal
         isProModalOpen={isProModalOpen}
         setIsProModalOpen={setIsProModalOpen}
-        link={`${isPremium.adminUrl}edit.php?post_type=timeline_block&page=tlgb-dashboard#/pricing`}
-      >
-        <li>
-          &emsp;
-          <strong>{__("Added 9 Beautiful Themes: ", "custom-html")}</strong>
-          {__(
-            "Extend your plugin with these 7 themes. By using this timeline you can create a lot of themes.",
-            "timeline-block"
-          )}
-        </li>
-        <li>
-          &emsp;
-          <strong>
-            {__(
-              "Horizontal / Vertical Option in every themes: ",
-              "timeline-block"
-            )}
-          </strong>
-          {__(
-            "Customize your timeline like horizontal or vertical in some theme as a option. It's easy and beautiful to customize.",
-            "timeline-block"
-          )}
-        </li>
-        <li>
-          &emsp;
-          <strong>{__("Added Classic Editor: ", "timeline-block")}</strong>
-          {__(
-            "As Timeline content you can use classic editor. You can add image and edit your content on your own.",
-            "timeline-block"
-          )}
-        </li>
-        <li>
-          &emsp;
-          <strong>
-            {__("Add Icon to your every story: ", "timeline-block")}
-          </strong>
-          {__("Add and edit your story icon on your own.", "timeline-block")}
-        </li>
-        <li>
-          &emsp;
-          <strong>
-            {__("Added Animation : ", "timeline-block")}
-          </strong>
-          {__("Add animation to your timeline items.", "timeline-block")}
-        </li>
-        <li>
-          &emsp;
-          <strong>
-            {__("Change Icon and Story Date Position: ", "timeline-block")}
-          </strong>
-          {__(
-            "Change language for different language syntax.",
-            "custom - html"
-          )}
-        </li>
-        <li>
-          &emsp;
-          <strong>
-            {__("Change Icon and Story Date Position: ", "timeline-block")}
-          </strong>
-          {__(
-            "You can change icon position when you're on horizontal timeline",
-            "timeline-block"
-          )}
-        </li>
-        <li>
-          &emsp;
-          <strong>
-            {__("Added Powerful Shortcode Timeline Plugin: ", "timeline-block")}
-          </strong>
-          {__(
-            "By this plugin you can use a powerful shortcode timeline plugin with some incredible features. which enabled you to embed the Timeline anywhere in the site.",
-            "timeline-block"
-          )}
-        </li>
-      </AboutProModal>
+        link={`edit.php?post_type=timeline_block&page=tlgb-dashboard#/pricing`}
+        title={__("Timeline Block Pro", "timeline-block")}
+        description={__("Timeline Block Pro", "timeline-block")}
+        features={[
+          __("Extend your plugin with these 9 themes. By using this timeline you can create a lot of themes."),
+          __("Customize your timeline like horizontal or vertical in some theme as a option. It's easy and beautiful to customize."),
+          __("Added Classic Editor."),
+          __("As Timeline content you can use classic editor. You can add image and edit your content on your own."),
+          __("Add and edit your story icon on your own."),
+          __("Add animation to your timeline items."),
+          __("Change Icon and Story Date Position."),
+          __("You can change icon position when you're on horizontal timeline."),
+          __("By this plugin you can use a powerful shortcode timeline plugin with some incredible features. which enabled you to embed the Timeline anywhere in the site."),
+        ]}
+      />
     </>
   );
 };

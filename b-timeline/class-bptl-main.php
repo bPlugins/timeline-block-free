@@ -11,8 +11,16 @@ if(!class_exists('TLGBBTimeline')){
             if (!class_exists('CSF')) {
                 require_once 'inc/codestar/csf-config.php';
             }
-            require_once 'inc/class-bptl-options.php';
-            require_once TLGB_DIR_PATH . 'b-timeline/class-bptl-admin.php';
+
+
+            $is_b_timeline_active = is_plugin_active( 'b-timeline/b-titmeline.php' );
+            $is_pro_active        = function_exists( 'tlgbIsPremium' ) && tlgbIsPremium();
+
+            if ( ! ( $is_b_timeline_active && $is_pro_active ) ) {
+                require_once 'inc/class-bptl-options.php';
+                require_once TLGB_DIR_PATH . 'b-timeline/class-bptl-admin.php';	
+            }
+            
         }   
         
         public static function timeline_scripts() {
@@ -21,9 +29,7 @@ if(!class_exists('TLGBBTimeline')){
         
             wp_register_style('timeline-style', TLGB_DIR_URL . 'b-timeline/public/assets/css/timeline.min.css', NULL, 'v0.0.2', 'all');
             
-        }
-    
-        
+        }       
     
         public static function bptl_shortcode($atts) {
             extract(shortcode_atts(array(

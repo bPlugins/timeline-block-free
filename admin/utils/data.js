@@ -20,7 +20,7 @@ export const dashboardInfo = (info) => {
       thumbnail: `https://bplugins.com/wp-content/themes/b-technologies/assets/images/products/${slug}.png`,
       // proThumbnail: `https://bplugins.com/wp-content/themes/b-technologies/assets/images/products/${slug}-pro.png`,
       // video: 'https://www.youtube.com/watch?v=milYZrqLJsE',
-      // isYoutube: true
+      // isYoutube: true  
     },
     pages: {
       org: `https://wordpress.org/plugins/${slug}/`,
@@ -36,9 +36,13 @@ export const dashboardInfo = (info) => {
     licenseActiveNonce,
     changelogs: [
       {
-        version: "1.4.0 - 6 April 2026",
+        version: "1.4.0 - 09 April 2026",
         type: "update",
-        list: ["Update - Add animation options and two new theme."],
+        list: [
+          "Added animation options",
+          "Improved responsiveness and fixed layout issues",
+          "Added two new themes"
+        ],
       },
       {
         version: "1.3.6 - 15 February 2026",

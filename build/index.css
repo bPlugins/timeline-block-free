@@ -2512,19 +2512,116 @@ svg.bPlBlockIcon {
   color: #fff;
   background-color: #146EF5;
 }
-/*!*************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/Components/Backend/Settings/Panel/style.scss ***!
-  \*************************************************************************************************************************************************************************************************************************************************************************/
-.bPlBlockPreviewWrapper {
+/*!***************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/utils/panel/style.scss ***!
+  \***************************************************************************************************************************************************************************************************************************************************/
+/* Popover container */
+.bpl_theme_picker_popover {
+  padding: 16px;
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12), 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+.bpl_theme_picker_popover-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+.bpl_theme_picker_popover-grid .theme-card {
+  cursor: pointer;
+  border-radius: 12px;
+  padding: 12px 10px 10px;
+  background: linear-gradient(180deg, #ffffff, #f9fafb);
+  border: 1px solid transparent;
+  transition: all 0.25s ease;
+  text-align: center;
+  position: relative;
+}
+.bpl_theme_picker_popover-grid .theme-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+}
+.bpl_theme_picker_popover-grid .theme-card.active {
+  border-color: #2563eb;
+  background: linear-gradient(180deg, #f0f7ff, #ffffff);
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.25), 0 10px 22px rgba(37, 99, 235, 0.15);
+}
+.bpl_theme_picker_popover-grid .theme-card.locked {
+  opacity: 1;
+  filter: grayscale(0.4);
+}
+.bpl_theme_picker_popover-grid .theme-card.locked:hover {
+  transform: none;
+  box-shadow: none;
+}
+.bpl_theme_picker_popover-grid .theme-card .theme-preview {
+  height: 40px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #e5e7eb, #f3f4f6);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px;
+  margin-bottom: 8px;
+}
+.bpl_theme_picker_popover-grid .theme-card .theme-preview .preview-bar {
+  height: 6px;
+  border-radius: 6px;
+  background: #9ca3af;
+  opacity: 0.9;
+}
+.bpl_theme_picker_popover-grid .theme-card .theme-preview .preview-bar.small {
+  width: 65%;
+}
+.bpl_theme_picker_popover-grid .theme-card .theme-name {
   display: flex;
   align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #1f2937;
+  min-width: 80px;
 }
-.bPlBlockPreviewWrapper .bPl-previewBtn.bPl-activeBtn {
+.bpl_theme_picker_popover-grid .theme-card .theme-name .pro-tag {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  padding: 2px 6px;
+  border-radius: 999px;
+  background: #4527a4;
+  color: #ffffff;
+  line-height: 1;
+}
+
+.bpl_theme_picker {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+.bpl_theme_picker-btn {
+  position: relative;
+}
+.bpl_theme_picker-btn.active {
   background: #4527a4;
   color: #fff;
 }
-
-.labelPro {
+.bpl_theme_picker-btn.active:hover {
+  color: #fff;
+}
+.bpl_theme_picker-btn.active .bpl_theme_picker-btn-labelPro {
+  background-color: #fff;
+  color: #4527a4;
+  display: block;
+}
+.bpl_theme_picker-btn-labelPro {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  z-index: 100;
+  display: none;
   background-color: #4527a4;
   color: #fff;
   font-size: 10px;
@@ -2533,17 +2630,8 @@ svg.bPlBlockIcon {
   border-radius: 4px;
   text-transform: uppercase;
 }
-
-.bPl-previewBtn {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-}
-
-.labelProActive {
-  color: #4527a4 !important;
-  background-color: #fff !important;
+.bpl_theme_picker-btn:hover .bpl_theme_picker-btn-labelPro {
+  display: block;
 }
 /*!***************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/style.scss ***!
@@ -3956,7 +4044,7 @@ svg.bPlBlockIcon {
 }
 .clipBtnWrapper button:hover {
   background: rgb(69, 39, 164);
-  color: rgb(255, 255, 255);
+  color: rgb(255, 255, 255) !important;
 }
 
 /*# sourceMappingURL=index.css.map*/
