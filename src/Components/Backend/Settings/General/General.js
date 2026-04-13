@@ -226,7 +226,7 @@ const General = ({
         </div>
       </PanelBody>
 
-      {theme !== "theme-7" && theme !== "theme-8" && theme !== "theme-9" && (
+      {theme !== "theme-7" && theme !== "theme-3" && theme !== "theme-4" && theme !== "theme-5" && theme !== "theme-6" && theme !== "theme-8" && theme !== "theme-9" && (
         <PanelBody
           className="bPlPanelBody"
           title={__("Timeline Settings", "timeline-block")}

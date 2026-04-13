@@ -36,7 +36,7 @@ export const dashboardInfo = (info) => {
     licenseActiveNonce,
     changelogs: [
       {
-        version: "1.4.0 - 09 April 2026",
+        version: "1.4.0 - 13 April 2026",
         type: "update",
         list: [
           "Added animation options",

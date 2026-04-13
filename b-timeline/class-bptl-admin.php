@@ -84,7 +84,7 @@ if(!class_exists('TLGBBTimelineAdmin')){
             return $translation;
         }
     
-         public static function shortcode_area() {
+        public static function shortcode_area() {
             global $post; 
             if ( $post->post_type === 'btimeline' ) : ?>
                 <div class="bptl_shortcode">

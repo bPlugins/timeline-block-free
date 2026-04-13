@@ -12,7 +12,7 @@ if(!class_exists('TLGBBTimeline')){
                 require_once 'inc/codestar/csf-config.php';
             }
 
-
+            
             $is_b_timeline_active = is_plugin_active( 'b-timeline/b-titmeline.php' );
             $is_pro_active        = function_exists( 'tlgbIsPremium' ) && tlgbIsPremium();
 
@@ -209,5 +209,3 @@ if(!class_exists('TLGBBTimeline')){
     }
     new TLGBBTimeline();
 }
-
-

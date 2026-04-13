@@ -134,8 +134,9 @@ Please report security bugs found in the source code of the Timeline Block plugi
 
 == Changelog ==
 
-= 1.4.0 - 09 April 2026 =
+= 1.4.0 - 13 April 2026 =
 * **Update:** Add animation options and two new theme.
+* **Fixed:** Responsive issue.
 
 = 1.3.7 - 28 February 2026 =
 * **Update:** Redesigned the dashboard with a modern and improved user interface, replacing the previous outdated layout.

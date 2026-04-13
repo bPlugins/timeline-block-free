@@ -111,7 +111,7 @@ const Settings = ({
         <BlockControls>
           <ThemeSwitcher
             themes={toolTipPresets}
-            isPremium={isPremium}
+            isPro={isPremium}
             value={theme}
             isTooltip={false}
             visibleCount={7}
@@ -175,4 +175,4 @@ const Settings = ({
     </>
   );
 };
-export default Settings;
+export default Settings; 

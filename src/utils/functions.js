@@ -135,6 +135,7 @@ export const themeSwitch = (theme = "default", attributes) =>
         draft["itemColor"] = "black";
         draft["barBackground"] = "#000000";
         draft["barDotColor"] = "#787878";
+        draft["dateStyles"]["dateColor"] = "#FF6D6D";
         draft["dateStyles"]["dateTypo"]["fontSize"]["desktop"] = 35;
         draft["dateStyles"]["dateTypo"]["fontVariant"] = "400";
         draft["dateStyles"]["dateTypo"]["fontWeight"] = 400;
@@ -184,7 +185,6 @@ export const toolTipPresets = [
   {
     label: "Default",
     value: "default",
-    img: "https://templates.bplugins.com/wp-content/uploads/2025/11/default-timeline.png",
     height: "auto",
     width: "160px",
     isPro: false,
@@ -192,7 +192,6 @@ export const toolTipPresets = [
   {
     label: "Accordion Timeline",
     value: "timeline-with-accordion",
-    img: "https://templates.bplugins.com/wp-content/uploads/2025/11/accordion-timeline.png",
     height: "auto",
     width: "160px",
     isPro: true,
@@ -200,7 +199,6 @@ export const toolTipPresets = [
   {
     label: "Timeline with Icon & Date",
     value: "theme-2",
-    img: "https://templates.bplugins.com/wp-content/uploads/2025/11/theme-2.png",
     height: "auto",
     width: "160px",
     isPro: true,
@@ -208,7 +206,6 @@ export const toolTipPresets = [
   {
     label: "Theme-3",
     value: "theme-3",
-    img: "https://templates.bplugins.com/wp-content/uploads/2025/11/theme-3.png",
     height: "auto",
     width: "160px",
     isPro: true,
@@ -216,7 +213,6 @@ export const toolTipPresets = [
   {
     label: "Theme-4",
     value: "theme-4",
-    img: "https://templates.bplugins.com/wp-content/uploads/2025/11/theme-4.png",
     height: "auto",
     width: "160px",
     isPro: true,
@@ -224,7 +220,6 @@ export const toolTipPresets = [
   {
     label: "Theme-5",
     value: "theme-5",
-    img: "https://templates.bplugins.com/wp-content/uploads/2025/11/theme-5.png",
     height: "auto",
     width: "160px",
     isPro: true,
@@ -232,7 +227,6 @@ export const toolTipPresets = [
   {
     label: "Theme-6",
     value: "theme-6",
-    img: "https://templates.bplugins.com/wp-content/uploads/2025/11/theme-6.png",
     height: "auto",
     width: "160px",
     isPro: true,
@@ -240,7 +234,6 @@ export const toolTipPresets = [
   {
     label: "Theme-7",
     value: "theme-7",
-    img: "https://templates.bplugins.com/wp-content/uploads/2025/11/theme-7.png",
     height: "auto",
     width: "160px",
     isPro: true,
@@ -248,7 +241,6 @@ export const toolTipPresets = [
   {
     label: "Theme-8",
     value: "theme-8",
-    img: "https://templates.bplugins.com/wp-content/uploads/2026/04/timeline-block-theme8.png",
     height: "auto",
     width: "160px",
     isPro: true,
@@ -256,7 +248,6 @@ export const toolTipPresets = [
   {
     label: "Theme-9",
     value: "theme-9",
-    img: "https://templates.bplugins.com/wp-content/uploads/2026/04/timeline-block-theme9.png",
     height: "auto",
     width: "160px",
     isPro: true,

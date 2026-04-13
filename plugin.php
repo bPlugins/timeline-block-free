@@ -10,7 +10,7 @@
  * Text Domain: timeline-block
  * @fs_premium_only /vendor/freemius, /b-timeline, /includes/class-tlgb-license-activation.php
  * @fs_free_only /vendor/freemius-lite
- */
+ */ 
 
 // ABS PATH
 if (!defined('ABSPATH')) {
@@ -77,6 +77,6 @@ if (function_exists('tlgb_fs')) {
   // Initialized The Plugin
   require_once TLGB_DIR_PATH. 'includes/class-tlgb-main.php';
   new TLGBTimeline();
-
-}
+ 
+} 
 
