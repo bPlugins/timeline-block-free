@@ -1,13 +1,9 @@
 import { BlockControls, InspectorControls } from "@wordpress/block-editor";
 import { TabPanel, ToolbarButton, ToolbarGroup } from "@wordpress/components";
 import { __ } from "@wordpress/i18n";
-import { useState } from "react";
-
 // Settings Components
 import { tabController } from "../../../../../bpl-tools/utils/functions";
-
 import { BBlocksAds } from "../../../../../bpl-tools/Components";
-import { ProModal } from "../../../../../bpl-tools/ProControls";
 import { generalStyleTabs } from "../../../utils/options";
 import General from "./General/General";
 import Styles from "./Styles/Styles";
@@ -20,16 +16,10 @@ const Settings = ({
   activeIndex,
   setActiveIndex,
   updateTimeline,
-  isPremium,
   updateObj,
 }) => {
   const { timelines, theme } = attributes;
-  const [isProModalOpen, setIsProModalOpen] = useState(false);
 
-  const premiumProps = {
-    isPremium,
-    setIsProModalOpen,
-  };
 
   const addTimeline = () => {
     setAttributes({
@@ -74,7 +64,7 @@ const Settings = ({
   return (
     <>
       <InspectorControls>
-        {!isPremium && <BBlocksAds />}
+        <BBlocksAds />
 
         <TabPanel
           className="bPlTabPanel"
@@ -93,7 +83,6 @@ const Settings = ({
                   updateTimeline={updateTimeline}
                   removeTimeline={removeTimeline}
                   activeIndex={activeIndex}
-                  premiumProps={premiumProps}
                   updateObj={updateObj}
                   setActiveIndex={setActiveIndex}
                 />
@@ -111,7 +100,6 @@ const Settings = ({
         <BlockControls>
           <ThemeSwitcher
             themes={toolTipPresets}
-            isPro={isPremium}
             value={theme}
             isTooltip={false}
             visibleCount={7}
@@ -152,26 +140,6 @@ const Settings = ({
         </ToolbarGroup>
       </BlockControls>
 
-
-      {/* modal popup */}
-      <ProModal
-        isProModalOpen={isProModalOpen}
-        setIsProModalOpen={setIsProModalOpen}
-        link={`edit.php?post_type=timeline_block&page=tlgb-dashboard#/pricing`}
-        title={__("Timeline Block Pro", "timeline-block")}
-        description={__("Timeline Block Pro", "timeline-block")}
-        features={[
-          __("Extend your plugin with these 9 themes. By using this timeline you can create a lot of themes."),
-          __("Customize your timeline like horizontal or vertical in some theme as a option. It's easy and beautiful to customize."),
-          __("Added Classic Editor."),
-          __("As Timeline content you can use classic editor. You can add image and edit your content on your own."),
-          __("Add and edit your story icon on your own."),
-          __("Add animation to your timeline items."),
-          __("Change Icon and Story Date Position."),
-          __("You can change icon position when you're on horizontal timeline."),
-          __("By this plugin you can use a powerful shortcode timeline plugin with some incredible features. which enabled you to embed the Timeline anywhere in the site."),
-        ]}
-      />
     </>
   );
 };

@@ -7,7 +7,7 @@ export const dashboardInfo = (info) => {
 
   return {
     name: `Timeline Block${proSuffix}`,
-    displayName: `Timeline Block${proSuffix} -  Create Horizontal or Vertical Timelines`,
+    displayName: `Timeline Block${proSuffix} - Beautiful Timeline Builder (Vertical & Horizontal Timelines)`,
     description: "Timeline Block Plugin helps you create beautiful, customizable timelines in WordPress with 6 unique themes and both horizontal and vertical layouts. Easily edit and style timelines in the editor—perfect for showcasing projects, stories, milestones, or events.",
     slug,
     version,
@@ -180,6 +180,18 @@ export const demoInfo = {
       title: "Template 7",
       type: "iframe",
       url: "https://bblockswp.com/demo/timeline-block-theme-7-pro/",
+    },
+    {
+      icon: "",
+      title: "Template 8",
+      type: "iframe",
+      url: "https://bblockswp.com/demo/timeline-block-theme-8-pro/",
+    },
+    {
+      icon: "",
+      title: "Template 9",
+      type: "iframe",
+      url: "https://bblockswp.com/demo/timeline-block-theme-9-pro/"
     }
   ],
 }
@@ -200,6 +212,4 @@ export const pricingInfo = {
     selected: 3, // choose from licenses item
   }
 }
-
-
 

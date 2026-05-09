@@ -1,21 +1,13 @@
 import { produce } from "immer";
 import { useEffect, useState } from "react";
 import { withSelect } from "@wordpress/data";
-
 import { timelineConfig } from "../../utils/config";
 import Settings from "../Backend/Settings/Settings";
 import Styles from "../Common/Styles";
-import Theme2 from "./Themes/Theme2";
-import Theme3 from "./Themes/Theme3";
-import Theme4 from "./Themes/Theme4";
-import Theme5 from "./Themes/Theme5";
-import Theme6 from "./Themes/Theme6";
 import ThemeStyles from "../Common/ThemeStyles";
 import { updateData } from "../../../../bpl-tools/utils/functions";
-import Theme7 from "./Themes/Theme7";
-import Theme8 from "./Themes/Theme8";
-import Theme9 from "./Themes/Theme9";
 import ClipBoard from "./ShortCodeClip";
+//import { useBlockProps } from '@wordpress/block-editor';
 
 const Edit = (props) => {
   const {
@@ -41,8 +33,6 @@ const Edit = (props) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const id = `tlgbTimeline-${clientId}`;
-
-  const isPremium = tlgbIsPipeChecker;
 
   const [visibleDescriptions, setVisibleDescriptions] = useState({});
 
@@ -147,29 +137,11 @@ const Edit = (props) => {
     });
   }, [visibleDescriptions, timelines]);
 
-  const labelEl = (timeline) => {
-    return (
-      <label
-        className="timeline-label"
-        dangerouslySetInnerHTML={{ __html: timeline.label }}
-      ></label>
-    );
-  };
-
-  const descriptionEl = (timeline) => {
-    return (
-      <p
-        className="timeline-description"
-        dangerouslySetInnerHTML={{ __html: timeline.description }}
-      ></p>
-    );
-  };
 
   return (
     <>
       <Settings
         {...{
-          isPremium,
           attributes,
           setActiveIndex,
           activeIndex,
@@ -178,150 +150,72 @@ const Edit = (props) => {
           updateObj,
         }}
       />
-
       <div className={className} id={id}>
-        {isBlockEditor && postType === "timeline_block" && (
-          <ClipBoard shortcode={shortcode} />
-        )}
+          {isBlockEditor && postType === "timeline_block" && (
+            <ClipBoard shortcode={shortcode} />
+          )}
 
-        {theme === "default" || theme === "timeline-with-accordion" ? (
-          <Styles attributes={attributes} id={id} />
-        ) : (
-          <ThemeStyles attributes={attributes} id={id} />
-        )}
+          {theme === "default" || theme === "timeline-with-accordion" ? (
+            <Styles attributes={attributes} id={id} />
+          ) : (
+            <ThemeStyles attributes={attributes} id={id} />
+          )}
 
-        {(theme === "default" || theme === "timeline-with-accordion") && (
-          <>
-            <div
-              className={`timeline tlgbTimeline ${
-                theme === "timeline-with-accordion" && "accordion"
-              }`}
-            >
-              <div className="timeline__wrap">
-                <div className="timeline__items">
-                  {timelines?.map((item, index) => {
-                    const { label, description } = item;
-                    const isVisible = visibleDescriptions[index];
+          {(theme === "default" || theme === "timeline-with-accordion") && (
+            <>
+              <div
+                className={`timeline tlgbTimeline ${theme === "timeline-with-accordion" && "accordion"
+                  }`}
+              >
+                <div className="timeline__wrap">
+                  <div className="timeline__items">
+                    {timelines?.map((item, index) => {
+                      const { label, description } = item;
+                      const isVisible = visibleDescriptions[index];
 
-                    return (
-                      <div
-                        key={index}
-                        onClick={() => setActiveIndex(index)}
-                        className="timeline__item fadeIn"
-                        id={`tlgbTimelineItem-${index}`}
-                      >
+                      return (
                         <div
-                          className={`timeline__content ${
-                            index === activeIndex ? "tlgbNowEditing" : ""
-                          }`}
+                          key={index}
+                          onClick={() => setActiveIndex(index)}
+                          className="timeline__item fadeIn"
+                          id={`tlgbTimelineItem-${index}`}
                         >
-                          <label
-                            dangerouslySetInnerHTML={{ __html: label }}
-                            onClick={() => {
-                              theme === "timeline-with-accordion" &&
-                                toggleDescription(index);
-                            }}
-                          ></label>
+                          <div
+                            className={`timeline__content ${index === activeIndex ? "tlgbNowEditing" : ""
+                              }`}
+                          >
+                            <label
+                              dangerouslySetInnerHTML={{ __html: label }}
+                              onClick={() => {
+                                theme === "timeline-with-accordion" &&
+                                  toggleDescription(index);
+                              }}
+                            ></label>
 
-                          <p
-                            className={`timeline__description ${
-                              theme === "timeline-with-accordion"
-                                ? isVisible
-                                  ? "visible"
-                                  : "hidden"
-                                : "visible"
-                            }`}
-                            dangerouslySetInnerHTML={{ __html: description }}
-                          ></p>
+                            <p
+                              className={`timeline__description ${theme === "timeline-with-accordion"
+                                  ? isVisible
+                                    ? "visible"
+                                    : "hidden"
+                                  : "visible"
+                                }`}
+                              dangerouslySetInnerHTML={{ __html: description }}
+                            ></p>
+                          </div>
                         </div>
-                      </div>
-                    ); // Timeline Item
-                  })}
+                      ); // Timeline Item
+                    })}
+                  </div>{" "}
+                  {/* Timeline Items */}
                 </div>{" "}
-                {/* Timeline Items */}
+                {/* Timeline Wrap */}
               </div>{" "}
-              {/* Timeline Wrap */}
-            </div>{" "}
-            {/* Timeline */}
-          </>
-        )}
-
-        {theme === "theme-2" && (
-          <Theme2
-            attributes={attributes}
-            activeIndex={activeIndex}
-            setActiveIndex={setActiveIndex}
-            updateTimeline={updateTimeline}
-            clientId={clientId}
-          />
-        )}
-        {theme === "theme-3" && (
-          <Theme3
-            attributes={attributes}
-            setActiveIndex={setActiveIndex}
-            labelEl={labelEl}
-            descriptionEl={descriptionEl}
-          />
-        )}
-
-        {theme === "theme-4" && (
-          <Theme4
-            attributes={attributes}
-            setActiveIndex={setActiveIndex}
-            labelEl={labelEl}
-            descriptionEl={descriptionEl}
-          />
-        )}
-
-        {theme === "theme-5" && (
-          <Theme5
-            attributes={attributes}
-            setActiveIndex={setActiveIndex}
-            labelEl={labelEl}
-            descriptionEl={descriptionEl}
-          />
-        )}
-
-        {theme === "theme-6" && (
-          <Theme6
-            attributes={attributes}
-            activeIndex={activeIndex}
-            setActiveIndex={setActiveIndex}
-            labelEl={labelEl}
-            descriptionEl={descriptionEl}
-          />
-        )}
-
-        {theme === "theme-7" && (
-          <Theme7
-            attributes={attributes}
-            activeIndex={activeIndex}
-            setActiveIndex={setActiveIndex}
-            labelEl={labelEl}
-            descriptionEl={descriptionEl}
-          />
-        )}
-
-        {theme === "theme-8" && (
-          <Theme8
-            attributes={attributes}
-            activeIndex={activeIndex}
-            setActiveIndex={setActiveIndex}
-            labelEl={labelEl}
-            descriptionEl={descriptionEl}
-          />
-        )}
-
-        {theme === "theme-9" && (
-          <Theme9
-            attributes={attributes}
-            activeIndex={activeIndex}
-            setActiveIndex={setActiveIndex}
-            labelEl={labelEl}
-            descriptionEl={descriptionEl}
-          />
-        )}
+              {/* Timeline */}
+            </>
+          )}
       </div>
+
+
     </>
   );
 };

@@ -24,15 +24,6 @@ export const generalStyleTabs = [
 export const themeOptions = [
   { label: "Default", value: "default" },
   { label: "Timeline with Accordion", value: "timeline-with-accordion" },
-  { label: "Timeline with Icon and Date", value: "theme-2" },
-  { label: "Theme 3", value: "theme-3" },
-  { label: "Theme 4", value: "theme-4" },
-  { label: "Theme 5", value: "theme-5" },
-  { label: "Theme 6", value: "theme-6" },
-  { label: "Theme 5", value: "theme-5" },
-  { label: "Theme 7", value: "theme-7" },
-  { label: "Theme 8", value: "theme-8" },
-  { label: "Theme 9", value: "theme-9" },
 ];
 export const itemPositionOptions = [
   { label: "Both Side", value: "both-side" },

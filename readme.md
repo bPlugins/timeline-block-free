@@ -1,1 +1,1 @@
-# Timeline Block
+# ✨ Timeline Block - Beautiful Timeline Builder (Vertical & Horizontal Timelines)

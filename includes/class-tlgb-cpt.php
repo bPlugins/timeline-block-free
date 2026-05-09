@@ -1,4 +1,5 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit;
 if(!class_exists('tlgbCPT')) {
     class tlgbCPT {
         public function __construct() {

@@ -1,13 +1,13 @@
-=== Timeline Block - Beautiful Timeline Builder for WordPress (Vertical & Horizontal Timelines) ===
-Contributors: bplugins, abuhayat, taninrahman, charlescormier, freemius, prosanta10
+===  Timeline Block - Beautiful Timeline Builder (Vertical & Horizontal Timelines) ===
+Contributors: bplugins, abuhayat, taninrahman, freemius, prosanta10
 Donate link: https://www.buymeacoffee.com/abuhayat
 Tags:  block, timeline, vertical timeline, horizontal timeline, timeline builder
-Requires at least: 6.5+
+Requires at least: 6.5 
 Tested up to: 6.9
 Stable tag: 1.4.0
 Requires PHP: 7.1
 License: GPLv3 or later
-License URI: http://www.gnu.org/licenses/gpl-3.0.html
+License URI: http://www.gnu.org/licenses/gpl-3.0.html 
 
 Design Timeline with ease! Featuring 10 customizable themes in both horizontal and vertical layouts,lets you showcase your stories,events,or projects. 
 
@@ -263,3 +263,23 @@ Please report security bugs found in the source code of the Timeline Block plugi
 * Initial Release
 
 
+== Source Code ==
+
+You can find the source code, report bugs, and contribute to the development of this plugin on our GitHub repository:
+[**Timeline Block on GitHub**](https://github.com/bPlugins/advanced-post-block)
+
+== Third-Party Libraries ==
+
+= SVG Icons (Font Awesome, Lucide, etc.) =
+* **Purpose:** Provides scalable vector icons used for UI elements.
+* **Note:** This plugin does not load the full Font Awesome or Lucide libraries. Instead, specific icons are included directly as inline SVGs in the source code to keep the plugin lightweight and performant.
+
+= Immer =
+* **Source:** https://immerjs.github.io/immer/
+* **GitHub:** https://github.com/immerjs/immer
+* **License:** MIT
+* **Purpose:** Used for managing immutable state in a more convenient way.
+
+
+= Freemius Lite SDK (Custom) =
+* **Purpose:** A custom-made version of the Freemius SDK that calls through api.bplugins.com to handle opt-in usage tracking and analytics to help improve the plugin.

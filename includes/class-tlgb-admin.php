@@ -1,5 +1,5 @@
 <?php
-
+if ( ! defined( 'ABSPATH' ) ) exit;
 if (!class_exists('TLGBAdminMenu')) {
   class TLGBAdminMenu {
 
@@ -25,9 +25,8 @@ if (!class_exists('TLGBAdminMenu')) {
       <div id="tlgbAdminDashboardWrapper"
           data-info='<?php echo esc_attr( wp_json_encode( [
               'version' => TLGB_VERSION,
-              'isPremium' => tlgbIsPremium(),
-              'hasPro' => TLGB_HAS_PRO,
-              'licenseActiveNonce' => wp_create_nonce( 'bPlLicenseActivation' )
+              'isPremium' => false,
+              'hasPro' => false,
           ] ) ); ?>'
       ></div>
       <?php

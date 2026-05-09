@@ -3,19 +3,20 @@
  * Plugin Name: Timeline Block
  * Description: Display timeline content on your site. 
  * Version: 1.4.0
+ * Requires at least: 6.5
+ * Tested up to: 6.9
  * Author: bPlugins
  * Author URI: https://bplugins.com
  * License: GPLv3
  * License URI: https://www.gnu.org/licenses/gpl-3.0.txt
  * Text Domain: timeline-block
- * @fs_premium_only /vendor/freemius, /b-timeline, /includes/class-tlgb-license-activation.php
- * @fs_free_only /vendor/freemius-lite
+ * Domain Path:  /languages
  */ 
 
 // ABS PATH
 if (!defined('ABSPATH')) {
   exit;
-}
+} 
 
 
 if (function_exists('tlgb_fs')) {
@@ -27,22 +28,14 @@ if (function_exists('tlgb_fs')) {
   define('TLGB_DIR_PATH', plugin_dir_path(__FILE__));
   define('TLGB_HAS_FREE', 'timeline-block-block/plugin.php' === plugin_basename(__FILE__));
   define('TLGB_HAS_PRO', 'timeline-block-block-pro/plugin.php' === plugin_basename(__FILE__));
-  // define('DISALLOW_FILE_EDIT', true);
   
   if (!function_exists('tlgb_fs')) {
-    // ... Freemius integration snippet ...
     function tlgb_fs() {
       global $tlgb_fs;
 
       if (!isset($tlgb_fs)) {
-        $fsStartPath = dirname(__FILE__) . '/vendor/freemius/start.php';
-        $bSDKInitPath = dirname(__FILE__) . '/vendor/freemius-lite/start.php';
-
-        if (TLGB_HAS_PRO && file_exists($fsStartPath)) {
-          require_once $fsStartPath;
-        } else if (TLGB_HAS_FREE && file_exists($bSDKInitPath)) {
-          require_once $bSDKInitPath;
-        }
+        
+        require_once TLGB_DIR_PATH . '/vendor/freemius-lite/start.php';
 
         $tlgbConfig = [
           'id' => '17342',
@@ -50,33 +43,25 @@ if (function_exists('tlgb_fs')) {
           'premium_slug' => 'timeline-block-block-pro',
           'type' => 'plugin',
           'public_key' => 'pk_624005a9d0c56ff46db6602f5f730',
-          'is_premium' => true,
-          'premium_suffix' => 'Pro',
-          // If your plugin is a serviceware, set this option to false.
-          'has_premium_version' => true,
-          'has_addons' => false,
-          'has_paid_plans' => true,
+          'is_premium' => false,
           'menu' => [
               'slug' => 'edit.php?post_type=timeline_block',
               'first-path' => "edit.php?post_type=timeline_block&page=tlgb-dashboard#/welcome",
+              'contact' => false,
               'support' => false,
+              'affiliation' => false
           ],
         ];
-        $tlgb_fs = (TLGB_HAS_PRO && file_exists($fsStartPath)) ? fs_dynamic_init($tlgbConfig) : fs_lite_dynamic_init($tlgbConfig);
+        $tlgb_fs = fs_lite_dynamic_init($tlgbConfig);
       }
 
       return $tlgb_fs;
     }
 
-    // Init Freemius.
     tlgb_fs();
-    // Signal that SDK was initiated.
     do_action('tlgb_fs_loaded');
   }
-
-  // Initialized The Plugin
   require_once TLGB_DIR_PATH. 'includes/class-tlgb-main.php';
   new TLGBTimeline();
  
 } 
-

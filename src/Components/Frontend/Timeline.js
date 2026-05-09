@@ -1,23 +1,12 @@
 import  { useEffect, useState } from "react";
 import "../../style.scss";
 import { timelineConfig } from "../../utils/config";
-import { ArrowBack, ArrowForward } from "../../utils/icons";
-import Theme3 from "../Backend/Themes/Theme3";
-import Theme4 from "../Backend/Themes/Theme4";
 import Styles from "../Common/Styles";
 import ThemeStyles from "../Common/ThemeStyles";
-import Theme6 from "../Backend/Themes/Theme6";
-import Theme5 from "../Backend/Themes/Theme5";
-import Theme7 from "../Backend/Themes/Theme7";
-import Theme8 from "../Backend/Themes/Theme8";
-import Theme9 from "../Backend/Themes/Theme9";
 
-const Timeline = ({ attributes, id, isPremium }) => {
-  const { timelines, theme, itemPosition, type } = attributes;
+const Timeline = ({ attributes, id }) => {
+  const { timelines, theme } = attributes;
   const [visibleDescriptions, setVisibleDescriptions] = useState({});
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  const pricingLocation = `/wp-admin/edit.php?post_type=timeline_block&page=tlgb-dashboard#/pricing`;
 
   useEffect(() => {
     const timelineEl = document.querySelector(`#${id} .timeline`);
@@ -38,24 +27,6 @@ const Timeline = ({ attributes, id, isPremium }) => {
       }
     }
   }, [timelines]);
-
-  const labelEl = (timeline) => {
-    return (
-      <label
-        className="timeline-label"
-        dangerouslySetInnerHTML={{ __html: timeline.label }}
-      ></label>
-    );
-  };
-
-  const descriptionEl = (timeline) => {
-    return (
-      <p
-        className="timeline-description"
-        dangerouslySetInnerHTML={{ __html: timeline.description }}
-      ></p>
-    );
-  };
 
   // Toggle description visibility
   const toggleDescription = (index) => {
@@ -93,28 +64,6 @@ const Timeline = ({ attributes, id, isPremium }) => {
     });
   }, [visibleDescriptions, timelines]);
 
-  const getClassForItem = (index) => {
-    if (itemPosition === "both-side") {
-      return index % 2 === 0 ? "right" : "left";
-    } else if (itemPosition === "right") {
-      return "left";
-    }
-    return "right";
-  };
-
-  const handleNext = () => {
-    if (activeIndex < timelines.length - 2) {
-      setActiveIndex(activeIndex + 1);
-    }
-  };
-
-  const handlePrev = () => {
-    if (activeIndex > 0) {
-      setActiveIndex(activeIndex - 1);
-    }
-  };
-
-  const translateValue = -(activeIndex * (100 / 2));
 
   return (
     <>
@@ -175,131 +124,6 @@ const Timeline = ({ attributes, id, isPremium }) => {
                   );
                 })}
               </div>
-            </div>
-          </div>
-        )}
-
-        {theme === "theme-2" && (
-          <div
-            className={`timeline-container ${
-              type === "horizontal" ? "horizontal" : "vertical"
-            }`}
-          >
-            <button className="carousel-button prev" onClick={handlePrev}>
-              <ArrowBack />
-            </button>
-
-            <div className="timeline-bar"></div>
-            <div
-              className="timeline-items"
-              style={{ transform: `translateX(${translateValue}%)` }}
-            >
-              {timelines.map((event, index) => (
-                <div
-                  key={index}
-                  className={`timeline-item ${getClassForItem(index)}`}
-                >
-                  <div className="timeline-date">{event.date}</div>
-                  <div
-                    className="timeline-icon"
-                    dangerouslySetInnerHTML={{ __html: event.icon }}
-                  ></div>
-                  <div className="timeline-content">
-                    <label
-                      className="timeline-title"
-                      dangerouslySetInnerHTML={{ __html: event.label }}
-                    ></label>
-                    <p
-                      className="timeline-description"
-                      dangerouslySetInnerHTML={{ __html: event.description }}
-                    ></p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <button className="carousel-button next" onClick={handleNext}>
-              <ArrowForward />
-            </button>
-          </div>
-        )}
-
-        {theme === "theme-3" && (
-          <Theme3
-            attributes={attributes}
-            labelEl={labelEl}
-            descriptionEl={descriptionEl}
-            setActiveIndex={setActiveIndex}
-          />
-        )}
-
-        {theme === "theme-4" && (
-          <Theme4
-            attributes={attributes}
-            labelEl={labelEl}
-            descriptionEl={descriptionEl}
-          />
-        )}
-
-        {theme === "theme-5" && (
-          <Theme5
-            attributes={attributes}
-            labelEl={labelEl}
-            descriptionEl={descriptionEl}
-          />
-        )}
-
-        {theme === "theme-6" && (
-          <Theme6
-            attributes={attributes}
-            activeIndex={activeIndex}
-            setActiveIndex={setActiveIndex}
-            labelEl={labelEl}
-            descriptionEl={descriptionEl}
-          />
-        )}
-
-        {theme === "theme-7" && (
-          <Theme7
-            attributes={attributes}
-            activeIndex={activeIndex}
-            setActiveIndex={setActiveIndex}
-            labelEl={labelEl}
-            descriptionEl={descriptionEl}
-          />
-        )}
-
-        {theme === "theme-8" && (
-          <Theme8
-            attributes={attributes}
-            labelEl={labelEl}
-            descriptionEl={descriptionEl}
-          />
-        )}
-
-        {theme === "theme-9" && (
-          <Theme9
-            attributes={attributes}
-            activeIndex={activeIndex}
-            setActiveIndex={setActiveIndex}
-            labelEl={labelEl}
-            descriptionEl={descriptionEl}
-          />
-        )}
-
-        {/* PREMIUM OVERLAY (Shown if isPremium === false) */}
-        {theme !== "default" && !isPremium && (
-          <div className="premium-overlay">
-            <div className="premium-box">
-              <h3>This is a Premium Feature</h3>
-              <a
-                className="premium-btn"
-                href={pricingLocation}
-                rel="noreferrer"
-                target="_blank"
-              >
-                Upgrade Now
-              </a>
             </div>
           </div>
         )}

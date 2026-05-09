@@ -1,11 +1,11 @@
 <?php
+if (!defined('ABSPATH')) exit;
 if (!class_exists('TLGBPlugin')) {
     class TLGBPlugin {
 
       public function __construct() {
         add_action('init', [$this, 'init']); 
         add_action('enqueue_block_assets', [$this, 'tlgb_enqueue_scripts']); 
-        add_action('enqueue_block_editor_assets', [$this, 'tlgb_enqueue_editor_scripts']);
       }
 
       // Function to enqueue block assets for backend and frontend
@@ -25,21 +25,8 @@ if (!class_exists('TLGBPlugin')) {
           [],
           TLGB_VERSION
         );
-
-        wp_add_inline_script(
-          'tlgb-b-timeline-block-view-script',
-          'const tlgbIsPipeChecker = ' . wp_json_encode(tlgbIsPremium()) . ';',
-          'before'
-        );
       }
 
-      public function tlgb_enqueue_editor_scripts() {
-        wp_add_inline_script(
-          'tlgb-b-timeline-block-editor-script',
-          'const tlgbIsPipeChecker = ' . wp_json_encode(tlgbIsPremium()) . ';',
-          'before'
-        );
-      }
       
       public function init() {
         register_block_type(__DIR__ . '/build');

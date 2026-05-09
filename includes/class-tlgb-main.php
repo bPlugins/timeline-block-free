@@ -1,4 +1,5 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit;
 if(!class_exists('TLGBTimeline')){
   class TLGBTimeline {
     public function __construct() {
@@ -7,18 +8,9 @@ if(!class_exists('TLGBTimeline')){
     }
   
     public static function load_dependencies() {
-      if(TLGB_HAS_PRO) {
-        require_once TLGB_DIR_PATH . 'includes/class-tlgb-license-activation.php';
-      }
       require_once TLGB_DIR_PATH . 'class-tlgb-block.php';
-      require_once TLGB_DIR_PATH . 'includes/functions.php';
       require_once TLGB_DIR_PATH . 'includes/class-tlgb-cpt.php';
       include_once TLGB_DIR_PATH . 'includes/class-tlgb-admin.php';
-      // $b_timeline = TLGB_DIR_PATH . 'b-timeline/b-timeline.php';
-      $timeline = TLGB_DIR_PATH . 'b-timeline/class-bptl-main.php';
-      if (tlgbIsPremium() && file_exists($timeline)) {
-        include_once $timeline;
-      }
     }
   
     public static function tlgb_shortcode($atts) {
