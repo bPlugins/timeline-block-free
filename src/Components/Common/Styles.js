@@ -1,4 +1,3 @@
-import React from "react";
 import { getTypoCSS } from "../../../../bpl-tools/utils/getCSS";
 
 const Styles = ({ attributes, id }) => {
@@ -19,7 +18,7 @@ const Styles = ({ attributes, id }) => {
   const timelineSl = `${mainSl} .timeline`;
   const horizontalTimelineSl = `${timelineSl}.timeline--horizontal`;
   const contentSl = `${timelineSl} ${contentCl}`;
-  const itemSl = `${mainSl} .timeline__item`;
+  const itemSl = `${mainSl} .timeline__item`; 
 
   return (
     <style
@@ -78,7 +77,8 @@ const Styles = ({ attributes, id }) => {
 		}
 
 		${itemSl}.timeline__item--left ${contentCl}::before {
-			border-left: 11px solid ${itemBorder.color}}
+			border-left: 11px solid ${itemBorder.color};
+	}
 
 		${itemSl}.timeline__item--right ${contentCl}::before {
 			border-right: 12px solid ${itemBorder.color};

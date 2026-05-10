@@ -1,4 +1,4 @@
-import  { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "../../style.scss";
 import { timelineConfig } from "../../utils/config";
 import Styles from "../Common/Styles";
@@ -7,6 +7,7 @@ import ThemeStyles from "../Common/ThemeStyles";
 const Timeline = ({ attributes, id }) => {
   const { timelines, theme } = attributes;
   const [visibleDescriptions, setVisibleDescriptions] = useState({});
+
 
   useEffect(() => {
     const timelineEl = document.querySelector(`#${id} .timeline`);
@@ -97,9 +98,8 @@ const Timeline = ({ attributes, id }) => {
                               }}
                             ></label>
                             <p
-                              className={`timeline__description ${
-                                isVisible ? "visible" : "hidden"
-                              }`}
+                              className={`timeline__description ${isVisible ? "visible" : "hidden"
+                                }`}
                               dangerouslySetInnerHTML={{
                                 __html: description.replace(/\n/g, "<br />"),
                               }}

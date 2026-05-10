@@ -5,6 +5,7 @@ import Pricing from '../../../bpl-tools/Admin/Pricing';
 import FeatureCompare from '../../../bpl-tools/Admin/FeatureCompare';
 import Activation from '../../../bpl-tools/Admin/Activation';
 import OurPlugins from '../../../bpl-tools/Admin/OurPlugins';
+import Settings from './Settings';
 
 import Layout from './Layout';
 import Welcome from './Welcome';
@@ -27,6 +28,8 @@ const App = (props) => {
         {!isPremium && <Route path='feature-comparison' element={<FeatureCompare plans={['free', 'pro']} {...props} />} />}
 
         {hasPro && <Route path='activation' element={<Activation {...props} />} />}
+
+        <Route path='settings' element={<Settings {...props} />} />
 
         <Route path='our-plugins' element={<OurPlugins {...props} />} />
 

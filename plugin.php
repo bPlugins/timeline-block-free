@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Timeline Block
  * Description: Display timeline content on your site. 
- * Version: 1.4.0
+ * Version: 1.5.0
  * Requires at least: 6.5
  * Tested up to: 6.9
  * Author: bPlugins
@@ -16,14 +16,13 @@
 // ABS PATH
 if (!defined('ABSPATH')) {
   exit;
-} 
-
+}
 
 if (function_exists('tlgb_fs')) {
   tlgb_fs()->set_basename(false, __FILE__);
 } else {
   // Constant
-  define('TLGB_VERSION', isset($_SERVER['HTTP_HOST']) && 'localhost' === $_SERVER['HTTP_HOST'] ? time() : '1.4.0');
+  define('TLGB_VERSION', isset($_SERVER['HTTP_HOST']) && 'localhost' === $_SERVER['HTTP_HOST'] ? time() : '1.5.0');
   define('TLGB_DIR_URL', plugin_dir_url(__FILE__));
   define('TLGB_DIR_PATH', plugin_dir_path(__FILE__));
   define('TLGB_HAS_FREE', 'timeline-block-block/plugin.php' === plugin_basename(__FILE__));
@@ -63,5 +62,5 @@ if (function_exists('tlgb_fs')) {
   }
   require_once TLGB_DIR_PATH. 'includes/class-tlgb-main.php';
   new TLGBTimeline();
- 
+  
 } 

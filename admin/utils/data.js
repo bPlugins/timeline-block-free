@@ -1,7 +1,7 @@
 const slug = "timeline-block-block";
 
 export const dashboardInfo = (info) => {
-  const { version, isPremium, hasPro, licenseActiveNonce } = info;
+  const { version, isPremium, hasPro, licenseActiveNonce, deleteDataOnUninstall, uninstallNonce } = info;
 
   const proSuffix = isPremium ? ' Pro' : '';
 
@@ -13,6 +13,8 @@ export const dashboardInfo = (info) => {
     version,
     isPremium,
     hasPro,
+    deleteDataOnUninstall,
+    uninstallNonce,
     displayOurPlugins: true,
     media: {
       logo: `https://ps.w.org/${slug}/assets/icon-128x128.png`,

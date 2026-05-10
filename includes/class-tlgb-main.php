@@ -11,7 +11,8 @@ if(!class_exists('TLGBTimeline')){
       require_once TLGB_DIR_PATH . 'class-tlgb-block.php';
       require_once TLGB_DIR_PATH . 'includes/class-tlgb-cpt.php';
       include_once TLGB_DIR_PATH . 'includes/class-tlgb-admin.php';
-    }
+      include_once TLGB_DIR_PATH . 'includes/class-tlgb-options.php';
+    } 
   
     public static function tlgb_shortcode($atts) {
       $atts = shortcode_atts([

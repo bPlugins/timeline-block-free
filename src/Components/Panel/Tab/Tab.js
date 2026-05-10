@@ -1,4 +1,4 @@
-import React from "react";
+
 
 export const Tab = (props) => {
   const {
@@ -74,20 +74,6 @@ export const Tab = (props) => {
           </div>
         ))}
       </div>
-      {/* <div id={`bpl-tab-${id}`} className="bpl-tab">
-        {options?.map((option, i) => (
-          <div
-            key={i}
-            onClick={() => onChange(option.replace(/\s/g, "").toLowerCase())}
-            className={`dynamic-${id} single-bpl-tab ${value === option.replace(/\s/g, "").toLowerCase()
-              ? 'isActive'
-              : 'single-bpl-tab-hover'
-              }`}
-          >
-            <p style={{ textTransform: 'capitalize' }}>{option}</p>
-          </div>
-        ))}
-      </div> */}
     </div>
   );
 };

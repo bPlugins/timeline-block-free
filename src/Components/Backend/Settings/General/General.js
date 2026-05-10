@@ -98,6 +98,7 @@ const General = ({
               rows={6}
 
             />
+            <Notice status='premium' isIcon={true}>{__('Classic Editor For Description setting is available in the Premium version.', 'timeline-block')}</Notice>
 
             <PanelRow className="itemAction mt20 mb15">
               {1 < timelines?.length && (
@@ -132,7 +133,6 @@ const General = ({
             {__("Add New Timeline", "timeline-block")}
           </Button>
         </div>
-        <Notice status='premium' isIcon={true}>{__('Classic Editor For Description setting is available in the Premium version.', 'timeline-block')}</Notice>
       </PanelBody>
 
       {theme === "default" && (
@@ -218,10 +218,6 @@ const General = ({
           )}
         </PanelBody>
       )}
-      {/* <PremiumPanel title={__('Premium Timeline Themes', 'timeline-block')}
-        description={__('Premium Timeline Pro has 8+ beautiful themes, with lot of customization are available in the Premium version.', 'timeline-block')}
-        pricingUrl={'https://bplugins.com/products/timeline-block/pricing/'}
-        demoUrl='https://bplugins.com/products/b-timeline/#demos' /> */}
       <PanelBody className='bPlPanelBody apbNewsTickerOptions' title={<>
         {__('Timeline Block Pro Version', 'timeline-block')}
         <PremiumBadge />

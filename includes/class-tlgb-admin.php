@@ -27,6 +27,8 @@ if (!class_exists('TLGBAdminMenu')) {
               'version' => TLGB_VERSION,
               'isPremium' => false,
               'hasPro' => false,
+              'deleteDataOnUninstall' => TLGBOptions::getOptions()['delete_data_on_uninstall'],
+              'uninstallNonce' => wp_create_nonce( 'tlgbSaveUninstallOption' ),
           ] ) ); ?>'
       ></div>
       <?php

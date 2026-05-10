@@ -7,6 +7,7 @@ const navigation = [
   { name: 'Demos', href: '/demos' },
   { name: 'Pricing', href: '/pricing' },
   { name: 'Feature Comparison', href: '/feature-comparison' },
+  { name: 'Settings', href: '/settings' },
   { name: 'License Activation', href: '/activation' }
 ];
 

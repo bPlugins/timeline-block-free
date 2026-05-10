@@ -4,7 +4,7 @@ Donate link: https://www.buymeacoffee.com/abuhayat
 Tags:  block, timeline, vertical timeline, horizontal timeline, timeline builder
 Requires at least: 6.5 
 Tested up to: 6.9
-Stable tag: 1.4.0
+Stable tag: 1.5.0
 Requires PHP: 7.1
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html 
@@ -133,6 +133,10 @@ Please report security bugs found in the source code of the Timeline Block plugi
 
 
 == Changelog ==
+
+= 1.5.0 - 9 May 2026 =
+* **Update:** Add responsive settings for different devices.
+
 
 = 1.4.0 - 13 April 2026 =
 * **Update:** Add animation options and two new theme.
@@ -266,9 +270,11 @@ Please report security bugs found in the source code of the Timeline Block plugi
 == Source Code ==
 
 You can find the source code, report bugs, and contribute to the development of this plugin on our GitHub repository:
-[**Timeline Block on GitHub**](https://github.com/bPlugins/advanced-post-block)
+[**Timeline Block on GitHub**](https://github.com/bPlugins/timeline-block-free)
 
 == Third-Party Libraries ==
+
+This plugin bundles the following third-party JavaScript/PHP libraries.
 
 = SVG Icons (Font Awesome, Lucide, etc.) =
 * **Purpose:** Provides scalable vector icons used for UI elements.

@@ -19,27 +19,3 @@ $primaryColor: #4527a4;
     font-weight: bold;
   }
 }
-
-.clipBtnWrapper {
-  text-align: center;
-  margin-bottom: 30px;
-
-  p {
-    font-size: 18px;
-    font-weight: 500;
-  }
-
-  button {
-    background: rgb(69, 39, 164);
-    color: rgb(255, 255, 255);
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    font-size: 15px;
-
-    &:hover {
-      background: rgb(69, 39, 164);
-      color: rgb(255, 255, 255) !important;
-    }
-  }
-}
