@@ -1,0 +1,92 @@
+# Copyright (C) 2026 bPlugins
+# This file is distributed under the GPLv3.
+msgid ""
+msgstr ""
+"Project-Id-Version: Timeline Block 1.5.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/timeline-block-block\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-05-11T09:35:40+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: timeline-block\n"
+
+#. Plugin Name of the plugin
+#: plugin.php
+msgid "Timeline Block"
+msgstr ""
+
+#. Description of the plugin
+#: plugin.php
+msgid "Display timeline content on your site."
+msgstr ""
+
+#. Author of the plugin
+#: plugin.php
+msgid "bPlugins"
+msgstr ""
+
+#. Author URI of the plugin
+#: plugin.php
+msgid "https://bplugins.com"
+msgstr ""
+
+#: includes/class-tlgb-options.php:31
+msgid "Permission denied."
+msgstr ""
+
+#: includes/class-tlgb-options.php:41
+msgid "All plugin data will be deleted when uninstalled."
+msgstr ""
+
+#: includes/class-tlgb-options.php:42
+msgid "Plugin data will be preserved when uninstalled."
+msgstr ""
+
+#: admin/Components/Settings.js:20
+#: build/admin-dashboard.js:1
+msgid "Failed to save setting."
+msgstr ""
+
+#: admin/Components/Settings.js:29
+#: build/admin-dashboard.js:1
+msgid "Are you sure? This will permanently delete all timeline block shortcode posts when the plugin is uninstalled."
+msgstr ""
+
+#: admin/Components/Settings.js:40
+#: build/admin-dashboard.js:1
+msgid "Delete Data on Uninstall"
+msgstr ""
+
+#: admin/Components/Settings.js:42
+#: build/admin-dashboard.js:1
+msgid "When enabled, all plugin data will be permanently deleted when you uninstall (delete) the plugin. This includes:"
+msgstr ""
+
+#: admin/Components/Settings.js:45
+#: build/admin-dashboard.js:1
+msgid "All timeline shortcode posts (timeline_block post type)."
+msgstr ""
+
+#: admin/Components/Settings.js:46
+#: build/admin-dashboard.js:1
+msgid "Plugin settings and configurations."
+msgstr ""
+
+#: admin/Components/Settings.js:50
+#: build/admin-dashboard.js:1
+msgid "⚠️ This action cannot be undone. Your data will be safe if you only deactivate the plugin."
+msgstr ""
+
+#: admin/Components/Settings.js:62
+#: build/admin-dashboard.js:1
+msgid "Data will be deleted on uninstall"
+msgstr ""
+
+#: admin/Components/Settings.js:63
+#: build/admin-dashboard.js:1
+msgid "Data will be preserved on uninstall"
+msgstr ""

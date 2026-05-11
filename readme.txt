@@ -23,7 +23,7 @@ Designed with user-friendliness in mind, the Timeline Block Plugin empowers you 
 [**Timeline Block**](https://bplugins.com/products/timeline-block/) | [**Pricing**](https://bplugins.com/products/timeline-block/pricing/) | [**Support**](https://bplugins.com/support/) | [**Demo**]((https://bblockswp.com/demo/timeline-block-all-demos/))
 
 = Key Features =
-- **Default Theme**: Customize the default theme to match your style and preferences.
+- **Two Free Themes**: Customize the default theme to match your style and preferences.
 - **Timeline Type**: Easily switch between horizontal and vertical layouts in the default theme.
 - **Start Index**: Set the starting position (left or right) for both horizontal and vertical timelines.
 - **Display Item**: Choose how many items to display in the horizontal timeline for a tailored view.
@@ -32,7 +32,7 @@ Designed with user-friendliness in mind, the Timeline Block Plugin empowers you 
 
 = Pro Features =
 - **Add Shortcode API**: You can access a very powerful shortcode plugin which have some incredible features and you can use anywhere this plugin by using this features.
-- **Nine Extra Themes**: Access Nine more professionally designed themes, some themes supporting both horizontal and vertical layouts.
+- **Eight Extra Themes**: Access Eight more professionally designed themes, some themes supporting both horizontal and vertical layouts.
 - **Classic Editor for Descriptions**: Edit timeline descriptions beautifully with the integrated classic editor, providing advanced formatting options.
 - **Customizable Icons**: Add unique icons to your timeline items and style them to create a polished, professional look.
 - **Enhanced Customization Options**: Fine-tune every aspect of your timeline for ultimate design control.
@@ -134,9 +134,14 @@ Please report security bugs found in the source code of the Timeline Block plugi
 
 == Changelog ==
 
-= 1.5.0 - 9 May 2026 =
-* **Update:** Add responsive settings for different devices.
-
+= 1.5.0 - 11 May 2026 =
+* Naming issue - The plugin name was too generic or implied false affiliation. Updated the name to comply with guidelines.
+* Compliance: Removed all trialware/feature-gating logic to ensure full functionality for all users.
+* Fixed - Fixed the unconditional loading of Freemius SDK to ensure telemetry is opt-in only.
+* Enhancement: Added explicit "External Services" and "Source Code" documentation in readme.txt.
+* Fixed - Requires at least" value was using an invalid format (e.g., "6.5+"). Corrected it.
+* Fixed - Editor block apiVersion was outdated (apiVersion 1). Updated to apiVersion 3.
+* Fixed - Allowed direct file access - Added `defined( 'ABSPATH' ) || exit;` to PHP files to prevent direct execution.
 
 = 1.4.0 - 13 April 2026 =
 * **Update:** Add animation options and two new theme.
@@ -272,7 +277,7 @@ Please report security bugs found in the source code of the Timeline Block plugi
 You can find the source code, report bugs, and contribute to the development of this plugin on our GitHub repository:
 [**Timeline Block on GitHub**](https://github.com/bPlugins/timeline-block-free)
 
-== Third-Party Libraries ==
+== External Services ==
 
 This plugin bundles the following third-party JavaScript/PHP libraries.
 
@@ -286,6 +291,10 @@ This plugin bundles the following third-party JavaScript/PHP libraries.
 * **License:** MIT
 * **Purpose:** Used for managing immutable state in a more convenient way.
 
+= Freemius Lite SDK =
 
-= Freemius Lite SDK (Custom) =
-* **Purpose:** A custom-made version of the Freemius SDK that calls through api.bplugins.com to handle opt-in usage tracking and analytics to help improve the plugin.
+* **Source:** [https://bplugins.com/](https://bplugins.com/)
+* **GitHub:** [https://github.com/bPlugins/freemius-lite-sdk](https://github.com/bPlugins/freemius-lite-sdk)
+* **License:** GPL-2.0-or-later – [https://www.gnu.org/licenses/gpl-2.0.html](https://www.gnu.org/licenses/gpl-2.0.html)
+* **Purpose:** Provides an opt-in consent form for usage tracking and analytics to help improve the plugin. No data is sent before explicit user consent.
+* **External Services:** Communicates with `api.bplugins.com` (activation events) and `wp.freemius.com` (opt-in processing) only after user opt-in. See [bPlugins Privacy Policy](https://bplugins.com/privacy-policy) and [Freemius Privacy Policy](https://freemius.com/privacy/).

@@ -10,8 +10,8 @@
  * License: GPLv3
  * License URI: https://www.gnu.org/licenses/gpl-3.0.txt
  * Text Domain: timeline-block
- * Domain Path:  /languages
- */ 
+ * Domain Path:  /languages 
+ */  
 
 // ABS PATH
 if (!defined('ABSPATH')) {
@@ -57,8 +57,10 @@ if (function_exists('tlgb_fs')) {
       return $tlgb_fs;
     }
 
-    tlgb_fs();
-    do_action('tlgb_fs_loaded');
+    if ( is_admin() ) {
+        tlgb_fs();
+        do_action('tlgb_fs_loaded');
+    }
   }
   require_once TLGB_DIR_PATH. 'includes/class-tlgb-main.php';
   new TLGBTimeline();

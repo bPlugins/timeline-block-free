@@ -38,6 +38,19 @@ export const dashboardInfo = (info) => {
     licenseActiveNonce,
     changelogs: [
       {
+        version: "1.5.0 - 11 May 2026",
+        type: "Fixed",
+        list: [
+          "Naming issue - The plugin name was too generic or implied false affiliation.Updated the name to comply with guidelines",
+          "Compliance: Removed all trialware/ feature - gating logic to ensure full functionality for all users",
+          "Fixed - Fixed the unconditional loading of Freemius SDK to ensure telemetry is opt-in only",
+          "Enhancement: Added explicit External Services and Source Code documentation in readme.txt",
+          "Fixed - Requires at least value was using an invalid format(e.g., 6.5 +).Corrected it",
+          "Fixed - Editor block apiVersion was outdated(apiVersion 1).Updated to apiVersion 3",
+          "Fixed - Allowed direct file access - Added`defined( 'ABSPATH' ) || exit;` to PHP files to prevent direct execution",
+        ],
+      },
+      {
         version: "1.4.0 - 13 April 2026",
         type: "update",
         list: [

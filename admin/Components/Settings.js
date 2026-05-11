@@ -24,7 +24,6 @@ const Settings = ({ deleteDataOnUninstall, uninstallNonce }) => {
 	const handleToggle = () => {
 		const newValue = !enabled;
 
-		// Show confirm dialog when enabling (destructive action)
 		if (newValue) {
 			const confirmed = window.confirm(
 				__('Are you sure? This will permanently delete all timeline block shortcode posts when the plugin is uninstalled.', 'timeline-block')
