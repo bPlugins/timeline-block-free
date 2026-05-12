@@ -218,7 +218,7 @@ const General = ({
           )}
         </PanelBody>
       )}
-      <PanelBody className='bPlPanelBody apbNewsTickerOptions' title={<>
+      <PanelBody className='bPlPanelBody' title={<>
         {__('Timeline Block Pro Version', 'timeline-block')}
         <PremiumBadge />
       </>} initialOpen={false}>

@@ -5,7 +5,12 @@
   "version": "1.5.0",
   "description": "Show your story or Memories on the web.",
   "category": "widgets",
-  "keywords": ["timeline", "timeline", "timeline-block", "animation-timeline"],
+  "keywords": [
+    "timeline",
+    "timeline",
+    "timeline-block",
+    "animation-timeline"
+  ],
   "textdomain": "timeline-block",
   "attributes": {
     "align": {
@@ -272,7 +277,10 @@
     }
   },
   "supports": {
-    "align": ["wide", "full"],
+    "align": [
+      "wide",
+      "full"
+    ],
     "html": false
   },
   "example": {
@@ -280,9 +288,16 @@
       "preview": true
     }
   },
-  "editorScript": ["file:./index.js", "wp-api"], 
+  "editorScript": [
+    "file:./index.js",
+    "wp-api"
+  ],
   "editorStyle": "file:./index.css",
   "style": "file:./view.css",
-  "render": "file:./render.php", 
-  "viewScript": ["file:./view.js", "react", "react-dom"]
-} 
+  "render": "file:./render.php",
+  "viewScript": [
+    "file:./view.js",
+    "react",
+    "react-dom"
+  ]
+}

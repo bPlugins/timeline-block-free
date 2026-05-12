@@ -85,7 +85,7 @@ const Settings = ({
                   activeIndex={activeIndex}
                   updateObj={updateObj}
                   setActiveIndex={setActiveIndex}
-                />
+                /> 
               )}
 
               {"style" === tab.name && (
@@ -100,7 +100,7 @@ const Settings = ({
         <BlockControls>
           <ThemeSwitcher
             themes={toolTipPresets}
-            value={theme}
+            value={theme} 
             isTooltip={false}
             visibleCount={7}
             buttonLabel="More Themes"

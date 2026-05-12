@@ -1,18 +1,19 @@
 <?php
 /**
- * Plugin Name: Timeline Block
+ * Plugin Name: Timeline Block - Beautiful Timeline Builder For Gutenberg
  * Description: Display timeline content on your site. 
  * Version: 1.5.0
- * Requires at least: 6.5
+ * Requires at least: 6.2
  * Tested up to: 6.9
  * Author: bPlugins
  * Author URI: https://bplugins.com
- * License: GPLv3
- * License URI: https://www.gnu.org/licenses/gpl-3.0.txt
+ * License: GPLv2 or later
+ * Requires PHP: 7.4
+ * License URI: https://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain: timeline-block
  * Domain Path:  /languages 
  */  
-
+  
 // ABS PATH
 if (!defined('ABSPATH')) {
   exit;
@@ -25,8 +26,6 @@ if (function_exists('tlgb_fs')) {
   define('TLGB_VERSION', isset($_SERVER['HTTP_HOST']) && 'localhost' === $_SERVER['HTTP_HOST'] ? time() : '1.5.0');
   define('TLGB_DIR_URL', plugin_dir_url(__FILE__));
   define('TLGB_DIR_PATH', plugin_dir_path(__FILE__));
-  define('TLGB_HAS_FREE', 'timeline-block-block/plugin.php' === plugin_basename(__FILE__));
-  define('TLGB_HAS_PRO', 'timeline-block-block-pro/plugin.php' === plugin_basename(__FILE__));
   
   if (!function_exists('tlgb_fs')) {
     function tlgb_fs() {

@@ -49,5 +49,4 @@ if (!class_exists('TLGBAdminMenu')) {
     }
     
   }
-  new TLGBAdminMenu();
 }

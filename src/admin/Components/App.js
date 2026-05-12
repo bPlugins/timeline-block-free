@@ -1,10 +1,10 @@
 import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 
-import Demos from '../../../bpl-tools/Admin/Demos';
-import Pricing from '../../../bpl-tools/Admin/Pricing';
-import FeatureCompare from '../../../bpl-tools/Admin/FeatureCompare';
-import Activation from '../../../bpl-tools/Admin/Activation';
-import OurPlugins from '../../../bpl-tools/Admin/OurPlugins';
+import Demos from '../../../../bpl-tools/Admin/Demos';
+import Pricing from '../../../../bpl-tools/Admin/Pricing';
+import FeatureCompare from '../../../../bpl-tools/Admin/FeatureCompare';
+import Activation from '../../../../bpl-tools/Admin/Activation';
+import OurPlugins from '../../../../bpl-tools/Admin/OurPlugins';
 import Settings from './Settings';
 
 import Layout from './Layout';

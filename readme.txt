@@ -1,21 +1,21 @@
-===  Timeline Block - Beautiful Timeline Builder (Vertical & Horizontal Timelines) ===
+===  Timeline Block - Beautiful Timeline Builder For Gutenberg ===
 Contributors: bplugins, abuhayat, taninrahman, freemius, prosanta10
 Donate link: https://www.buymeacoffee.com/abuhayat
 Tags:  block, timeline, vertical timeline, horizontal timeline, timeline builder
-Requires at least: 6.5 
+Requires at least: 6.2 
 Tested up to: 6.9
 Stable tag: 1.5.0
-Requires PHP: 7.1
-License: GPLv3 or later
-License URI: http://www.gnu.org/licenses/gpl-3.0.html 
+Requires PHP: 7.4 
+License: GPLv2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.txt
 
-Design Timeline with ease! Featuring 10 customizable themes in both horizontal and vertical layouts,lets you showcase your stories,events,or projects. 
+Design Timeline with ease! Featuring 2 free customizable themes (and 8 additional themes in Pro) in both horizontal and vertical layouts, lets you showcase your stories, events, or projects. 
 
 == Description ==
 
 **Design Stunning WordPress Timelines Without Writing a Single Line of Code.**
 
-The Timeline Block Plugin is your ultimate solution for creating visually stunning and fully customizable timelines in WordPress. With 6 unique themes, each supporting both horizontal and vertical layouts, this plugin offers unparalleled flexibility to showcase your stories, projects, milestones, or events in a captivating format.
+The Timeline Block Plugin is your ultimate solution for creating visually stunning and fully customizable timelines in WordPress. With 2 free unique themes (and 8 more in Premium Version of this plugin), each supporting both horizontal and vertical layouts, this plugin offers unparalleled flexibility to showcase your stories, projects, milestones, or events in a captivating format.
 
 Designed with user-friendliness in mind, the Timeline Block Plugin empowers you to effortlessly add, edit, and style your timeline directly in the WordPress editor. Customize colors, fonts, icons, and more to align perfectly with your brand or website design. Whether you're creating a project roadmap, a personal story, or a historical timeline, the plugin adapts to your needs with precision. 
  
@@ -286,15 +286,28 @@ This plugin bundles the following third-party JavaScript/PHP libraries.
 * **Note:** This plugin does not load the full Font Awesome or Lucide libraries. Instead, specific icons are included directly as inline SVGs in the source code to keep the plugin lightweight and performant.
 
 = Immer =
+* **Version:** 11.1.8
 * **Source:** https://immerjs.github.io/immer/
 * **GitHub:** https://github.com/immerjs/immer
 * **License:** MIT
 * **Purpose:** Used for managing immutable state in a more convenient way.
 
 = Freemius Lite SDK =
-
+* **Version:** 2.2.0
 * **Source:** [https://bplugins.com/](https://bplugins.com/)
 * **GitHub:** [https://github.com/bPlugins/freemius-lite-sdk](https://github.com/bPlugins/freemius-lite-sdk)
 * **License:** GPL-2.0-or-later – [https://www.gnu.org/licenses/gpl-2.0.html](https://www.gnu.org/licenses/gpl-2.0.html)
 * **Purpose:** Provides an opt-in consent form for usage tracking and analytics to help improve the plugin. No data is sent before explicit user consent.
 * **External Services:** Communicates with `api.bplugins.com` (activation events) and `wp.freemius.com` (opt-in processing) only after user opt-in. See [bPlugins Privacy Policy](https://bplugins.com/privacy-policy) and [Freemius Privacy Policy](https://freemius.com/privacy/).
+
+= Timeline =
+* **Version:** 1.2.0
+* **Source:** assets/js/timeline.min.js, assets/css/timeline.min.css
+* **Author:** Mike Collins
+* **License:** MIT
+* **Purpose:** A horizontal / vertical timeline component used for rendering timelines on the frontend.
+
+= YouTube =
+* **Source:** https://www.youtube.com/
+* **Purpose:** Used to display documentation and tutorial videos in the admin dashboard.
+* **Privacy:** Loading or interacting with the video player connects to YouTube servers and is subject to YouTube's privacy policy.

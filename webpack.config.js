@@ -15,9 +15,9 @@ const plugins = defaultConfig.plugins.filter((p) => {
 module.exports = {
   ...defaultConfig,
   entry: {
-    ...defaultConfig.entry(),
-    "admin-dashboard": "./admin/admin.js",
-    column: "./admin/ShortcodeColumn/column.js",
+    ...defaultConfig.entry(), 
+    "admin-dashboard": "./src/admin/admin.js",
+    column: "./src/admin/ShortCodeColumn/column.js",
   },
   plugins: [...plugins, new ESLintPlugin()],
   optimization: {},

@@ -1,7 +1,7 @@
 <?php
 if ( ! defined( 'ABSPATH' ) ) exit;
-if(!class_exists('tlgbCPT')) {
-    class tlgbCPT {
+if(!class_exists('TLGBCpt')) {
+    class TLGBCpt {
         public function __construct() {
             add_action('init', [$this, 'registerCPT']);
             add_filter('manage_timeline_block_posts_columns', [$this, 'tlgb_timelineBlockManageColumns'], 10);
@@ -44,13 +44,11 @@ if(!class_exists('tlgbCPT')) {
     
         public function tlgb_timelineBlockManageCustomColumns($column_name, $post_ID){
             if ($column_name == 'shortcode') {
-                echo '<div class="bPlAdminShortcode" id="bPlAdminShortcode-' . esc_attr($post_ID) . '">
-                        <input value="[timeline_block id=' . esc_attr($post_ID) . ']" onclick="copyBPlAdminShortcode(\'' . esc_attr($post_ID) . '\')" readonly>
+                echo '<div class="tlgbAdminShortcode" id="tlgbAdminShortcode-' . esc_attr($post_ID) . '">
+                        <input value="[timeline_block id=' . esc_attr($post_ID) . ']" onclick="copyTlgbAdminShortcode(\'' . esc_attr($post_ID) . '\')" readonly>
                         <span class="tooltip">Copy To Clipboard</span>
                       </div>';
             }
         }
     }
-
-    new tlgbCPT();
 }

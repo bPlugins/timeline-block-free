@@ -11,7 +11,7 @@ if (!class_exists('TLGBPlugin')) {
       // Function to enqueue block assets for backend and frontend
       public function tlgb_enqueue_scripts() {
         wp_enqueue_script(
-          'timelineJS',
+          'tlgb-timeline-js',
           TLGB_DIR_URL . 'assets/js/timeline.min.js',
           ['jquery'],
           TLGB_VERSION,
@@ -20,7 +20,7 @@ if (!class_exists('TLGBPlugin')) {
 
         // Enqueue the CSS
         wp_enqueue_style(
-          'timelineCSS',
+          'tlgb-timeline-css',
           TLGB_DIR_URL . 'assets/css/timeline.min.css',
           [],
           TLGB_VERSION
@@ -33,5 +33,4 @@ if (!class_exists('TLGBPlugin')) {
         wp_set_script_translations('tlgb-editor', 'timeline-block', plugin_dir_path(__FILE__) . 'languages');
       }
     }
-    new TLGBPlugin();
 }

@@ -43,5 +43,4 @@ if ( ! class_exists( 'TLGBOptions' ) ) {
 			] );
 		}
 	}
-	new TLGBOptions();
 }

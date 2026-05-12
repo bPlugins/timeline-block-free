@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { __ } from '@wordpress/i18n';
-import useWPAjax from '../../../bpl-tools/hooks/useWPAjax';
+import useWPAjax from '../../../../bpl-tools/hooks/useWPAjax';
 
 const Settings = ({ deleteDataOnUninstall, uninstallNonce }) => {
 	const [enabled, setEnabled] = useState(deleteDataOnUninstall);
@@ -10,7 +10,7 @@ const Settings = ({ deleteDataOnUninstall, uninstallNonce }) => {
 
 	useEffect(() => {
 		if (data) {
-			setEnabled(data.enabled);
+			setEnabled(data.enabled); 
 			setNotice(data.message);
 		}
 	}, [data]);

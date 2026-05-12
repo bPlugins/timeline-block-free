@@ -1,14 +1,13 @@
 import { Outlet, Link, useLocation } from 'react-router-dom';
 
-import Header from '../../../bpl-tools/Admin/Header';
+import Header from '../../../../bpl-tools/Admin/Header';
 
 const navigation = [
   { name: 'Welcome', href: '/welcome' },
   { name: 'Demos', href: '/demos' },
   { name: 'Pricing', href: '/pricing' },
   { name: 'Feature Comparison', href: '/feature-comparison' },
-  { name: 'Settings', href: '/settings' },
-  { name: 'License Activation', href: '/activation' }
+  { name: 'Settings', href: '/settings' }
 ];
 
 const Layout = (props) => {
