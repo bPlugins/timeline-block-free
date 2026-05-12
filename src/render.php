@@ -3,7 +3,7 @@ if (!defined('ABSPATH')) exit;
 $id = wp_unique_id('BTimelineBlock-');
 
 // Filter out pro attributes
-$pro_attributes = [
+$tlgb_pro_attributes = [
     'theme8Animation',
     'theme3Animation',
     'theme5Animation',
@@ -16,9 +16,9 @@ $pro_attributes = [
     'theme8CardShadow'
 ];
  
-foreach ($pro_attributes as $attr) {
-    if (isset($attributes[$attr])) {
-        unset($attributes[$attr]);
+foreach ($tlgb_pro_attributes as $tlgb_attr) {
+    if (isset($attributes[$tlgb_attr])) {
+        unset($attributes[$tlgb_attr]);
     }
 }
 ?>

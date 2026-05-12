@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: Timeline Block - Beautiful Timeline Builder For Gutenberg
+ * Plugin Name: Timeline Block - Beautiful Timeline Builder
  * Description: Display timeline content on your site. 
  * Version: 1.5.0
  * Requires at least: 6.2

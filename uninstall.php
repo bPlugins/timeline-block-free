@@ -26,20 +26,22 @@ function tlgb_uninstall_plugin() {
 	}
 	global $wpdb;
 
-    $auto_draft_ids = $wpdb->get_col(
-        "SELECT ID FROM {$wpdb->posts}
-         WHERE post_type = 'timeline_block'
-         AND post_status = 'auto-draft'"
-    );
+    $auto_draft_ids = get_posts( [
+        'post_type'      => 'timeline_block',
+        'post_status'    => 'auto-draft',
+        'posts_per_page' => -1,
+        'fields'         => 'ids',
+    ] );
 
     foreach ( $auto_draft_ids as $id ) {
         wp_delete_post( (int) $id, true );
     }
-    $posts_with_shortcode = $wpdb->get_results(
-        "SELECT ID, post_content FROM {$wpdb->posts}
-         WHERE post_content LIKE '%[timeline_block%'
-         AND post_status != 'trash'"
-    );
+    $posts_with_shortcode = get_posts( [
+        'post_type'      => 'any',
+        'post_status'    => 'any',
+        'posts_per_page' => -1,
+        's'              => '[timeline_block',
+    ] );
 
     foreach ( $posts_with_shortcode as $post ) {
         // Remove the full shortcode block including newlines
@@ -50,13 +52,10 @@ function tlgb_uninstall_plugin() {
         );
 
         if ( $clean_content !== $post->post_content ) {
-            $wpdb->update(
-                $wpdb->posts,
-                [ 'post_content' => $clean_content ],
-                [ 'ID'           => $post->ID ],
-                [ '%s' ],
-                [ '%d' ]
-            );
+            wp_update_post( [
+                'ID'           => $post->ID,
+                'post_content' => $clean_content,
+            ] );
         }
     }
 

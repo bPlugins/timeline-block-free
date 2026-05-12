@@ -1,4 +1,4 @@
-===  Timeline Block - Beautiful Timeline Builder For Gutenberg ===
+===  Timeline Block - Beautiful Timeline Builder ===
 Contributors: bplugins, abuhayat, taninrahman, freemius, prosanta10
 Donate link: https://www.buymeacoffee.com/abuhayat
 Tags:  block, timeline, vertical timeline, horizontal timeline, timeline builder
@@ -9,7 +9,7 @@ Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.txt
 
-Design Timeline with ease! Featuring 2 free customizable themes (and 8 additional themes in Pro) in both horizontal and vertical layouts, lets you showcase your stories, events, or projects. 
+Design beautiful timelines with ease! Free customizable themes in horizontal and vertical layouts to showcase stories, events, or projects. 
 
 == Description ==
 
