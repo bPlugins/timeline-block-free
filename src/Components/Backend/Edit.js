@@ -23,7 +23,7 @@ const Edit = (props) => {
     type,
     labelLocation,
     startIndex,
-    vigibleItems,
+    visibleItems,
     moveItem,
     verticalTrigger,
     rtlMode,
@@ -43,23 +43,25 @@ const Edit = (props) => {
 
   useEffect(() => {
     if (timelineRef.current) {
-      timeline([timelineRef.current], timelineConfig(attributes));  
-        const timelineItems = timelineRef.current.querySelectorAll('.timeline__item');
+      if (typeof timeline === "function") {
+        timeline([timelineRef.current], timelineConfig(attributes));
+      }
+      const timelineItems = timelineRef.current.querySelectorAll('.timeline__item');
 
-        // Force all items to be visible in editor by removing animation classes
-        timelineItems.forEach((item) => {
-          item.classList.remove("animated");
-          item.classList.remove("hidden-animated");
-        });
+      // Force all items to be visible in editor by removing animation classes
+      timelineItems.forEach((item) => {
+        item.classList.remove("animated");
+        item.classList.remove("hidden-animated");
+      });
 
-        if (theme === "timeline-with-accordion") {
-          if (timelineItems.length > 0) {
-            timelineItems.forEach((item) => {
-              item.classList.remove("timeline__item--left");
-              item.classList.add("timeline__item--right");
-            });
-          }
-        }     
+      if (theme === "timeline-with-accordion") {
+        if (timelineItems.length > 0) {
+          timelineItems.forEach((item) => {
+            item.classList.remove("timeline__item--left");
+            item.classList.add("timeline__item--right");
+          });
+        }
+      }
     }
   }, [
     type,
@@ -67,7 +69,7 @@ const Edit = (props) => {
     verticalTrigger,
     moveItem,
     startIndex,
-    vigibleItems,
+    visibleItems,
     rtlMode,
     theme,
     timelines.length,

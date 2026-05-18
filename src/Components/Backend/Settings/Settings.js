@@ -103,7 +103,7 @@ const Settings = ({
             value={theme} 
             isTooltip={false}
             visibleCount={7}
-            buttonLabel="More Themes"
+            buttonLabel={__("More Themes", "timeline-block")}
             onChange={(val) => setAttributes(themeSwitch(val, attributes))}
           />
         </BlockControls>

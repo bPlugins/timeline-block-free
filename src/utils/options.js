@@ -16,8 +16,8 @@ export const options = {
 };
 
 export const generalStyleTabs = [
-  { name: "general", title: __("General", "textdomain") },
-  { name: "style", title: __("Style", "textdomain") },
+  { name: "general", title: __("General", "timeline-block") },
+  { name: "style", title: __("Style", "timeline-block") },
 ];
 
 export const themeOptions = [

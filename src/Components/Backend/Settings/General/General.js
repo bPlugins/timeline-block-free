@@ -17,9 +17,9 @@ import {
 } from "../../../../../../bpl-tools/Components";
 import {
   AdvertiseCard,
-  
+
   PremiumBadge,
-  
+
   PremiumPanel,
   SelectControlPro,
 } from "../../../../../../bpl-tools/ProControls";
@@ -44,7 +44,7 @@ const General = ({
     type,
     labelLocation,
     startIndex,
-    vigibleItems,
+    visibleItems,
     moveItem,
     verticalTrigger,
     rtlMode,
@@ -56,7 +56,7 @@ const General = ({
     description = "",
   } = timelines[activeIndex] || {};
 
-  const pricingUrl= 'edit.php?post_type=timeline_block&page=tlgb-dashboard#/pricing';
+  const pricingUrl = 'edit.php?post_type=timeline_block&page=tlgb-dashboard#/pricing';
 
   return (
     <>
@@ -199,8 +199,8 @@ const General = ({
 
               <Label>{__("Visible Items:", "timeline-block")}</Label>
               <RangeControl
-                value={vigibleItems}
-                onChange={(val) => setAttributes({ vigibleItems: val })}
+                value={visibleItems}
+                onChange={(val) => setAttributes({ visibleItems: val })}
               />
 
               <Label>{__("Move Item:", "timeline-block")}</Label>
@@ -224,9 +224,9 @@ const General = ({
       </>} initialOpen={false}>
         <PremiumPanel title={__('Timeline Block Pro Version', 'timeline-block')}
           description={__('Premium Timeline Pro has 8+ beautiful themes, with lot of customization are available in the Premium version.', 'timeline-block')}
-          pricingUrl={'https://bplugins.com/products/timeline-block/pricing/'} 
+          pricingUrl={'https://bplugins.com/products/timeline-block/pricing/'}
           demoUrl='https://bplugins.com/products/b-timeline/#demos'
-          />
+        />
       </PanelBody>
       {/* advertiseCard */}
       <AdvertiseCard planLink={pricingUrl} />

@@ -7,7 +7,7 @@ const ThemeSwitcher = ({
   isTooltip = false,
   visibleCount = 5,
   value = "default",
-  buttonLabel = "More Themes",
+  buttonLabel = __("More Themes", "timeline-block"),
   onChange = () => {},
 }) => {
   const [open, setOpen] = useState(false);
@@ -51,7 +51,7 @@ const ThemeSwitcher = ({
             onClick={() => setOpen((prev) => !prev)}
             style={{ marginLeft: "1em" }}
           >
-            {__(buttonLabel, "counters-block")}
+            {buttonLabel}
           </Button>
 
           {open && (

@@ -1,18 +1,16 @@
 const slug = "timeline-block-block";
 
 export const dashboardInfo = (info) => {
-  const { version, isPremium, hasPro, licenseActiveNonce, deleteDataOnUninstall, uninstallNonce } = info;
+  const { version, licenseActiveNonce, deleteDataOnUninstall, uninstallNonce } = info;
 
-  const proSuffix = isPremium ? ' Pro' : '';
+
 
   return {
-    name: `Timeline Block${proSuffix}`,
-    displayName: `Timeline Block${proSuffix} - Beautiful Timeline Builder (Vertical & Horizontal Timelines)`,
+    name: `Timeline Block`,
+    displayName: `Timeline Block - Beautiful Timeline Builder (Vertical & Horizontal Timelines)`,
     description: "Timeline Block Plugin helps you create beautiful, customizable timelines in WordPress with 6 unique themes and both horizontal and vertical layouts. Easily edit and style timelines in the editor—perfect for showcasing projects, stories, milestones, or events.",
     slug,
     version,
-    isPremium,
-    hasPro,
     deleteDataOnUninstall,
     uninstallNonce,
     displayOurPlugins: true,
@@ -34,6 +32,20 @@ export const dashboardInfo = (info) => {
     },
     licenseActiveNonce,
     changelogs: [
+      {
+        version: "1.5.1 - 18 May 2026",
+        type: "Fixed",
+        list: [
+          "Fixed stored XSS security vulnerability in timeline content rendering.",
+          "Updated text domain to match plugin slug for proper translation support.",
+          "Fixed JavaScript translation loading issues.",
+          "Added missing internationalization support for CPT labels and admin strings.",
+          "Optimized frontend asset loading and improved performance.",
+          "Improved shortcode validation and uninstall cleanup process.",
+          "Fixed readme content issues and minor code quality problems.",
+          "General security, compatibility, and stability improvements."
+        ],
+      },
       {
         version: "1.5.0 - 11 May 2026",
         type: "Fixed",

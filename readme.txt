@@ -2,10 +2,10 @@
 Contributors: bplugins, abuhayat, taninrahman, freemius, prosanta10
 Donate link: https://www.buymeacoffee.com/abuhayat
 Tags:  block, timeline, vertical timeline, horizontal timeline, timeline builder
-Requires at least: 6.2 
+Requires at least: 6.3
 Tested up to: 6.9
-Stable tag: 1.5.0
-Requires PHP: 7.4 
+Stable tag: 1.5.1
+Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.txt
 
@@ -75,25 +75,25 @@ Designed with user-friendliness in mind, the Timeline Block Plugin empowers you 
 
 = From Gutenberg Editor: =
 1. Go to the WordPress Block/Gutenberg Editor
-2. Search For **Block Directory**
-3. Click on the **Block Directory** to add the block
+2. Search For **Timeline Block**
+3. Click on the **Timeline Block** to add the block
 
 = Download & Upload: =
-1. Download the **Block Directory** plugin (*.zip file*)
+1. Download the **Timeline Block** plugin (*.zip file*)
 2. In your admin area, go to the Plugins menu and click on **Add New**
 3. Click on **Upload Plugin** and choose the **`timeline-block.zip`** file and click on **Install Now**
 4. Activate the plugin and Enjoy!
 
 = Manually: =
-1. Download and upload the **Block Directory** plugin to the **`/wp-content/plugins/`** directory
+1. Download and upload the **Timeline Block** plugin to the **`/wp-content/plugins/`** directory
 2. Activate the plugin through the Plugins menu in WordPress
 
 
 == Frequently Asked Questions ==
 
-= Is Block Directory free? =
+= Is Timeline Block free? =
 
-Yes, Block Directory is a free Gutenberg block plugin.
+Yes, Timeline Block is a free Gutenberg block plugin.
 
 = Does it work with any WordPress theme? =
 
@@ -133,6 +133,17 @@ Please report security bugs found in the source code of the Timeline Block plugi
 
 
 == Changelog ==
+
+= 1.5.1 - 18 May 2026 = 
+* Fixed stored XSS security vulnerability in timeline content rendering.
+* Updated text domain to match plugin slug for proper translation support.
+* Fixed JavaScript translation loading issues.
+* Added missing internationalization support for CPT labels and admin strings.
+* Optimized frontend asset loading and improved performance.
+* Improved shortcode validation and uninstall cleanup process.
+* Fixed readme content issues and minor code quality problems.
+* General security, compatibility, and stability improvements.
+
 
 = 1.5.0 - 11 May 2026 =
 * Naming issue - The plugin name was too generic or implied false affiliation. Updated the name to comply with guidelines.
@@ -230,52 +241,12 @@ Please report security bugs found in the source code of the Timeline Block plugi
 * Initial Release
 
 
-== Upgrade Notice ==
-
-= 1.3.5 - 27 January 2026 = 
-* Fixed horizontal timeline issue
-* Optimize plugin files & increase code readability
-
-= 1.1.3 - 8 Feb 2025 =
-* Fixed Issues.
-
-= 1.1.2 =
-* Fixed Issues.
-
-= 1.1.1 - 27 Jan 2025 =
-* Update SDK version.
-
-= 1.1.0 - 16 Jan 2025 =
-* Upload v1.1.0 - upload a premium version with some incredible features.
-
-= 1.0.7 - 14 Feb 2024 =
-* Fix issue
-
-= 1.0.6 =
-* Fix issue
-
-= 1.0.5 =
-* Add text area to write HTML.
-
-= 1.0.4 =
-* Fix Start Index and Visible Items
-
-= 1.0.3 =
-* Fix mobile not showing
-
-= 1.0.2 =
-* Remove jQuery dependency
-* Remove, Duplicate and Add a timeline from the toolbar
-* Translate support
-
-= 1.0.0 =
-* Initial Release
-
 
 == Source Code ==
 
 You can find the source code, report bugs, and contribute to the development of this plugin on our GitHub repository:
 [**Timeline Block on GitHub**](https://github.com/bPlugins/timeline-block-free)
+
 
 == External Services ==
 
@@ -284,13 +255,6 @@ This plugin bundles the following third-party JavaScript/PHP libraries.
 = SVG Icons (Font Awesome, Lucide, etc.) =
 * **Purpose:** Provides scalable vector icons used for UI elements.
 * **Note:** This plugin does not load the full Font Awesome or Lucide libraries. Instead, specific icons are included directly as inline SVGs in the source code to keep the plugin lightweight and performant.
-
-= Immer =
-* **Version:** 11.1.8
-* **Source:** https://immerjs.github.io/immer/
-* **GitHub:** https://github.com/immerjs/immer
-* **License:** MIT
-* **Purpose:** Used for managing immutable state in a more convenient way.
 
 = Freemius Lite SDK =
 * **Version:** 2.2.0
@@ -311,3 +275,19 @@ This plugin bundles the following third-party JavaScript/PHP libraries.
 * **Source:** https://www.youtube.com/
 * **Purpose:** Used to display documentation and tutorial videos in the admin dashboard.
 * **Privacy:** Loading or interacting with the video player connects to YouTube servers and is subject to YouTube's privacy policy.
+
+
+== Third-Party Libraries ==
+
+= Immer =
+* **Version:** 11.1.8
+* **Source:** https://immerjs.github.io/immer/
+* **GitHub:** https://github.com/immerjs/immer
+* **License:** MIT
+* **Purpose:** Used for managing immutable state in a more convenient way.
+
+= bpl-tools =
+* Source / GitHub: https://github.com/bPlugins/bpl-tools
+* License: GPL-2.0-or-later – https://www.gnu.org/licenses/gpl-2.0.html
+* Purpose: Shared utility library providing admin dashboard components and common Gutenberg editor controls.
+* External Services: The library may connect to bPlugins, WordPress.org, and Freemius services for product data and checkout functionality. See full details: https://github.com/bPlugins/bpl-tools#external-requests--why-they-are-made

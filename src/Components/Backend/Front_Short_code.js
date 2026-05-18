@@ -1,4 +1,6 @@
+/* eslint-disable no-console */
 import { useRef, useState } from "react";
+import { __ } from "@wordpress/i18n";
 import "./FrontShortCode.scss";
 
 const FrontShortCode = ({ shortCode }) => {
@@ -21,7 +23,7 @@ const handleCopy = (e) => {
     setCopied(true);
 
     if (tooltip.current) {
-      tooltip.current.innerHTML = "Copied Successfully!";
+      tooltip.current.innerHTML = __("Copied Successfully!", "timeline-block");
       tooltip.current.classList.add("copied");
     }
 
@@ -29,7 +31,7 @@ const handleCopy = (e) => {
       setCopied(false);
 
       if (tooltip.current) {
-        tooltip.current.innerHTML = "Copy To Clipboard";
+        tooltip.current.innerHTML = __("Copy To Clipboard", "timeline-block");
         tooltip.current.classList.remove("copied");
       }
     }, 1500);
@@ -65,7 +67,7 @@ const handleCopy = (e) => {
       <div className="pfbFrontShortCodeInner">
         <div className="pfbFrontShortCodeInputWrapper">
           <span ref={tooltip} className="tooltip">
-            Copy To Clipboard
+            {__("Copy To Clipboard", "timeline-block")}
           </span>
 
           <div className="pfbFrontShortCodeInput">
@@ -98,7 +100,7 @@ const handleCopy = (e) => {
           </div>
         </div>
         <div className="pfbFrontShortCodeHeader">
-          <span>Copy the shortcode and use it anywhere.</span>
+          <span>{__("Copy the shortcode and use it anywhere.", "timeline-block")}</span>
         </div>
       </div>
     </div>

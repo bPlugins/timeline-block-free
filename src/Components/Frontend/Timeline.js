@@ -15,7 +15,7 @@ const Timeline = ({ attributes, id }) => {
       `#${id} .timeline__items .timeline__item`
     );
 
-    if (timelineEl) {
+    if (timelineEl && typeof timeline === "function") {
       timeline([timelineEl], timelineConfig(attributes));
     }
 

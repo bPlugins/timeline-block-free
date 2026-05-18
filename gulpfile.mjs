@@ -17,6 +17,8 @@ export const bundle = () => gulp.src([
 	'!bundled/**',
 	'!node_modules/**',
 	'!src/**',
+	'!screenshots/**',
+	'!assets/images/demo/**',
 	'!.eslintrc.js',
 	'!.gitignore',
 	'!gulpfile.mjs',

@@ -1,9 +1,9 @@
 <?php
 /**
  * Plugin Name: Timeline Block - Beautiful Timeline Builder
- * Description: Display timeline content on your site. 
- * Version: 1.5.0
- * Requires at least: 6.2
+ * Description: Display timeline content on your site.
+ * Version: 1.5.1
+ * Requires at least: 6.3
  * Tested up to: 6.9
  * Author: bPlugins
  * Author URI: https://bplugins.com
@@ -11,9 +11,9 @@
  * Requires PHP: 7.4
  * License URI: https://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain: timeline-block
- * Domain Path:  /languages 
- */  
-  
+ * Domain Path: /languages
+ */
+
 // ABS PATH
 if (!defined('ABSPATH')) {
   exit;
@@ -23,7 +23,8 @@ if (function_exists('tlgb_fs')) {
   tlgb_fs()->set_basename(false, __FILE__);
 } else {
   // Constant
-  define('TLGB_VERSION', isset($_SERVER['HTTP_HOST']) && 'localhost' === $_SERVER['HTTP_HOST'] ? time() : '1.5.0');
+  $tlgb_http_host = isset( $_SERVER['HTTP_HOST'] ) ? sanitize_text_field( wp_unslash( $_SERVER['HTTP_HOST'] ) ) : '';
+  define( 'TLGB_VERSION', 'localhost' === $tlgb_http_host ? time() : '1.5.1' );
   define('TLGB_DIR_URL', plugin_dir_url(__FILE__));
   define('TLGB_DIR_PATH', plugin_dir_path(__FILE__));
   
@@ -63,5 +64,13 @@ if (function_exists('tlgb_fs')) {
   }
   require_once TLGB_DIR_PATH. 'includes/class-tlgb-main.php';
   new TLGBTimeline();
+
+  // Activation hook to register CPT and flush rewrite rules (L-3)
+  register_activation_hook( __FILE__, function() {
+      require_once TLGB_DIR_PATH . 'includes/class-tlgb-cpt.php';
+      $cpt = new TLGBCpt();
+      $cpt->registerCPT();
+      flush_rewrite_rules();
+  } );
   
 } 

@@ -13,4 +13,29 @@ registerBlockType(metadata, {
 	edit: Edit,
 
 	save: () => null,
+
+	deprecated: [
+		{
+			attributes: {
+				...metadata.attributes,
+				vigibleItems: {
+					type: 'number',
+					default: 4,
+				},
+			},
+			save() {
+				return null;
+			},
+			migrate( attributes ) {
+				if ( attributes.vigibleItems !== undefined ) {
+					const { vigibleItems, ...rest } = attributes;
+					return {
+						...rest,
+						visibleItems: vigibleItems,
+					};
+				}
+				return attributes;
+			},
+		}
+	],
 });

@@ -1,5 +1,5 @@
 export const timelineConfig = (attributes) => {
-    const { type, labelLocation, startIndex, moveItem, vigibleItems, verticalTrigger, rtlMode } = attributes;
+    const { type, labelLocation, startIndex, moveItem, visibleItems, verticalTrigger, rtlMode } = attributes;
 
     return {
         mode: type || 'vertical',
@@ -9,7 +9,7 @@ export const timelineConfig = (attributes) => {
         verticalTrigger,
         moveItems: moveItem,
         startIndex: startIndex - 1,
-        visibleItems: vigibleItems,
+        visibleItems,
         rtlMode
     }
 }
