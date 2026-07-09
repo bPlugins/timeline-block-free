@@ -1,8 +1,8 @@
 import { __ } from '@wordpress/i18n';
 
-import Overview from '../../../../bpl-tools/Admin/Overview';
-import Changelog from '../../../../bpl-tools/Admin/Changelog';
-import ProAds from '../../../../bpl-tools/Admin/ProAds';
+import Overview from "../../../../bpl-tools/Admin/Overview";
+import Changelog from "../../../../bpl-tools/Admin/Welcome/Changelog";
+import ProAds from "../../../../bpl-tools/Admin/Welcome/ProAds";
 
 const Welcome = (props) => {
 	return <Overview {...props}>
@@ -17,4 +17,4 @@ const Welcome = (props) => {
 		</div>
 	</Overview>
 }
-export default Welcome;
+export default Welcome; 

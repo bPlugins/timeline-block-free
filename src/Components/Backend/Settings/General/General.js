@@ -219,17 +219,17 @@ const General = ({
         </PanelBody>
       )}
       <PanelBody className='bPlPanelBody' title={<>
-        {__('Timeline Block Pro Version', 'timeline-block')}
+        {__('🔒 Available in Pro Version', 'timeline-block')} 
         <PremiumBadge />
       </>} initialOpen={false}>
         <PremiumPanel title={__('Timeline Block Pro Version', 'timeline-block')}
-          description={__('Premium Timeline Pro has 8+ beautiful themes, with lot of customization are available in the Premium version.', 'timeline-block')}
+          description={__('Premium Timeline Pro has 10+ beautiful themes, with lot of customization are available in the Premium version.', 'timeline-block')}
           pricingUrl={'https://bplugins.com/products/timeline-block/pricing/'}
           demoUrl='https://bplugins.com/products/b-timeline/#demos'
         />
       </PanelBody>
       {/* advertiseCard */}
-      <AdvertiseCard planLink={pricingUrl} />
+      <AdvertiseCard planLink={pricingUrl} /> 
     </>
   );
 };

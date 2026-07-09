@@ -3,32 +3,37 @@ import { Outlet, Link, useLocation } from 'react-router-dom';
 import Header from '../../../../bpl-tools/Admin/Header';
 
 const navigation = [
-	{ name: 'Welcome', href: '/welcome' },
-	{ name: 'Demos', href: '/demos' },
-	{ name: 'Pricing', href: '/pricing' },
-	{ name: 'Feature Comparison', href: '/feature-comparison' },
-	{ name: 'Settings', href: '/settings' }
+  { name: 'Welcome',            href: '/welcome' },
+  { name: 'Demos',              href: '/demos' },
+  { name: 'Pricing',            href: '/pricing' },
+  { name: 'Feature Comparison', href: '/feature-comparison' },
+  { name: 'Activation',         href: '/activation' },
+  { name: 'Settings',           href: '/settings' }
 ];
 
 const Layout = (props) => {
-	const location = useLocation();
+  const { isPremium, hasPro } = props;
+  const location = useLocation();
 
-	return <div className='bPlDashboard'>
-		<Header {...props}>
-			<nav className='bPlDashboardNav'>
-				{navigation?.map((item, index) => <Link
-					key={index}
-					to={item.href}
-					className={`navLink ${location.pathname === item.href ? 'active' : ''}`}
-				>
-					{item.name}
-				</Link>)}
-			</nav>
-		</Header>
+  return <div className='bPlDashboard'>
+    <Header {...props}>
+      <nav className='bPlDashboardNav'>
+        {navigation
+          ?.filter(item => item.href !== '/activation' || hasPro)
+          ?.filter(item => !isPremium || !['/pricing', '/feature-comparison'].includes(item.href))
+          ?.map((item, index) => <Link
+            key={index}
+            to={item.href}
+            className={`navLink ${location.pathname === item.href ? 'active' : ''}`}
+          >
+            {item.name}
+          </Link>)}
+      </nav>
+    </Header>
 
-		<main className='bPlDashboardMain'>
-			<Outlet />
-		</main>
-	</div>
-}
+    <main className='bPlDashboardMain'>
+      <Outlet />
+    </main>
+  </div>;
+};
 export default Layout;
