@@ -131,6 +131,13 @@ export const welcomeInfo = (adminUrl) => ({
 
   changelogs: [
     {
+      version: "1.5.4 - 26 July 2026",
+      type: "update",
+      list: [
+        "<strong>Improvement:</strong> Improved design and layout of the timeline block."
+      ]
+    },
+    {
       version: "1.5.3 - 09 July 2026",
       type: "update",
       list: [
