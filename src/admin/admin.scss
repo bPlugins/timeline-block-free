@@ -1,19 +1,49 @@
 :root {
-	--bpl-dashboard-primary-color: #0B81EE;
-	--bpl-dashboard-primary-color-rgb: 11, 129, 238;
-	--bpl-dashboard-secondary-color: #8C74FD;
-	--bpl-dashboard-secondary-color-rgb: 140, 116, 253;
-	--bpl-dashboard-title-color: #070127;
-	--bpl-dashboard-title-color-rgb: 7, 1, 39;
-	--bpl-dashboard-content-color: #1b2e4b;
-	--bpl-dashboard-content-color-rgb: 27, 46, 75;
+  --bpl-dashboard-primary-color: #0B81EE;
+  --bpl-dashboard-primary-color-rgb: 11, 129, 238;
+  --bpl-dashboard-secondary-color: #8C74FD;
+  --bpl-dashboard-secondary-color-rgb: 140, 116, 253;
+  --bpl-dashboard-title-color: #070127;
+  --bpl-dashboard-title-color-rgb: 7, 1, 39;
+  --bpl-dashboard-content-color: #1b2e4b;
+  --bpl-dashboard-content-color-rgb: 27, 46, 75;
 }
 
 .bPlDashboardProAds {
-	height: fit-content;
+  height: fit-content;
 }
 
 @import '../../../bpl-tools/Admin/style.scss';
+
+// Plugin-scoped override: keep the dashboard thumbnail in a fixed-size box so
+// the SVG always renders at a consistent ratio (does not affect other plugins
+// that share bpl-tools). Ratio matches the thumbnail viewBox (384 x 240).
+#tlgbAdminDashboardWrapper .overviewBanner {
+	width: 420px;
+	max-width: 100%;
+	aspect-ratio: 384 / 240;
+	padding: 0;
+	overflow: hidden;
+	border-radius: 15px;
+
+	// SVG already carries its own background/gradient, so drop the box overlay.
+	&::before {
+		display: none;
+	}
+
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		display: block;
+		border-radius: inherit;
+	}
+
+	@media (max-width: 768px) {
+		width: 300px;
+	}
+}
+
 
 .bPlDashboardSettings {
 	max-width: 1200px;

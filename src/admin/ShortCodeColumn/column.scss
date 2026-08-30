@@ -1,4 +1,4 @@
-.tlgbAdminShortcode {
+.bPlAdminShortcode {
   position: relative;
   display: inline-block;
   margin: 0 auto;
@@ -24,7 +24,7 @@
     padding: 5px;
     position: absolute;
     z-index: 1;
-    top: 130%;
+    bottom: 150%;
     left: 50%;
     margin-left: -75px;
     opacity: 0;
@@ -33,12 +33,12 @@
     &::after {
       content: "";
       position: absolute;
-      bottom: 100%;
+      top: 100%;
       left: 50%;
       margin-left: -5px;
       border-width: 5px;
       border-style: solid;
-      border-color: transparent transparent #555 transparent;
+      border-color: #555 transparent transparent transparent;
     }
   }
 
