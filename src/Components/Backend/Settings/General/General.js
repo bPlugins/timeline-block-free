@@ -27,6 +27,7 @@ import { gearIcon } from "../../../../../../bpl-tools/utils/icons";
 import { perUnit, pxUnit } from "../../../../../../bpl-tools/utils/options";
 import { options, themeOptions } from "../../../../utils/options";
 import { themeSwitch } from "../../../../utils/functions";
+import ReadymadeTemplates from "./ReadymadeTemplates";
 const { types, topBottom, leftRight } = options;
 
 const General = ({
@@ -218,6 +219,8 @@ const General = ({
           )}
         </PanelBody>
       )}
+      <ReadymadeTemplates pricingUrl={pricingUrl} />
+
       <PanelBody className='bPlPanelBody' title={<>
         {__('🔒 Available in Pro Version', 'timeline-block')} 
         <PremiumBadge />
@@ -225,7 +228,7 @@ const General = ({
         <PremiumPanel title={__('Timeline Block Pro Version', 'timeline-block')}
           description={__('Premium Timeline Pro has 10+ beautiful themes, with lot of customization are available in the Premium version.', 'timeline-block')}
           pricingUrl={'https://bplugins.com/products/timeline-block/pricing/'}
-          demoUrl='https://bplugins.com/products/b-timeline/#demos'
+          demoUrl='https://bblockswp.com/demo/timeline-block-ready-timeline-templete/'
         />
       </PanelBody>
       {/* advertiseCard */}

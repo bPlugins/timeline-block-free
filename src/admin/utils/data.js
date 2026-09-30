@@ -31,7 +31,7 @@ export const dashboardInfo = (info) => {
     pages: {
       org: `https://wordpress.org/plugins/${slug}/`,
       landing: `https://bplugins.com/products/timeline-block/`,
-      docs: `https://bplugins.com/docs/${slug}/`,
+     // docs: `https://bplugins.com/docs/${slug}/`,
       pricing: `https://bplugins.com/products/${slug}/pricing`,
     },
     freemius: {
@@ -161,6 +161,17 @@ export const welcomeInfo = () => ({
   },
 
   changelogs: [
+     {
+      version: "1.5.6 - 01 October 2026",
+      type: "update",
+      list: [
+        "<strong>New:</strong> Added 35+ pre-built ready templates in the Template Library for quick 1-click import.",
+        "<strong>New:</strong> Added new Pro blocks including Dynamic Post Timeline, Accordion Timeline, Company History Timeline, Career Timeline, Media Story Timeline, Event Schedule, Roadmap Timeline, and Year Navigator.",
+        "<strong>Fix:</strong> Fixed WordPress.Security.NonceVerification.Missing PHPCS warnings in template library REST endpoints.",
+        "<strong>Security:</strong> Improved template endpoints data sanitization and nonce verification security.",
+        "<strong>Improvement:</strong> General performance, security, and code quality enhancements."
+      ]
+    },
     {
       version: "1.5.5 - 30 August 2026",
       type: "update",
@@ -317,9 +328,10 @@ export const welcomeInfo = () => ({
 changelogsLimit: 5,
   changelogsReadMoreLabel: 'View More Changelogs',
 
-    proFeatures: [
+     proFeatures: [
       "ShortCode to use Timeline Block anywhere.",
       "Eleven extra professional theme designs.",
+      "35+ Readymade Templates",
       "Classic Editor for advanced formatting.",
       "Customizable and styled timeline icons.",
       "Advanced tools for ultimate design control.",
@@ -329,7 +341,9 @@ changelogsLimit: 5,
       "Year Navigator block for company history pages.",
       "Product Roadmap block with statuses, progress & filters.",
       "Career Timeline block for resume & experience pages.",
-      "Event Schedule block with horizontal time slots."
+      "Event Schedule block with horizontal time slots.",
+      "Story Slide block for photo-led stories with a thumbnail timeline.",
+      "History Slide block with year tabs, key figures and a progress bar."
     ]
 })
 
@@ -462,10 +476,34 @@ export const demoInfo = {
       title: "Company History Timeline Block",
       type: "iframe",
       url: "https://bblockswp.com/demo/timeline-block-company-history-timeline/"
-    } 
+    } ,
+    {
+      icon: "",
+      title: "Story Slide",
+      type: "iframe",
+      url: "https://bblockswp.com/demo/timeline-block-story-slide/"
+    },
+    {
+      icon: "",
+      title: "History Slide",
+      type: "iframe",
+      url: "https://bblockswp.com/demo/timeline-block-history-slide/"
+    },
+    {
+      icon: "",
+      title: "Showcase Timeline Block",
+      type: "iframe",
+      url: "https://bblockswp.com/demo/timeline-block-showcase-timeline/"
+    },
+    {
+      icon: "",
+      title: "Readymade 35+ Templete",
+      type: "iframe",
+      url: "https://bblockswp.com/demo/timeline-block-ready-timeline-templete/"
+    }
   ],
 }
-
+ 
 export const pricingInfo = {
   logo: `https://ps.w.org/${slug}/assets/icon-128x128.png`, // Optional
   pluginId: 17342,

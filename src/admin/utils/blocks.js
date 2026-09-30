@@ -101,5 +101,41 @@ export default [
 		badge: 'New',
 		demo: 'https://bblockswp.com/demo/timeline-block-company-history-timeline/',
 		status: 'published'
-	}
+	},
+		{
+			name: 'story-slide',
+			title: 'Story Slide',
+			icon: dynamicPostIcon,
+			isPremium: true,
+			badge: 'New',
+			demo: 'https://bblockswp.com/demo/timeline-block-story-slide/',
+			status: 'published'
+		},
+		{
+			name: 'history-slide',
+			title: 'History Slide',
+			icon: roadmapIcon,
+			isPremium: true,
+			badge: 'New',
+			demo: 'https://bblockswp.com/demo/timeline-block-history-slide/',
+			status: 'published'
+		},
+		{
+			name: 'showcase-timeline',
+			title: 'Showcase Timeline',
+			icon: mediaStoryIcon,
+			isPremium: true,
+			badge: 'New',
+			demo: 'https://bblockswp.com/demo/timeline-block-showcase-timeline/',
+			status: 'published'
+		},
+		{
+			name: 'readymade-timeline',
+			title: 'Readymade 35+ Templete',
+			icon: dynamicPostIcon,
+			isPremium: true,
+			badge: 'New',
+			demo: 'https://bblockswp.com/demo/timeline-block-ready-timeline-templete/',
+			status: 'published'	
+		}
 ];
