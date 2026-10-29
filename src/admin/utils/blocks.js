@@ -10,7 +10,11 @@ import {
 	eventScheduleIcon,
 	dynamicPostIcon,
 	accordionIcon,
-	companyHistoryIcon
+	companyHistoryIcon,
+	storySlideIcon,
+	historySlideIcon,
+	showcaseIcon,
+	storyTimelineIcon
 } from './proBlockIcons';
 
 const docsURL = 'https://bplugins.com/docs/timeline-block-block/';
@@ -102,40 +106,49 @@ export default [
 		demo: 'https://bblockswp.com/demo/timeline-block-company-history-timeline/',
 		status: 'published'
 	},
-		{
-			name: 'story-slide',
-			title: 'Story Slide',
-			icon: dynamicPostIcon,
-			isPremium: true,
-			badge: 'New',
-			demo: 'https://bblockswp.com/demo/timeline-block-story-slide/',
-			status: 'published'
-		},
-		{
-			name: 'history-slide',
-			title: 'History Slide',
-			icon: roadmapIcon,
-			isPremium: true,
-			badge: 'New',
-			demo: 'https://bblockswp.com/demo/timeline-block-history-slide/',
-			status: 'published'
-		},
-		{
-			name: 'showcase-timeline',
-			title: 'Showcase Timeline',
-			icon: mediaStoryIcon,
-			isPremium: true,
-			badge: 'New',
-			demo: 'https://bblockswp.com/demo/timeline-block-showcase-timeline/',
-			status: 'published'
-		},
-		{
-			name: 'readymade-timeline',
-			title: 'Readymade 35+ Templete',
-			icon: dynamicPostIcon,
-			isPremium: true,
-			badge: 'New',
-			demo: 'https://bblockswp.com/demo/timeline-block-ready-timeline-templete/',
-			status: 'published'	
-		}
+	{
+		name: 'story-slide',
+		title: 'Story Slide',
+		icon: storySlideIcon,
+		isPremium: true,
+		badge: 'New',
+		demo: 'https://bblockswp.com/demo/timeline-block-story-slide/',
+		status: 'published'
+	},
+	{
+		name: 'history-slide',
+		title: 'History Slide',
+		icon: historySlideIcon,
+		isPremium: true,
+		badge: 'New',
+		demo: 'https://bblockswp.com/demo/timeline-block-history-slide/',
+		status: 'published'
+	},
+	{
+		name: 'showcase-timeline',
+		title: 'Showcase Timeline',
+		icon: showcaseIcon,
+		isPremium: true,
+		badge: 'New',
+		demo: 'https://bblockswp.com/demo/timeline-block-showcase-timeline/',
+		status: 'published'
+	},
+	{
+		name: 'interactive-story-timeline',
+		title: 'Interactive Story Timeline',
+		icon: storyTimelineIcon,
+		isPremium: true,
+		badge: 'New',
+		demo: 'https://bblockswp.com/demo/interactive-story-timeline-block/',
+		status: 'published'
+	},
+	{
+		name: 'readymade-timeline',
+		title: 'Readymade 35+ Templete',
+		icon: showcaseIcon,
+		isPremium: true,
+		badge: 'New',
+		demo: 'https://bblockswp.com/demo/timeline-block-ready-timeline-templete/',
+		status: 'published'
+	}
 ];

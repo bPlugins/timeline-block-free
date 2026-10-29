@@ -129,3 +129,68 @@ export const companyHistoryIcon = <svg xmlns='http://www.w3.org/2000/svg' width=
 	<circle cx='39' cy='45' r='1.6' fill='#d1d5db' />
 	<rect x='13' y='44.2' width='10' height='1.6' rx='.8' fill='#22c55e' />
 </svg>;
+
+export const storySlideIcon = <svg xmlns='http://www.w3.org/2000/svg' width={24} height={24} viewBox='0 0 48 48'>
+	<rect x='4' y='6' width='22' height='18' rx='3' fill='#0f8a84' />
+	<circle cx='19' cy='12' r='2.5' fill='#fff' opacity='0.7' />
+	<path d='M4 21l7-6 5 4 4-3 6 5v0.5a2.5 2.5 0 0 1-2.5 2.5h-17A2.5 2.5 0 0 1 4 21.5z' fill='#fff' opacity='0.45' />
+	<rect x='29' y='10' width='8' height='2.5' rx='1.25' fill='#0f8a84' />
+	<rect x='29' y='14.5' width='15' height='3.5' rx='1.5' fill='#111827' />
+	<rect x='29' y='20' width='12' height='2.5' rx='1.25' fill='#9ca3af' />
+	<rect x='4' y='30.25' width='40' height='1.5' rx='0.75' fill='#9fd3cf' />
+	<circle cx='6' cy='31' r='2' fill='#fff' stroke='#0f8a84' strokeWidth='1.5' />
+	<circle cx='20' cy='31' r='2' fill='#fff' stroke='#0f8a84' strokeWidth='1.5' />
+	<circle cx='34' cy='31' r='2.2' fill='#0f8a84' />
+	<rect x='4' y='35' width='12' height='7' rx='2' fill='#cfe9e6' />
+	<rect x='18' y='35' width='12' height='7' rx='2' fill='#f3dfc1' />
+	<rect x='32' y='35' width='12' height='7' rx='2' fill='#8fb3ec' stroke='#0f8a84' strokeWidth='1.2' />
+</svg>;
+
+export const historySlideIcon = <svg xmlns='http://www.w3.org/2000/svg' width={24} height={24} viewBox='0 0 48 48'>
+	<rect x='3' y='5' width='9' height='5' rx='1.5' fill='#fff' stroke='#d1d5db' strokeWidth='1' />
+	<rect x='14' y='5' width='9' height='5' rx='1.5' fill='#2542d4' />
+	<rect x='25' y='5' width='9' height='5' rx='1.5' fill='#fff' stroke='#d1d5db' strokeWidth='1' />
+	<rect x='3' y='13' width='42' height='22' rx='3' fill='#e6e9fa' />
+	<rect x='6' y='16' width='12' height='5' rx='1' fill='#2542d4' />
+	<rect x='6' y='23' width='14' height='2.5' rx='1' fill='#111827' />
+	<rect x='6' y='28' width='5' height='4' rx='1' fill='#fff' />
+	<rect x='12.5' y='28' width='5' height='4' rx='1' fill='#fff' />
+	<rect x='19' y='28' width='5' height='4' rx='1' fill='#fff' />
+	<rect x='27' y='16' width='15' height='16' rx='2' fill='#4fb28e' />
+	<rect x='3' y='39' width='5' height='5' rx='1.5' fill='#fff' stroke='#d1d5db' strokeWidth='1' />
+	<rect x='10' y='39' width='5' height='5' rx='1.5' fill='#fff' stroke='#d1d5db' strokeWidth='1' />
+	<rect x='18' y='40.75' width='8' height='1.5' rx='0.75' fill='#2542d4' />
+	<rect x='27.5' y='40.75' width='8' height='1.5' rx='0.75' fill='#2542d4' />
+	<rect x='37' y='40.75' width='8' height='1.5' rx='0.75' fill='#e5e7eb' />
+</svg>;
+
+export const showcaseIcon = <svg xmlns='http://www.w3.org/2000/svg' width={24} height={24} viewBox='0 0 48 48'>
+	<defs>
+		<linearGradient id='tlgbShowcaseIconGrad' x1='0' y1='0' x2='1' y2='1'>
+			<stop offset='0' stopColor='#ff8a3d' />
+			<stop offset='0.5' stopColor='#ff3d7f' />
+			<stop offset='1' stopColor='#7c3aed' />
+		</linearGradient>
+	</defs>
+	<rect x='3' y='6' width='42' height='36' rx='7' fill='url(#tlgbShowcaseIconGrad)' />
+	<rect x='13' y='12' width='22' height='4' rx='2' fill='#fff' />
+	<rect x='8' y='27' width='32' height='2' rx='1' fill='#fff' opacity='0.7' />
+	<circle cx='11' cy='28' r='3.5' fill='#fff' />
+	<circle cx='20' cy='28' r='3.5' fill='#fff' />
+	<circle cx='29' cy='28' r='3' fill='none' stroke='#fff' strokeWidth='1.5' />
+	<circle cx='38' cy='28' r='3' fill='none' stroke='#fff' strokeWidth='1.5' />
+	<rect x='17' y='35' width='14' height='3.5' rx='1.75' fill='#fff' />
+</svg>;
+
+export const storyTimelineIcon = <svg xmlns='http://www.w3.org/2000/svg' width={24} height={24} viewBox='0 0 48 48'>
+	<rect x='4' y='5' width='40' height='24' rx='3' fill='#2563eb' />
+	<rect x='8' y='9' width='16' height='16' rx='2' fill='#fff' opacity='0.35' />
+	<rect x='27' y='11' width='13' height='2.5' rx='1.25' fill='#fff' opacity='0.7' />
+	<rect x='27' y='15.5' width='13' height='3.5' rx='1.5' fill='#fff' />
+	<rect x='27' y='21' width='9' height='2.5' rx='1.25' fill='#fff' opacity='0.7' />
+	<rect x='4' y='33' width='16' height='5' rx='1' fill='#fde68a' />
+	<rect x='4' y='40.25' width='40' height='1.5' rx='0.75' fill='#94a3b8' />
+	<rect x='8' y='34' width='7' height='3' rx='1' fill='#2563eb' />
+	<rect x='23' y='34' width='8' height='3' rx='1' fill='#1f2937' />
+	<rect x='34' y='34' width='8' height='3' rx='1' fill='#1f2937' />
+</svg>;

@@ -161,7 +161,24 @@ export const welcomeInfo = () => ({
   },
 
   changelogs: [
-     {
+    {
+      version: "1.5.7 - 29 October 2026",
+      type: "update",
+      list: [
+        "<strong>New:</strong> Added Interactive Story Timeline block (Pro): big media slides with a zoomable, to-scale timeline, groups and eras.",
+        "<strong>New:</strong> Added Story Timeline JSON/CSV import and JSON export, plus BCE dates, slide links, keyboard and swipe (Pro).",
+        "<strong>New:</strong> Added Timeline Analytics dashboard (Pro): views, engaged readers, read depth, completion rate and clicks for every timeline.",
+        "<strong>New:</strong> Added click tracking (Pro) for links, buttons, tabs, arrows, lightbox, video, roadmap filters and Load More.",
+        "<strong>New:</strong> Added Analytics column with a View button in the shortcode list, opening that timeline's report (Pro).",
+        "<strong>New:</strong> Added Analytics panel in the block editor sidebar for every timeline block (Pro).",
+        "<strong>New:</strong> Added Split layout to Dynamic Post Timeline: image opposite the card, date badge and rail arrow (Pro).",
+        "<strong>New:</strong> Added Social Share to Dynamic Post Timeline (Pro).",
+        "<strong>New:</strong> Added Sticky Rail on the Right option to the Year Navigator block, alongside the existing left rail (Pro).",
+        "<strong>New:</strong> Added Duplicate option in the timeline shortcode list to copy any timeline as a draft (Pro).",
+        "<strong>Improvement:</strong> Improved template library previews: real template screenshots in WebP, loaded only when they scroll into view (Pro)."
+      ]
+    },
+    {
       version: "1.5.6 - 01 October 2026",
       type: "update",
       list: [
@@ -494,6 +511,12 @@ export const demoInfo = {
       title: "Showcase Timeline Block",
       type: "iframe",
       url: "https://bblockswp.com/demo/timeline-block-showcase-timeline/"
+    },
+    {
+      icon: "",
+      title: "Interactive Story Timeline Block",
+      type: "iframe",
+      url: "https://bblockswp.com/demo/interactive-story-timeline-block/"
     },
     {
       icon: "",
